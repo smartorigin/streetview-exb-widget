@@ -10,12 +10,6 @@
       <img src="https://img.shields.io/github/contributors/smartorigin/streetview-exb-widget" alt="contributors" />
     </a>
     <a href="">
-      <img src="https://img.shields.io/github/last-commit/smartorigin/streetview-exb-widget" alt="last update" />
-    </a>
-    <a href="">
-      <img src="https://img.shields.io/github/forks/smartorigin/streetview-exb-widget" alt="forks" />
-    </a>
-    <a href="">
       <img src="https://img.shields.io/github/license/smartorigin/streetview-exb-widget" alt="license" />
     </a>
   </p>
