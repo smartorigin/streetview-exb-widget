@@ -1,0 +1,31 @@
+{
+  "name": "street-view",
+  "private": false,
+  "keywords": [
+    "street-view",
+    "arcgis experience builder"
+  ],
+  "version": "1.0.0",
+  "description": "Integrates Google Street View into ArcGIS Experience Builder, open street view imagery at specific locations by clicking on the map, support a floating panel view and expandable mobile panel view.",
+  "author": {
+    "name": "Smart/Origin",
+    "email": "contact@smart-origin.com",
+    "url": "https://smart-origin.com"
+  },
+  "contributors": [
+    {
+      "name": "Marc-Alx",
+      "email": "marc-alexandre.blanchard@smart-origin.com",
+      "url": "https://marcalx.github.io"
+    },
+    {
+      "name": "Nino Mauuary",
+      "email": "nino.mauuary@smart-origin.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/smartorigin/streetview-exb-widget"
+  },
+  "license": "http://www.apache.org/licenses/LICENSE-2.0"
+}

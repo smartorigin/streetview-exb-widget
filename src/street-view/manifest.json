@@ -1,0 +1,18 @@
+{
+  "name": "street-view",
+  "label": "Street View",
+  "type": "widget",
+  "version": "1.0.0",
+  "exbVersion": "1.16.0",
+  "author": "SmartOrigin",
+  "description": "Open a street-view popup via map click",
+  "copyright": "",
+  "license": "http://www.apache.org/licenses/LICENSE-2.0",
+  "properties": {},
+  "defaultSize": {
+    "width": 500,
+    "height": 600
+  },
+  "translatedLocales": ["en", "fr"],
+  "dependency": "jimu-arcgis"
+}

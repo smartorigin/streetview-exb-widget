@@ -1,0 +1,8 @@
+/**
+* Used to reduce bottom margin of settings row label
+*/
+.settingsRowStyle {
+  label {
+    margin-bottom: 5px !important;
+  }
+}

@@ -1,0 +1,98 @@
+@import 'constants.css';
+@import 'variables.css';
+@import 'utilities.css';
+
+.streetview-widget-root {
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  /**
+  * Css reset
+  */
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+    padding: 0;
+    font-size: var(--text-base);
+  }
+
+  p,
+  ol,
+  ul {
+    margin: 0;
+    padding: 0;
+    font-size: var(--text-base);
+  }
+
+  /**
+  * Global styles
+  */
+
+  input::placeholder,
+  .placeholder {
+    color: var(--color-text-secondary) !important;
+  }
+}
+
+/**
+  * Animations
+  */
+
+.widget-content-animated {
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.view-transition-enter {
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.view-transition-exit {
+  animation: fadeOut 0.2s ease-in-out;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade out animation */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes fadeInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

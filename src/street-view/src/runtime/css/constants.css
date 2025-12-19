@@ -1,0 +1,12 @@
+.streetview-widget-root {
+  --color-primary: var(--sys-color-primary-main);
+  --color-text-secondary: oklch(37.3% 0.034 259.733);
+  --color-inverse: #3a3a3a;
+  --color-background: var(--sys-color-surface-background);
+
+  --color-success: #22c55e;
+  --color-info: #0ea5e9;
+  --color-warning: #f97316;
+  --color-danger: #ef4444;
+  --color-offline: oklch(70.4% 0.04 256.788);
+}
