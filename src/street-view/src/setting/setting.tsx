@@ -358,8 +358,7 @@ function Setting(props: AllWidgetSettingProps<WidgetConfig>) {
                       </p>
                     </div>
                     <p className="mb-0">
-                      {/* TODO: Add link to doc when project is up on github */}
-                      <a href="">
+                      <a href="https://github.com/smartorigin/streetview-exb-widget">
                         <FormattedMessage
                           id="presetRowTooltipLinkLabel"
                           defaultMessage={defaultMessages.presetRowTooltipLinkLabel}
