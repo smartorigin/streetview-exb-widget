@@ -1,75 +1,71 @@
-import type { AllWidgetSettingProps } from 'jimu-for-builder';
-import { InfoOutlined } from 'jimu-icons/outlined/suggested/info';
-import { Button, Select, Switch, TextInput, Tooltip } from 'jimu-ui';
-import {
-  MapWidgetSelector,
-  SettingRow,
-  SettingSection
-} from 'jimu-ui/advanced/setting-components';
-import { useState } from 'react';
-import { FormattedMessage } from 'react-intl';
-import type {
-  InitialViewType,
-  WidgetConfig,
-  PresetType,
-  InitialControlPanelStateType,
-  IConfig
-} from '../config';
-import '../runtime/css/utilities.css';
-import './style.css';
-import defaultMessages from './translations/default';
+import type { AllWidgetSettingProps } from 'jimu-for-builder'
+import { InfoOutlined } from 'jimu-icons/outlined/suggested/info'
+import { Button, NumericInput, Select, Switch, TextInput, Tooltip } from 'jimu-ui'
+import { MapWidgetSelector, SettingRow, SettingSection } from 'jimu-ui/advanced/setting-components'
+import { useEffect, useState } from 'react'
+import { FormattedMessage } from 'react-intl'
+import type { IConfig, InitialControlPanelStateType, InitialViewType, PresetType, WidgetConfig } from '../config'
+import '../runtime/css/utilities.css'
+import '../runtime/css/variables.css'
+import './style.css'
 // NOTE: Import react for compatibility with older exb versions
-import React from 'react';
+import defaultMessages from './translations/default'
 
 function Setting(props: AllWidgetSettingProps<WidgetConfig>) {
-  const { intl } = props;
+  const { intl } = props
 
   /**
    * Default values of settings
    */
   const defaultSettings: IConfig = {
-    preset: 'click-to-view' as PresetType,
-    initialViewState: 'reduced' as InitialViewType,
+    preset: 'click-to-view',
+    initialViewState: 'reduced',
     isPositionIconEnabled: true,
     isClickEnabled: true,
     isPopupActionEnabled: true,
     isControlPanelEnabled: true,
-    initialControlPanelState: 'off' as InitialControlPanelStateType,
-    googleApiKey: ''
-  };
+    initialControlPanelState: 'off',
+    googleApiKey: '',
+    streetViewApiParams: {
+      heading: 210,
+      pitch: 0,
+      fov: 90,
+      radius: 50,
+      source: 'outdoor'
+    }
+  }
 
-  const [preset, setPreset] = useState<PresetType>(
-    props.config.preset || defaultSettings.preset
-  );
+  const [preset, setPreset] = useState<PresetType>(props.config.preset || defaultSettings.preset)
 
   const [initialViewState, setInitialViewState] = useState<InitialViewType>(
     props.config.initialViewState || defaultSettings.initialViewState
-  );
+  )
 
   const [isPositionIconEnabled, setIsPositionIconEnabled] = useState<boolean>(
     props.config.isPositionIconEnabled || defaultSettings.isPositionIconEnabled
-  );
+  )
 
   const [isClickEnabled, setIsClickEnabled] = useState<boolean>(
     props.config.isClickEnabled || defaultSettings.isClickEnabled
-  );
+  )
 
   const [isPopupActionEnabled, setIsPopupActionEnabled] = useState<boolean>(
     props.config.isPopupActionEnabled || defaultSettings.isPopupActionEnabled
-  );
+  )
 
   const [isControlPanelEnabled, setIsControlPanelEnabled] = useState<boolean>(
     props.config.isControlPanelEnabled || defaultSettings.isControlPanelEnabled
-  );
+  )
 
   const [initialControlPanelState, setInitialControlPanelState] = useState(
-    props.config.initialControlPanelState ||
-      defaultSettings.initialControlPanelState
-  );
+    props.config.initialControlPanelState || defaultSettings.initialControlPanelState
+  )
 
-  const [googleApiKey, setGoogleApiKey] = useState<string>(
-    props.config.googleApiKey || defaultSettings.googleApiKey
-  );
+  const [streetViewApiParams, setStreetViewApiParams] = useState(
+    props.config.streetViewApiParams || defaultSettings.streetViewApiParams
+  )
+
+  const [googleApiKey, setGoogleApiKey] = useState<string>(props.config.googleApiKey || defaultSettings.googleApiKey)
 
   /**
    * Handle updating settings preset
@@ -85,12 +81,12 @@ function Setting(props: AllWidgetSettingProps<WidgetConfig>) {
           .set('isControlPanelEnabled', true)
           .set('initialControlPanelState', 'on')
           .set('isPositionIconEnabled', true)
-      });
-      setPreset(preset);
-      setIsClickEnabled(true);
-      setIsPositionIconEnabled(true);
-      setIsControlPanelEnabled(true);
-      setInitialControlPanelState('on');
+      })
+      setPreset(preset)
+      setIsClickEnabled(true)
+      setIsPositionIconEnabled(true)
+      setIsControlPanelEnabled(true)
+      setInitialControlPanelState('on')
     } else {
       // Handle popup-action preset
       props.onSettingChange({
@@ -101,14 +97,14 @@ function Setting(props: AllWidgetSettingProps<WidgetConfig>) {
           .set('isClickEnabled', false)
           .set('isControlPanelEnabled', false)
           .set('isPositionIconEnabled', false)
-      });
-      setPreset(preset);
-      setIsPopupActionEnabled(true);
-      setIsClickEnabled(false);
-      setIsPositionIconEnabled(false);
-      setIsControlPanelEnabled(false);
+      })
+      setPreset(preset)
+      setIsPopupActionEnabled(true)
+      setIsClickEnabled(false)
+      setIsPositionIconEnabled(false)
+      setIsControlPanelEnabled(false)
     }
-  };
+  }
 
   /**
    * Source settings
@@ -118,16 +114,16 @@ function Setting(props: AllWidgetSettingProps<WidgetConfig>) {
     props.onSettingChange({
       id: props.id,
       useMapWidgetIds: ids
-    });
-  };
+    })
+  }
 
   const onGoogleApiKeyChange = (value: string) => {
     props.onSettingChange({
       id: props.id,
       config: props.config.set('googleApiKey', value)
-    });
-    setGoogleApiKey(value);
-  };
+    })
+    setGoogleApiKey(value)
+  }
 
   /**
    * General options settings
@@ -137,64 +133,73 @@ function Setting(props: AllWidgetSettingProps<WidgetConfig>) {
     props.onSettingChange({
       id: props.id,
       config: props.config.set('isPositionIconEnabled', checked)
-    });
-    setIsPositionIconEnabled(checked);
-  };
+    })
+    setIsPositionIconEnabled(checked)
+  }
 
   const onIsClickEnabled = (checked: boolean) => {
     props.onSettingChange({
       id: props.id,
-      config: props.config
-        .set('isClickEnabled', checked)
-        .set('isControlPanelEnabled', checked)
-    });
-    setIsClickEnabled(checked);
-    setIsControlPanelEnabled(checked);
-  };
+      config: props.config.set('isClickEnabled', checked).set('isControlPanelEnabled', checked)
+    })
+    setIsClickEnabled(checked)
+    setIsControlPanelEnabled(checked)
+  }
 
   const onIsPopupActionEnabled = (checked: boolean) => {
     props.onSettingChange({
       id: props.id,
       config: props.config.set('isPopupActionEnabled', checked)
-    });
-    setIsPopupActionEnabled(checked);
-  };
+    })
+    setIsPopupActionEnabled(checked)
+  }
 
   const onIsControlPanelEnabled = (checked: boolean) => {
     props.onSettingChange({
       id: props.id,
       config: props.config.set('isControlPanelEnabled', checked)
-    });
-    setIsControlPanelEnabled(checked);
-  };
+    })
+    setIsControlPanelEnabled(checked)
+  }
 
-  const onInitialControlPanelStateChange = (
-    value: InitialControlPanelStateType
-  ) => {
+  const onInitialControlPanelStateChange = (value: InitialControlPanelStateType) => {
     props.onSettingChange({
       id: props.id,
       config: props.config.set('initialControlPanelState', value)
-    });
-    setInitialControlPanelState(value);
-  };
+    })
+    setInitialControlPanelState(value)
+  }
 
   const onInitialViewStateChange = (value: InitialViewType) => {
     props.onSettingChange({
       id: props.id,
       config: props.config.set('initialViewState', value)
-    });
-    setInitialViewState(value);
-  };
+    })
+    setInitialViewState(value)
+  }
 
-  React.useEffect(() => {
+  /**
+   * Handle updating Street View API settings
+   */
+  useEffect(() => {
+    props.onSettingChange({
+      id: props.id,
+      config: props.config.set('streetViewApiParams', streetViewApiParams)
+    })
+  }, [streetViewApiParams])
+
+  /**
+   * Initialize config if empty
+   */
+  useEffect(() => {
     // config is empty -> set a new one
-    if (Object.keys(props.config).length == 0) {
+    if (Object.keys(props.config).length === 0) {
       props.onSettingChange({
         id: props.id,
         config: defaultSettings
-      });
+      })
     }
-  }, []);
+  }, [])
 
   return (
     <div className="w-100">
@@ -218,10 +223,7 @@ function Setting(props: AllWidgetSettingProps<WidgetConfig>) {
             defaultMessage: defaultMessages.selectMapRowLabel
           })}
         >
-          <MapWidgetSelector
-            onSelect={onMapWidgetChange}
-            useMapWidgetIds={props.useMapWidgetIds}
-          />
+          <MapWidgetSelector onSelect={onMapWidgetChange} useMapWidgetIds={props.useMapWidgetIds} />
         </SettingRow>
 
         {/* API Key */}
@@ -230,10 +232,7 @@ function Setting(props: AllWidgetSettingProps<WidgetConfig>) {
           className="settingsRowStyle"
           label={
             <div className="d-flex flex-row gap-0.5 align-items-center">
-              <FormattedMessage
-                id="googleApiKeyRowTooltip"
-                defaultMessage={defaultMessages.googleApiKeyRowLabel}
-              />
+              <FormattedMessage id="googleApiKeyRowTooltip" defaultMessage={defaultMessages.googleApiKeyRowLabel} />
               <Tooltip
                 enterDelay={100}
                 enterNextDelay={0}
@@ -246,29 +245,24 @@ function Setting(props: AllWidgetSettingProps<WidgetConfig>) {
                 role="tooltip"
                 title={
                   <div className="p-2">
-                    {intl.formatMessage({
-                      id: 'googleApiKeyRowTooltipLabel1',
-                      defaultMessage: defaultMessages.googleApiKeyRowTooltipLabel1
-                    })}
+                    <FormattedMessage
+                      id="googleApiKeyRowTooltipLabel1"
+                      defaultMessage={defaultMessages.googleApiKeyRowTooltipLabel1}
+                    />
                     <a href={defaultMessages.googleApiKeyRowTooltipLinkUrl}>
-                      {intl.formatMessage({
-                        id: 'googleApiKeyRowTooltipLinkLabel',
-                        defaultMessage: defaultMessages.googleApiKeyRowTooltipLinkLabel
-                      })}
+                      <FormattedMessage
+                        id="googleApiKeyRowTooltipLinkLabel"
+                        defaultMessage={defaultMessages.googleApiKeyRowTooltipLinkLabel}
+                      />
                     </a>
-                    {intl.formatMessage({
-                      id: 'googleApiKeyRowTooltipLabel2',
-                      defaultMessage: defaultMessages.googleApiKeyRowTooltipLabel2
-                    })}
+                    <FormattedMessage
+                      id="googleApiKeyRowTooltipLabel2"
+                      defaultMessage={defaultMessages.googleApiKeyRowTooltipLabel2}
+                    />
                   </div>
                 }
               >
-                <Button
-                  size="sm"
-                  icon
-                  variant="text"
-                  style={{ width: 23, height: 23 }}
-                >
+                <Button size="sm" icon variant="text" style={{ width: 23, height: 23 }}>
                   <InfoOutlined style={{ width: 13, height: 13 }} />
                 </Button>
               </Tooltip>
@@ -278,7 +272,7 @@ function Setting(props: AllWidgetSettingProps<WidgetConfig>) {
           <TextInput
             className="w-100"
             onChange={(e) => {
-              onGoogleApiKeyChange(e.target.value);
+              onGoogleApiKeyChange(e.target.value)
             }}
             placeholder={intl.formatMessage({
               id: 'googleApiKeyRowPlaceholder',
@@ -308,10 +302,7 @@ function Setting(props: AllWidgetSettingProps<WidgetConfig>) {
           flow="wrap"
           label={
             <div className="d-flex flex-row gap-0.5 align-items-center">
-              <FormattedMessage
-                id="presetRowLabel"
-                defaultMessage={defaultMessages.presetRowLabel}
-              />
+              <FormattedMessage id="presetRowLabel" defaultMessage={defaultMessages.presetRowLabel} />
               <Tooltip
                 enterDelay={100}
                 enterNextDelay={0}
@@ -372,12 +363,7 @@ function Setting(props: AllWidgetSettingProps<WidgetConfig>) {
                   </div>
                 }
               >
-                <Button
-                  size="sm"
-                  icon
-                  variant="text"
-                  style={{ width: 23, height: 23 }}
-                >
+                <Button size="sm" icon variant="text" style={{ width: 23, height: 23 }}>
                   <InfoOutlined style={{ width: 13, height: 13 }} />
                 </Button>
               </Tooltip>
@@ -388,8 +374,8 @@ function Setting(props: AllWidgetSettingProps<WidgetConfig>) {
             appendToBody
             defaultValue={preset}
             onChange={(_evt, value: PresetType) => {
-              console.log(value);
-              onPresetChange(value);
+              console.log(value)
+              onPresetChange(value)
             }}
             size="sm"
           >
@@ -432,7 +418,7 @@ function Setting(props: AllWidgetSettingProps<WidgetConfig>) {
           <Switch
             checked={isPopupActionEnabled}
             onChange={(e) => {
-              onIsPopupActionEnabled(e.target.checked);
+              onIsPopupActionEnabled(e.target.checked)
             }}
           />
         </SettingRow>
@@ -461,7 +447,7 @@ function Setting(props: AllWidgetSettingProps<WidgetConfig>) {
           <Switch
             checked={isClickEnabled}
             onChange={(e) => {
-              onIsClickEnabled(e.target.checked);
+              onIsClickEnabled(e.target.checked)
             }}
           />
         </SettingRow>
@@ -491,7 +477,7 @@ function Setting(props: AllWidgetSettingProps<WidgetConfig>) {
             disabled={!isClickEnabled}
             checked={isPositionIconEnabled}
             onChange={(e) => {
-              onIsPositionIconEnabledChange(e.target.checked);
+              onIsPositionIconEnabledChange(e.target.checked)
             }}
           />
         </SettingRow>
@@ -521,7 +507,7 @@ function Setting(props: AllWidgetSettingProps<WidgetConfig>) {
             disabled={!isClickEnabled}
             checked={isControlPanelEnabled}
             onChange={(e) => {
-              onIsControlPanelEnabled(e.target.checked);
+              onIsControlPanelEnabled(e.target.checked)
             }}
           />
         </SettingRow>
@@ -536,17 +522,14 @@ function Setting(props: AllWidgetSettingProps<WidgetConfig>) {
               role="tooltip"
               title={intl.formatMessage({
                 id: 'initialControlPanelStateRowTooltip',
-                defaultMessage:
-                  defaultMessages.initialControlPanelStateRowTooltip
+                defaultMessage: defaultMessages.initialControlPanelStateRowTooltip
               })}
             >
               <span>
                 <FormattedMessage
                   tagName="span"
                   id="initialControlPanelStateRowLabel"
-                  defaultMessage={
-                    defaultMessages.initialControlPanelStateRowLabel
-                  }
+                  defaultMessage={defaultMessages.initialControlPanelStateRowLabel}
                 />
               </span>
             </Tooltip>
@@ -557,24 +540,20 @@ function Setting(props: AllWidgetSettingProps<WidgetConfig>) {
             disabled={!isClickEnabled}
             defaultValue={initialControlPanelState}
             onChange={(_evt, value: InitialControlPanelStateType) => {
-              onInitialControlPanelStateChange(value);
+              onInitialControlPanelStateChange(value)
             }}
             size="sm"
           >
             <option value="on">
               <FormattedMessage
                 id="initialControlPanelStateOptionOn"
-                defaultMessage={
-                  defaultMessages.initialControlPanelStateOptionOn
-                }
+                defaultMessage={defaultMessages.initialControlPanelStateOptionOn}
               />
             </option>
             <option value="off">
               <FormattedMessage
                 id="initialControlPanelStateOptionOff"
-                defaultMessage={
-                  defaultMessages.initialControlPanelStateOptionOff
-                }
+                defaultMessage={defaultMessages.initialControlPanelStateOptionOff}
               />
             </option>
           </Select>
@@ -585,10 +564,7 @@ function Setting(props: AllWidgetSettingProps<WidgetConfig>) {
           flow="wrap"
           label={
             <div className="d-flex flex-row gap-0.5 align-items-center">
-              <FormattedMessage
-                id="defaultViewRowLabel"
-                defaultMessage={defaultMessages.defaultViewRowLabel}
-              />
+              <FormattedMessage id="defaultViewRowLabel" defaultMessage={defaultMessages.defaultViewRowLabel} />
               <Tooltip
                 enterDelay={100}
                 enterNextDelay={0}
@@ -637,12 +613,7 @@ function Setting(props: AllWidgetSettingProps<WidgetConfig>) {
                   </div>
                 }
               >
-                <Button
-                  size="sm"
-                  icon
-                  variant="text"
-                  style={{ width: 23, height: 23 }}
-                >
+                <Button size="sm" icon variant="text" style={{ width: 23, height: 23 }}>
                   <InfoOutlined style={{ width: 13, height: 13 }} />
                 </Button>
               </Tooltip>
@@ -653,7 +624,7 @@ function Setting(props: AllWidgetSettingProps<WidgetConfig>) {
             appendToBody
             defaultValue={initialViewState}
             onChange={(_evt, value: 'expanded' | 'reduced') => {
-              onInitialViewStateChange(value);
+              onInitialViewStateChange(value)
             }}
             placeholder={intl.formatMessage({
               id: 'defaultViewRowPlaceholder',
@@ -676,8 +647,326 @@ function Setting(props: AllWidgetSettingProps<WidgetConfig>) {
           </Select>
         </SettingRow>
       </SettingSection>
+
+      {/* Street View Api Section */}
+      <SettingSection
+        aria-label={intl.formatMessage({
+          id: 'streetViewApiParamsSectionTitle',
+          defaultMessage: defaultMessages.streetViewApiParamsSectionTitle
+        })}
+        role="group"
+        title={
+          <FormattedMessage
+            id="streetViewApiParamsSectionTitle"
+            defaultMessage={defaultMessages.streetViewApiParamsSectionTitle}
+          />
+        }
+      >
+        {/* Heading */}
+        <SettingRow
+          flow="wrap"
+          className="settingsRowStyle"
+          label={
+            <div className="d-flex flex-row gap-0.5 align-items-center">
+              <FormattedMessage id="headingRowLabel" defaultMessage={defaultMessages.headingRowLabel} />
+              <Tooltip
+                enterDelay={100}
+                enterNextDelay={0}
+                enterTouchDelay={700}
+                interactive
+                leaveDelay={250}
+                leaveTouchDelay={1500}
+                offsetOptions={4}
+                placement="top"
+                role="tooltip"
+                title={
+                  <div className="p-2 d-flex flex-column" style={{ maxWidth: '300px' }}>
+                    <p className="text-pretty">
+                      <FormattedMessage
+                        id="headingRowTooltipLabel1"
+                        defaultMessage={defaultMessages.headingRowTooltipLabel1}
+                      />
+                    </p>
+                    <p className="font-semibold mb-0">
+                      <FormattedMessage
+                        id="headingRowTooltipLabel2"
+                        defaultMessage={defaultMessages.headingRowTooltipLabel2}
+                      />
+                    </p>
+                  </div>
+                }
+              >
+                <Button size="sm" icon variant="text" style={{ width: 23, height: 23 }}>
+                  <InfoOutlined style={{ width: 13, height: 13 }} />
+                </Button>
+              </Tooltip>
+            </div>
+          }
+        >
+          <NumericInput
+            className="w-100"
+            onChange={(value) => {
+              setStreetViewApiParams({
+                ...streetViewApiParams,
+                heading: value
+              })
+            }}
+            min={-180}
+            max={360}
+            formatter={(value) => `${value}°`}
+            parser={(value) => parseInt(value, 10)}
+            size="sm"
+            value={streetViewApiParams.heading}
+          />
+        </SettingRow>
+
+        {/* Pitch */}
+        <SettingRow
+          flow="wrap"
+          className="settingsRowStyle"
+          label={
+            <div className="d-flex flex-row gap-0.5 align-items-center">
+              <FormattedMessage id="pitchRowLabel" defaultMessage={defaultMessages.pitchRowLabel} />
+              <Tooltip
+                enterDelay={100}
+                enterNextDelay={0}
+                enterTouchDelay={700}
+                interactive
+                leaveDelay={250}
+                leaveTouchDelay={1500}
+                offsetOptions={4}
+                placement="top"
+                role="tooltip"
+                title={
+                  <div className="p-2 d-flex flex-column" style={{ maxWidth: '300px' }}>
+                    <p className="text-pretty">
+                      <FormattedMessage
+                        id="pitchRowTooltipLabel1"
+                        defaultMessage={defaultMessages.pitchRowTooltipLabel1}
+                      />
+                    </p>
+                    <p className="font-semibold mb-0">
+                      <FormattedMessage
+                        id="pitchRowTooltipLabel2"
+                        defaultMessage={defaultMessages.pitchRowTooltipLabel2}
+                      />
+                    </p>
+                  </div>
+                }
+              >
+                <Button size="sm" icon variant="text" style={{ width: 23, height: 23 }}>
+                  <InfoOutlined style={{ width: 13, height: 13 }} />
+                </Button>
+              </Tooltip>
+            </div>
+          }
+        >
+          <NumericInput
+            className="w-100"
+            onChange={(value) => {
+              setStreetViewApiParams({
+                ...streetViewApiParams,
+                pitch: value
+              })
+            }}
+            formatter={(value) => `${value}°`}
+            parser={(value) => parseInt(value, 10)}
+            min={-90}
+            max={90}
+            size="sm"
+            value={streetViewApiParams.pitch}
+          />
+        </SettingRow>
+
+        {/* Fov */}
+        <SettingRow
+          flow="wrap"
+          className="settingsRowStyle"
+          label={
+            <div className="d-flex flex-row gap-0.5 align-items-center">
+              <FormattedMessage id="fovRowLabel" defaultMessage={defaultMessages.fovRowLabel} />
+              <Tooltip
+                enterDelay={100}
+                enterNextDelay={0}
+                enterTouchDelay={700}
+                interactive
+                leaveDelay={250}
+                leaveTouchDelay={1500}
+                offsetOptions={4}
+                placement="top"
+                role="tooltip"
+                title={
+                  <div className="p-2 d-flex flex-column" style={{ maxWidth: '300px' }}>
+                    <p className="text-pretty">
+                      <FormattedMessage id="fovRowTooltipLabel1" defaultMessage={defaultMessages.fovRowTooltipLabel1} />
+                    </p>
+                    <p className="font-semibold mb-0">
+                      <FormattedMessage id="fovRowTooltipLabel2" defaultMessage={defaultMessages.fovRowTooltipLabel2} />
+                    </p>
+                  </div>
+                }
+              >
+                <Button size="sm" icon variant="text" style={{ width: 23, height: 23 }}>
+                  <InfoOutlined style={{ width: 13, height: 13 }} />
+                </Button>
+              </Tooltip>
+            </div>
+          }
+        >
+          <NumericInput
+            className="w-100"
+            onChange={(value) => {
+              setStreetViewApiParams({
+                ...streetViewApiParams,
+                fov: value
+              })
+            }}
+            formatter={(value) => `${value}°`}
+            parser={(value) => parseInt(value, 10)}
+            min={10}
+            max={100}
+            size="sm"
+            value={streetViewApiParams.fov}
+          />
+        </SettingRow>
+
+        {/* Radius */}
+        <SettingRow
+          flow="wrap"
+          className="settingsRowStyle"
+          label={
+            <div className="d-flex flex-row gap-0.5 align-items-center">
+              <FormattedMessage id="radiusRowLabel" defaultMessage={defaultMessages.radiusRowLabel} />
+              <Tooltip
+                enterDelay={100}
+                enterNextDelay={0}
+                enterTouchDelay={700}
+                interactive
+                leaveDelay={250}
+                leaveTouchDelay={1500}
+                offsetOptions={4}
+                placement="top"
+                role="tooltip"
+                title={
+                  <div className="p-2 d-flex flex-column" style={{ maxWidth: '300px' }}>
+                    <p className="text-pretty">
+                      <FormattedMessage
+                        id="radiusRowTooltipLabel1"
+                        defaultMessage={defaultMessages.radiusRowTooltipLabel1}
+                      />
+                    </p>
+                    <p className="font-semibold mb-0">
+                      <FormattedMessage
+                        id="radiusRowTooltipLabel2"
+                        defaultMessage={defaultMessages.radiusRowTooltipLabel2}
+                      />
+                    </p>
+                  </div>
+                }
+              >
+                <Button size="sm" icon variant="text" style={{ width: 23, height: 23 }}>
+                  <InfoOutlined style={{ width: 13, height: 13 }} />
+                </Button>
+              </Tooltip>
+            </div>
+          }
+        >
+          <NumericInput
+            className="w-100"
+            onChange={(value) => {
+              setStreetViewApiParams({
+                ...streetViewApiParams,
+                radius: value
+              })
+            }}
+            formatter={(value) => `${value}m`}
+            parser={(value) => parseInt(value, 10)}
+            min={0}
+            size="sm"
+            value={streetViewApiParams.radius}
+          />
+        </SettingRow>
+
+        {/* Source */}
+        <SettingRow
+          flow="wrap"
+          label={
+            <div className="d-flex flex-row gap-0.5 align-items-center">
+              <FormattedMessage id="sourceRowLabel" defaultMessage={defaultMessages.sourceRowLabel} />
+              <Tooltip
+                enterDelay={100}
+                enterNextDelay={0}
+                enterTouchDelay={700}
+                interactive
+                leaveDelay={250}
+                leaveTouchDelay={1500}
+                offsetOptions={4}
+                placement="top"
+                role="tooltip"
+                title={
+                  <div className="p-2 d-flex flex-column" style={{ maxWidth: '300px' }}>
+                    <p className="text-pretty">
+                      <FormattedMessage
+                        id="sourceRowTooltipLabel1"
+                        defaultMessage={defaultMessages.sourceRowTooltipLabel1}
+                      />
+                    </p>
+                    <p>
+                      <FormattedMessage
+                        id="sourceRowTooltipLabel2"
+                        defaultMessage={defaultMessages.sourceRowTooltipLabel2}
+                      />
+                    </p>
+                    <p>
+                      <FormattedMessage
+                        id="sourceRowTooltipLabel3"
+                        defaultMessage={defaultMessages.sourceRowTooltipLabel3}
+                      />
+                    </p>
+                    <p className="font-semibold mb-0">
+                      <FormattedMessage
+                        id="sourceRowTooltipLabel4"
+                        defaultMessage={defaultMessages.sourceRowTooltipLabel4}
+                      />
+                    </p>
+                  </div>
+                }
+              >
+                <Button size="sm" icon variant="text" style={{ width: 23, height: 23 }}>
+                  <InfoOutlined style={{ width: 13, height: 13 }} />
+                </Button>
+              </Tooltip>
+            </div>
+          }
+        >
+          <Select
+            appendToBody
+            defaultValue={defaultSettings.streetViewApiParams.source}
+            onChange={(_evt, value: 'default' | 'outdoor') => {
+              setStreetViewApiParams({
+                ...streetViewApiParams,
+                source: value
+              })
+            }}
+            size="sm"
+          >
+            <option value="outdoor">
+              <FormattedMessage
+                id="sourceRowSelectOptionLabel1"
+                defaultMessage={defaultMessages.sourceRowSelectOptionLabel1}
+              />
+            </option>
+            <option value="default">
+              <FormattedMessage
+                id="sourceRowSelectOptionLabel2"
+                defaultMessage={defaultMessages.sourceRowSelectOptionLabel2}
+              />
+            </option>
+          </Select>
+        </SettingRow>
+      </SettingSection>
     </div>
-  );
+  )
 }
 
-export default Setting;
+export default Setting

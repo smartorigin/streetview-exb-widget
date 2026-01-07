@@ -8,7 +8,7 @@
 - [x] Create translations files for runtime
 - [x] Add "Open in Street View" actions to native EXB point actions
 - [x] Use native theme variable instead of custom one
-- [ ] Make street view embeded api params controllable through settings
+- [x] Make street view embeded api params controllable through settings
 - [x] Add a guaranted loading view between every map click
 - [x] Allow to control default behaviour through settings (click to view/popup action)
 - [ ] Add a loading spinner on map at clicked point, change it back to a position marker when loading has finished
@@ -20,6 +20,7 @@
 - [x] Add "pré requis" section to readme
 - [x] Add "feature request" section to readme
 - [ ] Update readme gif to use latest ver of the widget
+- [ ] Add french version
 
 ## Bugs
 
