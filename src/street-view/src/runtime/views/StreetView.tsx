@@ -1,35 +1,33 @@
-import { CalciteIcon } from 'calcite-components';
-import { Button, Loading, LoadingType } from 'jimu-ui';
-import { useEffect, useState } from 'react';
-import { FormattedMessage } from 'react-intl';
-import defaultMessages from '../translations/default';
-import type { WidgetViewType } from '../types/general';
-import clsx from '../utils/clsx';
+import { CalciteIcon } from 'calcite-components'
+import { Button, Loading, LoadingType } from 'jimu-ui'
 // NOTE: Import react for compatibility with older exb versions
-import React from 'react';
+import React, { useEffect, useState } from 'react'
+import { FormattedMessage } from 'react-intl'
+import defaultMessages from '../translations/default'
+import type { WidgetViewType } from '../types/general'
+import clsx from '../utils/clsx'
 
 interface StreetViewProps {
-  url: string | null;
-  webUrl: string | null;
-  isAvailable: boolean;
-  setView: (view: WidgetViewType) => void;
+  url: string | null
+  webUrl: string | null
+  isAvailable: boolean
+  setView: (view: WidgetViewType) => void
 }
 
 function StreetView(props: StreetViewProps) {
   /**
    * True when the street view iframe is loading
    */
-  const [isStreetViewLoading, setIsStreetViewLoading] =
-    useState<boolean>(false);
+  const [isStreetViewLoading, setIsStreetViewLoading] = useState<boolean>(false)
 
   /**
    * Handle loading state and unavailable state
    */
   useEffect(() => {
     if (props.url) {
-      setIsStreetViewLoading(true);
+      setIsStreetViewLoading(true)
     }
-  }, [props.url]);
+  }, [props.url])
 
   return (
     <div className={clsx('d-flex size-full flex-column mt-auto')}>
@@ -40,7 +38,7 @@ function StreetView(props: StreetViewProps) {
           type="primary"
           aria-label="Close street view"
           onClick={() => {
-            props.setView('default');
+            props.setView('default')
           }}
         >
           <CalciteIcon icon="x" scale="m" />
@@ -53,7 +51,7 @@ function StreetView(props: StreetViewProps) {
           aria-label="Open street view in fullscreen modal"
           aria-haspopup="dialog"
           onClick={() => {
-            props.setView('expanded');
+            props.setView('expanded')
           }}
         >
           <CalciteIcon icon="expand" scale="m" />
@@ -66,7 +64,7 @@ function StreetView(props: StreetViewProps) {
           className="ml-auto"
           aria-label="Open google map at this location"
           onClick={() => {
-            window.open(props.webUrl);
+            window.open(props.webUrl)
           }}
         >
           <CalciteIcon icon="launch2" scale="m" />
@@ -85,9 +83,7 @@ function StreetView(props: StreetViewProps) {
         <div
           className={clsx(
             'position-absolute top-0 left-0 size-full d-flex align-items-center justify-content-center',
-            isStreetViewLoading && props.isAvailable
-              ? 'visible'
-              : 'd-none invisible'
+            isStreetViewLoading && props.isAvailable ? 'visible' : 'd-none invisible'
           )}
           style={{ zIndex: 10 }}
         >
@@ -97,17 +93,15 @@ function StreetView(props: StreetViewProps) {
         <div className="size-full">
           {props.isAvailable ? (
             <iframe
-              className={clsx(
-                'size-full border-0',
-                isStreetViewLoading ? 'invisible' : 'visible'
-              )}
+              title="streetview-iframe"
+              className={clsx('size-full border-0', isStreetViewLoading ? 'invisible' : 'visible')}
               style={{ zIndex: 0 }}
               loading="lazy"
               src={props.url || undefined}
               onLoad={() => {
                 setTimeout(() => {
-                  setIsStreetViewLoading(false);
-                }, 1000); //
+                  setIsStreetViewLoading(false)
+                }, 1000) //
               }}
             />
           ) : (
@@ -124,7 +118,7 @@ function StreetView(props: StreetViewProps) {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default StreetView;
+export default StreetView
