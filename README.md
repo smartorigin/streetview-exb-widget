@@ -131,7 +131,7 @@ Drag and drop the widget inside your app.
 | Setting            | Description                                                       |
 | ------------------ | ----------------------------------------------------------------- |
 | **Select a map**   | Choose the map widget to link with Street View.                   |
-| **Google API key** | Enter your Google Maps API key (required for Street View embeds).|
+| **Google API key** | Enter your Google Maps API key (required for Street View embeds). |
 
 ### General Options
 
@@ -144,6 +144,16 @@ Drag and drop the widget inside your app.
 | **Enable floating control panel** | `true`          | Shows a floating button to toggle the widget on/off.                                                                                                                       |
 | **Default control panel state**   | `off`           | Sets whether the widget starts active (`on`) or inactive (`off`).                                                                                                          |
 | **Default view**                  | `Reduced`       | Choose the initial display mode: <br>• **Reduced**: Floating panel (best for desktop). <br>• **Expanded**: Full-height sliding panel (best for mobile).                    |
+
+### StreetView API Options
+
+| Setting     | Default   | Description                                                                                                                                                                                                                           |
+| ----------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Heading** | `210°`    | Quickly choose between two main behaviors: <br>• **Click To View**: Opens Street View on any map click. <br>• **Popup Action**: Opens Street View only via a popup action.                                                            |
+| **Pitch**   | `0°`      | specifies the up or down angle of the camera relative to the Street View vehicle.                                                                                                                                                     |
+| **FOV**     | `90°`     | Determines the horizontal field of view of the image expressed in degrees, with a maximum allowed value of 120.                                                                                                                       |
+| **Radius**  | `50m`     | Sets a radius, specified in meters, in which to search for imagery, centered on the given latitude and longitude. Valid values are non-negative integers. (High radius causes the API to select static images over non-static images) |
+| **Source**  | `Outdoor` | `All` uses the default sources for Street View; searches are not limited to specific sources. `Outdoor` limits searches to outdoor imagery.                                                                                           |
 
 ## Roadmap
 
