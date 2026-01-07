@@ -147,17 +147,21 @@ Drag and drop the widget inside your app.
 
 ### StreetView API Options
 
-| Setting     | Default   | Description                                                                                                                                                                                                                           |
-| ----------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Heading** | `210°`    | Quickly choose between two main behaviors: <br>• **Click To View**: Opens Street View on any map click. <br>• **Popup Action**: Opens Street View only via a popup action.                                                            |
-| **Pitch**   | `0°`      | specifies the up or down angle of the camera relative to the Street View vehicle.                                                                                                                                                     |
-| **FOV**     | `90°`     | Determines the horizontal field of view of the image expressed in degrees, with a maximum allowed value of 120.                                                                                                                       |
-| **Radius**  | `50m`     | Sets a radius, specified in meters, in which to search for imagery, centered on the given latitude and longitude. Valid values are non-negative integers. (High radius causes the API to select static images over non-static images) |
-| **Source**  | `Outdoor` | `All` uses the default sources for Street View; searches are not limited to specific sources. `Outdoor` limits searches to outdoor imagery.                                                                                           |
+> [!TIP]
+> You can find more details on these parameters in the [documentation](https://developers.google.com/maps/documentation/streetview/request-streetview#optional-parameters) for the google's **Street View API**.
+
+| Setting     | Default   | Description                                                                                                                                                                                                                                                 |
+| ----------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Heading** | `210°`    | Indicates the compass heading of the camera. Accepted values are from `0` to `360`. If you don't specify a heading, a value is calculated that directs the camera towards the specified location, from the point at which the closest photograph was taken. |
+| **Pitch**   | `0°`      | Specifies the up or down angle of the camera relative to the Street View vehicle.                                                                                                                                                                           |
+| **FOV**     | `90°`     | Determines the horizontal field of view of the image expressed in degrees, with a maximum allowed value of 120.                                                                                                                                             |
+| **Radius**  | `50m`     | Sets a radius, specified in meters, in which to search for imagery, centered on the given latitude and longitude. Valid values are non-negative integers. (High radius causes the API to select static images over non-static images).                      |
+| **Source**  | `Outdoor` | Limits Street View searches to selected sources. Valid values are: <br>• `All` uses the default sources for Street View, searches are not limited to specific sources. <br>• `Outdoor` limits searches to outdoor imagery.                                  |
 
 ## Roadmap
 
 - [x] ~~French language support~~
+- [x] Configurable API parameters
 
 ## Feature Requests
 
