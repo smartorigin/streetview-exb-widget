@@ -15,6 +15,10 @@
 - [ ] Improve performance
 - [ ] Switch view when detecting mobile/desktop
 
+## Refactoring
+
+- [ ] Make settings.tsx more readable by creating components for each row
+
 ## Readme
 
 - [x] Add "pré requis" section to readme
