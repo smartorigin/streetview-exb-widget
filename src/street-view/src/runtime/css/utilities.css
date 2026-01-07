@@ -162,6 +162,10 @@ overflow-y-auto {
   white-space: nowrap !important;
 }
 
+.text-pretty {
+  text-wrap: pretty;
+}
+
 /**
 * Text color
 */
