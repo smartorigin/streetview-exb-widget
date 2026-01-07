@@ -1,6 +1,7 @@
 import type { AllWidgetSettingProps } from 'jimu-for-builder'
+import { ResetOutlined } from 'jimu-icons/outlined/editor/reset'
 import { InfoOutlined } from 'jimu-icons/outlined/suggested/info'
-import { Button, NumericInput, Select, Switch, TextInput, Tooltip } from 'jimu-ui'
+import { Button, Icon, NumericInput, Select, Switch, TextInput, Tooltip } from 'jimu-ui'
 import { MapWidgetSelector, SettingRow, SettingSection } from 'jimu-ui/advanced/setting-components'
 import { useEffect, useState } from 'react'
 import { FormattedMessage } from 'react-intl'
@@ -66,6 +67,14 @@ function Setting(props: AllWidgetSettingProps<WidgetConfig>) {
   )
 
   const [googleApiKey, setGoogleApiKey] = useState<string>(props.config.googleApiKey || defaultSettings.googleApiKey)
+
+  /**
+   * Used to reset the streetViewApiParams
+   */
+  const resetStreetViewApiParams = () => {
+    setStreetViewApiParams(defaultSettings.streetViewApiParams)
+    return
+  }
 
   /**
    * Handle updating settings preset
@@ -656,10 +665,22 @@ function Setting(props: AllWidgetSettingProps<WidgetConfig>) {
         })}
         role="group"
         title={
-          <FormattedMessage
-            id="streetViewApiParamsSectionTitle"
-            defaultMessage={defaultMessages.streetViewApiParamsSectionTitle}
-          />
+          <div className="d-flex flex-row justify-content-between align-items-start">
+            <FormattedMessage
+              id="streetViewApiParamsSectionTitle"
+              defaultMessage={defaultMessages.streetViewApiParamsSectionTitle}
+            />
+            {/* Reset Button */}
+            <Button
+              className="size-fit"
+              size="default"
+              variant="text"
+              aria-label="Reset the settings of the Street View API section"
+              onClick={() => resetStreetViewApiParams()}
+            >
+              <ResetOutlined className="mr-0" size={13} />
+            </Button>
+          </div>
         }
       >
         {/* Heading */}
@@ -942,6 +963,7 @@ function Setting(props: AllWidgetSettingProps<WidgetConfig>) {
           <Select
             appendToBody
             defaultValue={defaultSettings.streetViewApiParams.source}
+            value={streetViewApiParams.source}
             onChange={(_evt, value: 'default' | 'outdoor') => {
               setStreetViewApiParams({
                 ...streetViewApiParams,
