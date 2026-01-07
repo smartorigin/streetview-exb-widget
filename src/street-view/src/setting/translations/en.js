@@ -109,4 +109,4 @@ export default {
   sourceRowTooltipLabel4: 'Default: Outdoor',
   sourceRowSelectOptionLabel1: 'Outdoor',
   sourceRowSelectOptionLabel2: 'All'
-};
+}
