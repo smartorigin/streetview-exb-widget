@@ -21,19 +21,19 @@
 
 ![DemoGif1](./docs/assets/Demo1.gif)
 
-Intègre Google Street View dans vos applications ArcGIS Experience Builder. Cliquez sur la carte pour ouvrir Street View à cette emplacement, ou accèder à Street View directement depuis les actions d'une entité sélectioné.
+Ce widget intègre Google Street View dans vos applications ArcGIS Experience Builder. Cliquez sur la carte pour ouvrir Street View à cet emplacement, ou directement depuis l'action "Ouvrir dans Street View" d'une entité sélectionnée.
 
 ## Fonctionnalités
 
-- **Intégration carte** : Ouvre StreetView à l'emplacement cliqué.
-- **Actions popup** : S'intègre aux popups ArcGIS, ajoutant une action "Ouvrir dans Street View" à vos entités.
-- **Design responsive** : Propose deux modes d'affichage :
+- **📍 Intégration carte** : Ouvre StreetView à l'emplacement cliqué.
+- **🖱️ Actions popup** : S'intègre aux popups ArcGIS, ajoutant une action "Ouvrir dans Street View" à vos entités.
+- **📱 Design responsive** : Propose deux modes d'affichage :
   - **Réduit** : Un panneau flottant, pour une utilisation sur ordinateur.
   - **Étendu** : Un panneau glissant pleine largeur, pour les appareils mobiles.
-- **Configuration** : Propose deux préréglages "Click to View" et "Action popup" pour configurer rapidement le widget selon votre cas d'utilisation.
-- **Liens externes** : Permet d'ouvrir la vue actuelle directement dans Google Maps.
-- **Internationalisation** : Entièrement traduit en français (`fr`) et en anglais (`en`).
-- **Panneau de contrôle flottant** : Panneau de controle pour activer/désactiver le widget depuis l'application.
+- **⚙️ Configuration** : Propose deux préréglages "Click to View" et "Action popup" pour configurer rapidement le widget selon votre cas d'utilisation.
+- **🔗 Liens externes** : Permet d'ouvrir la vue actuelle directement dans Google Maps.
+- **🌍 Internationalisation** : Le widget traduit en Anglais et en Français.
+- **🎛️ Panneau de contrôle flottant** : Panneau de contrôle pour activer/désactiver le widget depuis l'application.
 
 ## Prérequis
 
@@ -49,13 +49,13 @@ Le widget utilise l'[API Maps Embed](https://developers.google.com/maps/document
 4. Aller dans **APIs & Services** > **Identifiants** et créer une clé API
 
 > [!NOTE]
-> La facturation sur votre compte Google Cloud doit etre activé pour générer une clée.
+> La facturation sur votre compte Google Cloud doit être activée pour générer une clé.
 
 ## Utilisation
 
-Le widget deux modes d'utilisations et de préréglage, configurable via l'onglet des paramètres du widget dans Experience Builder.
+Le widget propose deux modes d'utilisations et de préréglage, configurable via l'onglet des paramètres du widget dans Experience Builder.
 
-### Click to View (par défaut)
+### 👆 Click to View (par défaut)
 
 Tout clic sur la carte ouvre Street View à cet emplacement dans un panneau flottant, c'est le préréglage par défaut.
 
@@ -64,7 +64,7 @@ Tout clic sur la carte ouvre Street View à cet emplacement dans un panneau flot
 >
 > ![DemoGifUsage1](./docs/assets/DemoGifUsage1.gif)
 
-### Action popup
+### ▶️ Action popup
 
 Street View s'ouvre uniquement lorsque vous cliquez sur le bouton "Ouvrir dans Street View" dans une popup d'entité. Les clics sur la carte fonctionnent normalement sans déclencher Street View (vous pouvez toujours l'activer via les paramètres).
 
@@ -86,11 +86,11 @@ Ce widget est compatible avec Experience Builder v1.16+. Téléchargez-le depuis
 
 #### Méthode Dist
 
-Idéale pour une utilisation rapide sans modification du code.
+Idéale pour une utilisation rapide sans modification du code source.
 
-1. Téléchargez la dernière [version](https://github.com/smartorigin/streetview-exb-widget/releases)
-2. Extrayez le zip téléchargé et copiez le dossier `street-view` dans le dossier dist d'Experience Builder (`<votre-exb>/client/dist/widgets`)
-3. Ajoutez l'objet JSON trouvé dans `to-copy-in-widgets-info.json` dans `<votre-exb>/client/dist/widgets/widgets-info.json` (_nécessaire uniquement lors de la première installation_)
+1. Télécharger la dernière [version](https://github.com/smartorigin/streetview-exb-widget/releases)
+2. Extraire le zip téléchargé et copier le dossier `street-view` dans le dossier dist d'Experience Builder (`<votre-exb>/client/dist/widgets`)
+3. Ajoutez l'objet JSON trouvé dans `to-copy-in-widgets-info.json` dans `<votre-exb>/client/dist/widgets/widgets-info.json` (nécessaire uniquement lors de la première installation\_)
 
 #### Méthode Your Extensions
 
@@ -128,22 +128,22 @@ Glissez-déposez le widget dans votre application.
 
 ### Options de source
 
-| Paramètre                  | Description                                                                   |
-| -------------------------- | ----------------------------------------------------------------------------- |
-| **Sélectionner une carte** | Choisissez le widget carte à lier avec Street View.                           |
-| **Clé API Google**         | Entrez votre clé API Google Maps (requise pour les intégrations Street View). |
+| Paramètre                  | Description                                                                                            |
+| -------------------------- | ------------------------------------------------------------------------------------------------------ |
+| **Sélectionner une carte** | Choisissez le widget carte à lier avec Street View, se fais automatiquement si une carte est présente. |
+| **Clé API Google**         | Entrez votre clé API Google Maps (requise).                                                            |
 
 ### Options générales
 
-| Paramètre                                   | Défaut           | Description                                                                                                                                                                                                      |
-| ------------------------------------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Préréglage**                              | `Clic pour voir` | Choisissez rapidement entre deux comportements principaux : <br>• **Clic pour voir** : Ouvre Street View sur tout clic sur la carte. <br>• **Action popup** : Ouvre Street View uniquement via une action popup. |
-| **Activer l'action popup**                  | `true`           | Ajoute une action "Ouvrir dans Street View" aux popups d'entités.                                                                                                                                                |
-| **Activer le clic sur la carte**            | `true`           | Permet d'ouvrir Street View en cliquant n'importe où sur la carte.                                                                                                                                               |
-| **Activer l'icône de position**             | `true`           | Affiche un marqueur sur la carte indiquant l'emplacement et la direction actuels de Street View.                                                                                                                 |
-| **Activer le panneau de contrôle flottant** | `true`           | Affiche un bouton flottant pour activer/désactiver le widget.                                                                                                                                                    |
-| **État par défaut du panneau de contrôle**  | `off`            | Définit si le widget démarre actif (`on`) ou inactif (`off`).                                                                                                                                                    |
-| **Vue par défaut**                          | `Réduit`         | Choisissez le mode d'affichage initial : <br>• **Réduit** : Panneau flottant (idéal pour ordinateur). <br>• **Étendu** : Panneau coulissant pleine hauteur (idéal pour mobile).                                  |
+| Paramètre                                   | Défaut           | Description                                                                                                                                                                                                 |
+| ------------------------------------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Préréglage**                              | `Clic pour voir` | Choisissez rapidement entre deux modes d'utilisations : <br>• **Click To View** : Ouvre Street View sur tout clic sur la carte. <br>• **Action popup** : Ouvre Street View uniquement via une action popup. |
+| **Activer l'action popup**                  | `true`           | Ajoute une action "Ouvrir dans Street View" aux popups d'entités.                                                                                                                                           |
+| **Activer le clic sur la carte**            | `true`           | Permet d'ouvrir Street View en cliquant n'importe où sur la carte.                                                                                                                                          |
+| **Activer l'icône de position**             | `true`           | Affiche un marqueur sur la carte indiquant l'emplacement actuel de Street View.                                                                                                                             |
+| **Activer le panneau de contrôle flottant** | `true`           | Affiche un bouton flottant pour activer/désactiver le widget.                                                                                                                                               |
+| **État par défaut du panneau de contrôle**  | `off`            | Définit si le widget démarre actif (`on`) ou inactif (`off`).                                                                                                                                               |
+| **Vue par défaut**                          | `Réduit`         | Choisissez le mode d'affichage initial : <br>• **Réduit** : Panneau flottant. <br>• **Étendu** : Panneau coulissant pleine largeur.                                                                         |
 
 ### Options de l'API Street View
 
@@ -157,11 +157,11 @@ Glissez-déposez le widget dans votre application.
 
 ## Feuille de route
 
-- [x] ~~Support de la langue française~~
+- [x] ~~Version française~~
 
 ## Demandes de fonctionnalités
 
-Vous avez une idée pour une nouvelle fonctionnalité ? Ouvrez une issue avec le label `feature request` et décrivez ce que vous aimeriez voir.
+Une idée ou suggestion ? Ouvrez une issue avec le label `feature request`.
 
 ## FAQ
 
