@@ -1,0 +1,47 @@
+#banner-container-home {
+  flex-direction: column-reverse;
+  align-items: center;
+}
+
+#banner-home-subtitle {
+  text-align: center;
+  font-size: 1.25rem;
+}
+
+#home-banner-header {
+  text-align: center;
+  color: var(--text-color);
+  font-size: 3rem !important;
+}
+
+// GitHub Badges
+#github-badges {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 1.5rem 0;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+
+    img {
+      height: 22px;
+      display: block;
+    }
+  }
+}
+
+#image-container-home {
+  padding-inline-start: 0px !important;
+}

@@ -1,0 +1,45 @@
+{%- set header = section.extra.header-%}
+<div id="banner-container-home">
+    <div id="home-banner-text">
+        <h1 id="home-banner-header">{{ header.title }}</h1>
+        {%- if header.github_repo -%}
+        <div id="github-badges">
+            <a href="https://github.com/{{ header.github_repo }}/graphs/contributors" target="_blank" rel="noopener noreferrer">
+                <img src="https://img.shields.io/github/contributors/{{ header.github_repo }}?style=flat-square&color=blue" alt="GitHub contributors" />
+            </a>
+            <a href="https://github.com/{{ header.github_repo }}/issues" target="_blank" rel="noopener noreferrer">
+                <img src="https://img.shields.io/github/issues/{{ header.github_repo }}?style=flat-square" alt="GitHub issues" />
+            </a>
+            <a href="https://github.com/{{ header.github_repo }}/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">
+                <img src="https://img.shields.io/github/license/{{ header.github_repo }}?style=flat-square" alt="License" />
+            </a>
+        </div>
+        {%- endif -%}
+        {%- if header.subtitle -%}
+        <section id="banner-home-subtitle">
+            {{ header.subtitle }}
+        </section>
+        {%- endif -%}
+    </div>
+    {%- if header.img -%}
+        {%- if header.img is containing("$BASE_URL") -%}
+            {# Conversion no longer supported in favour of proper path. #}
+            {{ throw(message="ERROR: The image path for the header should not contain '$BASE_URL'. Please remove it and use the proper image path.") }}
+        {%- else -%}
+            {%- set image_path = get_url(path=header.img, trailing_slash=false) | safe -%}
+        {%- endif -%}
+        <div id="image-container-home">
+            <img alt="{{ header.img_alt | default(value="the owner") }}" id="banner-home-img" src="{{ image_path }}" />
+        </div>
+    {%- endif -%}
+</div>
+
+{%- if section.content -%}
+<div id="page-content">
+    <article class="h-entry">
+        <section class="e-content body">
+            {{ section.content | safe }}
+        </section>
+    </article>
+</div>
+{%- endif -%}
