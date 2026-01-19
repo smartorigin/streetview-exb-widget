@@ -11,6 +11,7 @@
 - [x] Make street view embeded api params controllable through settings
 - [x] Add a guaranted loading view between every map click
 - [x] Allow to control default behaviour through settings (click to view/popup action)
+- [x] Add a reset button to Street View API section of settings
 - [ ] Add a loading spinner on map at clicked point, change it back to a position marker when loading has finished
 - [ ] Improve performance
 - [ ] Switch view when detecting mobile/desktop
@@ -19,12 +20,18 @@
 
 - [ ] Make settings.tsx more readable by creating components for each row
 
+## Tests
+
+- [ ] Write some unit tests
+- [ ] Write some integrations tests
+
 ## Readme
 
 - [x] Add "pré requis" section to readme
 - [x] Add "feature request" section to readme
-- [ ] Update readme gif to use latest ver of the widget
+- [x] Update readme gif to use latest ver of the widget
 - [ ] Add french version
+- [ ] Compress the gif files
 
 ## Bugs
 
