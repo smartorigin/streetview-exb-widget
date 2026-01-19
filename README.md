@@ -3,7 +3,7 @@
   <h1>Google Street View Widget</h1>
   
   <p>
-    Built for ArcGIS Experience Builder
+    Built for ArcGIS Experience Builder  —  Made with ❤️ by <a href="https://smart/origin.com">Smart/Origin</a>
   </p>
   <p>
     <a href="">
