@@ -1,13 +1,20 @@
-+++
-title = "Google Street View Widget"
+---
+layout: article
+title: Google Street View Widget
+permalink: /
+header: false
+show_date: false
+show_tags: false
+article_header:
+  type: overlay
+  theme: dark
+  background_color: '#123'
+  background_image: false
+---
 
-[extra]
-header = { title = "Street View Widget", subtitle = "Built for ArcGIS Experience Builder", img = "svg/icon.svg", img_alt = "Widget Icon", github_repo = "smartorigin/streetview-exb-widget" }
-+++
+This widget brings Google Street View into your [ArcGIS Experience Builder](https://developers.arcgis.com/experience-builder/) applications. Click anywhere on the map to see street-level imagery, or open Street View directly from feature actions in popup.
 
-This widget brings Google Street View into your ArcGIS Experience Builder applications. Click anywhere on the map to see street-level imagery, or open Street View directly from feature actions in popup.
-
-{{ dimmable_image(src="Demo1.gif", alt="Photograph of a canal in Amsterdam") }}
+![Image](/assets/Demo1.gif){:.border}
 
 ---
 
@@ -36,8 +43,10 @@ The widget uses Google's [Maps Embed API](https://developers.google.com/maps/doc
 3. Go to **APIs & Services** > **Library** and enable **Maps Embed API**
 4. Go to **APIs & Services** > **Credentials** and create an API key
 
-> [!NOTE]
-> You'll need billing enabled on your Google Cloud account.
+<div class="alert alert-note">
+<p>Note</p>
+<p>You'll need billing enabled on your Google Cloud account.</p>
+</div>
 
 ## Usage
 
@@ -47,21 +56,21 @@ The widget can be used in two main different ways, choose preset your prefer thr
 
 Any click on the map opens Street View at that location in a floating panel, this is the default preset.
 
-> [!NOTE]
-> You can toggle the widget on and off through a floating control panel at the bottom right of the screen
->
-> ![DemoGifUsage1](./docs/assets/DemoGifUsage1.gif)
+<div class="alert alert-note">
+<p><strong>Note</strong></p>
+<p>You can toggle the widget on and off through a floating control panel at the bottom right of the screen</p>
+</div>
 
 ### ▶️ Popup action
 
 Street View opens only when you click the "Open in Street View" button inside a feature popup. Map clicks work normally without triggering Street View (you can still enable it through settings).
 
-> [!NOTE]
->
-> ![DemoGifPopupAction](./docs/assets/DemoGifPopupAction.gif)
+![Popup action demo](/assets/DemoGifPopupAction.gif)
 
-> [!TIP]
-> The "Open In Street View" action will still be present in the default "Click-to-view" mode, this mode exists specifically for users who do not wish to use the map click feature or see a permanent control panel
+<div class="alert alert-tip">
+<p><strong>Tip</strong></p>
+<p>The "Open In Street View" action will still be present in the default "Click-to-view" mode, this mode exists specifically for users who do not wish to use the map click feature or see a permanent control panel</p>
+</div>
 
 ## Installation
 
@@ -69,8 +78,10 @@ Street View opens only when you click the "Open in Street View" button inside a 
 
 This widget is compatible with Experience Builder v1.16+. Grab it from the [downloads page](https://developers.arcgis.com/experience-builder/guide/downloads/) and follow the [setup guide](https://developers.arcgis.com/experience-builder/guide/install-guide/).
 
-> [!NOTE]
-> You'll need Node.js >=22 and npm to install experience builder
+<div class="alert alert-note">
+<p>Note</p>
+<p>You'll need Node.js ≥22 and npm to install experience builder</p>
+</div>
 
 #### Dist Method
 
@@ -111,8 +122,10 @@ Since ArcGIS Enterprise 11 you can reference your own ArcGIS Experience builder 
 
 Drag and drop the widget inside your app.
 
-> [!TIP]
-> To automatically bind the widget to your map, drag and drop it onto the map widget.
+<div class="alert alert-tip">
+<p><strong>Tip</strong></p>
+<p>To automatically bind the widget to your map, drag and drop it onto the map widget.</p>
+</div>
 
 ### Source options
 
