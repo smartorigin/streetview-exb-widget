@@ -310,6 +310,18 @@ function Setting(props: AllWidgetSettingProps<WidgetConfig>) {
           setStreetViewApiParams={setStreetViewApiParams}
         />
       </SettingSection>
+
+      <SettingSection>
+        <p className="d-flex flex-column align-items-center mb-0">
+          <div>
+            Made with ❤️ by <a href="https://smart/origin.com">Smart/Origin</a>
+          </div>
+          <span style={{ marginTop: 3 }}>•</span>
+          <div>
+            Freely available on <a href="https://github.com/smartorigin/streetview-exb-widget">Github</a>
+          </div>
+        </p>
+      </SettingSection>
     </div>
   )
 }
