@@ -291,12 +291,13 @@ function Setting(props: AllWidgetSettingProps<WidgetConfig>) {
             {/* Reset Button */}
             <Button
               className="size-fit"
-              size="default"
+              size="sm"
               variant="text"
               aria-label="Reset the settings of the Street View API section"
               onClick={() => resetStreetViewApiParams()}
             >
-              <ResetOutlined className="mr-0" size={13} />
+              Reset
+              {/* <ResetOutlined className="mr-0" size={13} /> */}
             </Button>
           </div>
         }
