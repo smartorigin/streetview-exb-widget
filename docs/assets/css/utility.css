@@ -1,3 +1,8 @@
+.center {
+  display: table !important;
+  margin: 0 auto !important;
+}
+
 /* ==========================================================================
    SPACING UTILITIES (margin & padding)
    ========================================================================== */
@@ -44,8 +49,16 @@
   margin-top: 1rem !important;
 }
 
+.mt-3-5 {
+  margin-top: 1.3rem !important;
+}
+
 .mt-4 {
   margin-top: 1.5rem !important;
+}
+
+.mt-4-5 {
+  margin-top: 2.25rem !important;
 }
 
 .mt-5 {

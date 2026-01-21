@@ -2,36 +2,40 @@
    GITHUB-STYLE ALERTS/NOTES
    ========================================================================== */
 
-/* Base alert styles */
+/* Container */
 .alert {
-  padding: 1rem;
-  padding-block-end: 0.8rem;
+  padding-inline: 16px;
+  padding-block: 16px;
   margin: 1rem 0;
   border-left: 4px solid;
-  border-radius: 4px;
   position: relative;
 }
 
-/* Title with icon inline */
+/* Title */
 .alert>p:first-child {
   margin-top: 0;
-  font-weight: 600;
+  margin-bottom: 16px;
+  line-height: 1;
+  font-weight: 500;
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
+/* Icon */
 .alert>p:first-child::before {
   font-family: "Font Awesome 6 Free", sans-serif;
   font-weight: 900;
   font-size: 1.1em;
 }
 
+/* Text */
 .alert>p:last-child {
-  margin-bottom: 0;
+  line-height: 1;
+  margin-block: 0;
 }
 
-/* Note - Blue */
+/* Note */
 .alert-note {
   background-color: rgba(24, 144, 255, 0.1);
   border-left-color: #1890ff;
@@ -40,11 +44,10 @@
 
 .alert-note>p:first-child::before {
   content: "\f05a";
-  /* info-circle */
   color: #1890ff;
 }
 
-/* Tip - Green */
+/* Tip */
 .alert-tip {
   background-color: rgba(82, 196, 26, 0.1);
   border-left-color: #52c41a;
@@ -53,11 +56,10 @@
 
 .alert-tip>p:first-child::before {
   content: "\f0eb";
-  /* lightbulb */
   color: #52c41a;
 }
 
-/* Important - Purple */
+/* Important */
 .alert-important {
   background-color: #f6e4ff;
   border-left-color: #8250df;
@@ -66,11 +68,10 @@
 
 .alert-important>p:first-child::before {
   content: "\f06a";
-  /* exclamation-circle */
   color: #8250df;
 }
 
-/* Warning - Yellow/Orange */
+/* Warning */
 .alert-warning {
   background-color: rgba(250, 140, 22, 0.1);
   border-left-color: #fa8c16;
@@ -79,11 +80,10 @@
 
 .alert-warning>p:first-child::before {
   content: "\f071";
-  /* exclamation-triangle */
   color: #fa8c16;
 }
 
-/* Caution/Danger - Red */
+/* Caution/Danger */
 .alert-caution,
 .alert-danger {
   background-color: #ffebe9;
@@ -94,61 +94,5 @@
 .alert-caution>p:first-child::before,
 .alert-danger>p:first-child::before {
   content: "\f06a";
-  /* exclamation-circle */
   color: #d1242f;
-}
-
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-  .alert-note {
-    background-color: rgba(24, 144, 255, 0.1);
-    border-left-color: #1890ff;
-    color: #1890ff;
-  }
-
-  .alert-note>p:first-child::before {
-    color: #1890ff;
-  }
-
-  .alert-tip {
-    background-color: rgba(82, 196, 26, 0.1);
-    border-left-color: #52c41a;
-    color: #52c41a;
-  }
-
-  .alert-tip>p:first-child::before {
-    color: #52c41a;
-  }
-
-  .alert-important {
-    background-color: rgba(163, 113, 247, 0.15);
-    border-left-color: #a371f7;
-    color: #a371f7;
-  }
-
-  .alert-important>p:first-child::before {
-    color: #a371f7;
-  }
-
-  .alert-warning {
-    background-color: rgba(250, 140, 22, 0.1);
-    border-left-color: #fa8c16;
-    color: #fa8c16;
-  }
-
-  .alert-warning>p:first-child::before {
-    color: #fa8c16;
-  }
-
-  .alert-caution,
-  .alert-danger {
-    background-color: rgba(248, 81, 73, 0.15);
-    border-left-color: #f85149;
-    color: #f85149;
-  }
-
-  .alert-caution>p:first-child::before,
-  .alert-danger>p:first-child::before {
-    color: #f85149;
-  }
 }

@@ -2,7 +2,7 @@
 layout: article
 title: Google Street View Widget
 permalink: /
-header: true
+header: false
 show_date: false
 show_tags: false
 article_header:
@@ -12,34 +12,24 @@ article_header:
   background_image: false
 ---
 
-This widget brings [Google Street View](https://www.google.fr/intl/fr/streetview/) into your [ArcGIS Experience Builder](https://developers.arcgis.com/experience-builder/) applications. Click anywhere on the map to see street-level imagery, or open Street View directly from feature actions in popup.
+This widget brings [Google Street View](https://www.google.fr/intl/fr/streetview/) into your [ArcGIS Experience Builder](https://developers.arcgis.com/experience-builder/) applications. <br> Open street view by clicking on the map, or use the added `Open in Street View` action to open street view at the location of a feature.
+<br> To use and install the widget, see the [installation](#installation) section.
 {:.text-center}
 
-![Image](/assets/demo-1.gif){:.shadow.rounded.mt-3}
+![Image](/assets/demo-1.gif){:.shadow.rounded.mt-3-5.w-100}
 
 <h1 class="my-5 text-center">
   Features
 </h1>
 
 <h3>
-  <i class="fas fa-mobile-screen fa-lg mr-1" style="color: #076fe5 !important"></i>
-  Expandable Mobile Panel
-</h3>
-
-This widget brings **Google Street View** into your [ArcGIS Experience Builder](https://developers.arcgis.com/experience-builder/) applications. Click anywhere on the map to see street-level imagery, or open Street View directly from feature actions in popup.
-
-![Image](/assets/demo-mobile-panel.gif){:.shadow.rounded}
-
----
-
-<h3>
   <i class="fas fa-map-location fa-lg mr-1" style="color: #076fe5 !important"></i>
   Popup Action Integration
 </h3>
 
-This widget brings **Google Street View** into your [ArcGIS Experience Builder](https://developers.arcgis.com/experience-builder/) applications. Click anywhere on the map to see street-level imagery, or open Street View directly from feature actions in popup.
+When enabled, automatically add an `Open in Street View` action to feature popups in your map, enabling fast access to ground-level imagery of a feature. If the feature isn't a point the geometric center of the feature will be used.
 
-![Image](/assets/demo-popup-action.gif){:.shadow.rounded}
+![Image](/assets/demo-popup-action.gif){:.shadow.rounded.w-100}
 
 ---
 
@@ -48,13 +38,35 @@ This widget brings **Google Street View** into your [ArcGIS Experience Builder](
   Open in Google Maps
 </h3>
 
-This widget brings **Google Street View** into your [ArcGIS Experience Builder](https://developers.arcgis.com/experience-builder/) applications. Click anywhere on the map to see street-level imagery, or open Street View directly from feature actions in popup.
+Launch the current Street View location directly in Google Maps. This simplify access to Google Maps' feature set (image history, interactive point of interests...).
 
-![Image](/assets/demo-open-in-gm.gif){:.shadow.rounded}
+![Image](/assets/demo-open-in-gm.gif){:.shadow.rounded.w-100}
 
 ---
 
-<h1 class="my-5 text-center">
+<h3>
+  <i class="fas fa-mobile-screen fa-lg mr-1" style="color: #076fe5 !important"></i>
+  Reduced/Expanded View
+</h3>
+
+Toggle between a compact floating panel and an expanded full-screen view. The expanded mode provides an optimized mobile experience, allowing users to maximize Street View imagery while maintaining the ability to quickly return to the map.
+
+![Image](/assets/demo-mobile-panel.gif){:.shadow.rounded.w-100}
+
+---
+
+<h3>
+  <i class="fas fa-gear fa-lg mr-1" style="color: #076fe5 !important"></i>
+  Fully Configurable
+</h3>
+
+Customize widget's behaviour. Configure initial camera position and heading, control UI element visibility, enable or disable features...
+
+![Image](/assets/demo-config.gif){:.shadow.rounded.w-100}
+
+---
+
+<h1 id="installation" class="my-5 text-center">
   Installation
 </h1>
 
