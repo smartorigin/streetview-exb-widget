@@ -1,18 +1,18 @@
 import type { Point, Polygon } from 'esri/geometry'
 import { type JimuMapView, JimuMapViewComponent } from 'jimu-arcgis'
 import type { AllWidgetProps } from 'jimu-core'
-import { Alert, Message } from 'jimu-ui'
+import { Alert } from 'jimu-ui'
 import { useEffect, useState } from 'react'
 import type { WidgetConfig } from '../config'
 import ExpandedStreetView from '././views/ExpandedStreetView'
 import './css/main.css'
-// NOTE: Import react for compatibility with older exb versions
+// Import React for compatibility with older exb versions
 import React from 'react'
 import useWidgetViewState from './hooks/useWidgetViewState'
 import MapService from './services/engine/MapService'
 import StreetViewApiService from './services/engine/StreetViewApiService'
 import defaultMessages from './translations/default'
-import type { AlertType, MessageType, WidgetViewType } from './types/general'
+import type { AlertType, WidgetViewType } from './types/general'
 import { personViewSymbol } from './utils/cim-symbols'
 import clsx from './utils/clsx'
 import ControlPanelView from './views/ControlPanelView'
@@ -35,14 +35,6 @@ export default function Widget(props: AllWidgetProps<WidgetConfig>) {
    * Wether or not the google api key is set/found
    */
   const [isGoogleApiKeyValid, setIsGoogleApiKeyValid] = useState<boolean>(false)
-
-  /**
-   * State of the widget's toast component
-   */
-  const [message, setMessage] = useState<MessageType>({
-    open: false,
-    message: ''
-  })
 
   /**
    * State of the widget's alert component
@@ -76,16 +68,6 @@ export default function Widget(props: AllWidgetProps<WidgetConfig>) {
     // Check if api key has been entered
     if (!streetViewApiService.hasApiKey()) {
       console.error("[clickHandler] Google API key isn't set")
-      // Display floating error message
-      setMessage((prev) => ({
-        ...prev,
-        open: true,
-        message: props.intl.formatMessage({
-          id: 'googleApiKeyNotFoundErrorLabel',
-          defaultMessage: defaultMessages.googleApiKeyNotFoundErrorLabel
-        }),
-        severity: 'error'
-      }))
       return
     }
 
@@ -282,23 +264,6 @@ export default function Widget(props: AllWidgetProps<WidgetConfig>) {
       {props.useMapWidgetIds?.[0] && (
         <JimuMapViewComponent useMapWidgetId={props.useMapWidgetIds[0]} onActiveViewChange={activeViewChangeHandler} />
       )}
-
-      {/* Message Toast */}
-      <Message
-        className="title3 font-bold"
-        message={message.message}
-        open={message.open}
-        severity={message.severity}
-        shape={message.shape}
-        autoHideDuration={2000}
-        withIcon={true}
-        onClose={() => {
-          setMessage((prev) => ({
-            ...prev,
-            open: false
-          }))
-        }}
-      />
 
       {/* View Container */}
       <div
