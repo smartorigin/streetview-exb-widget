@@ -150,6 +150,7 @@ function ExpandedStreetView(props: ExpandedStreetViewProps) {
               'size-full border-0',
               isStreetViewLoading ? 'invisible' : 'visible'
             )}
+            title="streetview-expanded-view"
             style={{ zIndex: 0 }}
             loading="lazy"
             src={props.url || undefined}

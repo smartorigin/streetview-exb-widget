@@ -93,7 +93,7 @@ function StreetView(props: StreetViewProps) {
         <div className="size-full">
           {props.isAvailable ? (
             <iframe
-              title="streetview-iframe"
+              title="streetview-default-view"
               className={clsx('size-full border-0', isStreetViewLoading ? 'invisible' : 'visible')}
               style={{ zIndex: 0 }}
               loading="lazy"
