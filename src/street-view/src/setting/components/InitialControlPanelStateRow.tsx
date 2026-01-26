@@ -1,6 +1,7 @@
 import { Select, Tooltip } from 'jimu-ui'
 import { SettingRow } from 'jimu-ui/advanced/setting-components'
-import { FormattedMessage, type IntlShape } from 'react-intl'
+import React from 'react'
+import type { IntlShape } from 'react-intl'
 import type { InitialControlPanelStateType } from '../../config'
 import defaultMessages from '../translations/default'
 
@@ -27,11 +28,7 @@ export default function InitialControlPanelStateRow(props: InitialControlPanelSt
           })}
         >
           <span>
-            <FormattedMessage
-              tagName="span"
-              id="initialControlPanelStateRowLabel"
-              defaultMessage={defaultMessages.initialControlPanelStateRowLabel}
-            />
+            {intl.formatMessage({ id: 'span', defaultMessage: defaultMessages.initialControlPanelStateRowLabel })}
           </span>
         </Tooltip>
       }
@@ -47,16 +44,16 @@ export default function InitialControlPanelStateRow(props: InitialControlPanelSt
         size="sm"
       >
         <option value="on">
-          <FormattedMessage
-            id="initialControlPanelStateOptionOn"
-            defaultMessage={defaultMessages.initialControlPanelStateOptionOn}
-          />
+          {intl.formatMessage({
+            id: 'initialControlPanelStateOptionOn',
+            defaultMessage: defaultMessages.initialControlPanelStateOptionOn
+          })}
         </option>
         <option value="off">
-          <FormattedMessage
-            id="initialControlPanelStateOptionOff"
-            defaultMessage={defaultMessages.initialControlPanelStateOptionOff}
-          />
+          {intl.formatMessage({
+            id: 'initialControlPanelStateOptionOff',
+            defaultMessage: defaultMessages.initialControlPanelStateOptionOff
+          })}
         </option>
       </Select>
     </SettingRow>

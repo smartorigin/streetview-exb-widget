@@ -2,7 +2,8 @@ import { InfoOutlined } from 'jimu-icons/outlined/suggested/info'
 import { Button, NumericInput, Tooltip } from 'jimu-ui'
 import { SettingRow } from 'jimu-ui/advanced/setting-components'
 import type { Dispatch, SetStateAction } from 'react'
-import { FormattedMessage } from 'react-intl'
+import React from 'react'
+import type { IntlShape } from 'react-intl'
 import type { ImmutableObject } from 'seamless-immutable'
 import type { StreetViewApiParams } from '../../config'
 import defaultMessages from '../translations/default'
@@ -10,16 +11,18 @@ import defaultMessages from '../translations/default'
 type PitchRowProps = {
   streetViewApiParams: StreetViewApiParams
   setStreetViewApiParams: Dispatch<SetStateAction<StreetViewApiParams | ImmutableObject<StreetViewApiParams>>>
+  intl: IntlShape
 }
 
 export default function PitchRow(props: PitchRowProps) {
+  const { intl } = props
   return (
     <SettingRow
       flow="wrap"
       className="settingsRowStyle"
       label={
         <div className="d-flex flex-row gap-0.5 align-items-center">
-          <FormattedMessage id="headingRowLabel" defaultMessage={defaultMessages.headingRowLabel} />
+          {intl.formatMessage({ id: 'headingRowLabel', defaultMessage: defaultMessages.headingRowLabel })}
           <Tooltip
             enterDelay={100}
             enterNextDelay={0}
@@ -33,16 +36,16 @@ export default function PitchRow(props: PitchRowProps) {
             title={
               <div className="p-2 d-flex flex-column" style={{ maxWidth: '300px' }}>
                 <p className="text-pretty">
-                  <FormattedMessage
-                    id="headingRowTooltipLabel1"
-                    defaultMessage={defaultMessages.headingRowTooltipLabel1}
-                  />
+                  {intl.formatMessage({
+                    id: 'headingRowTooltipLabel1',
+                    defaultMessage: defaultMessages.headingRowTooltipLabel1
+                  })}
                 </p>
                 <p className="font-semibold mb-0">
-                  <FormattedMessage
-                    id="headingRowTooltipLabel2"
-                    defaultMessage={defaultMessages.headingRowTooltipLabel2}
-                  />
+                  {intl.formatMessage({
+                    id: 'headingRowTooltipLabel2',
+                    defaultMessage: defaultMessages.headingRowTooltipLabel2
+                  })}
                 </p>
               </div>
             }

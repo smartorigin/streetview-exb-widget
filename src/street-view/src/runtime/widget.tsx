@@ -249,6 +249,7 @@ export default function Widget(props: AllWidgetProps<WidgetConfig>) {
           webUrl={widgetViewState.streetViewWebUrl}
           isAvailable={widgetViewState.isAvalaible}
           setView={widgetViewState.setView}
+          intl={props.intl}
         />
       )
     } else if (view === 'expanded') {
@@ -259,6 +260,7 @@ export default function Widget(props: AllWidgetProps<WidgetConfig>) {
           isAvailable={widgetViewState.isAvalaible}
           setView={widgetViewState.setView}
           setWidgetViewState={widgetViewState.setState}
+          intl={props.intl}
         />
       )
     } else if (view === 'default') {

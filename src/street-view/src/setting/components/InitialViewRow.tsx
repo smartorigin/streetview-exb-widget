@@ -1,7 +1,8 @@
 import { InfoOutlined } from 'jimu-icons/outlined/suggested/info'
 import { Button, Select, Tooltip } from 'jimu-ui'
 import { SettingRow } from 'jimu-ui/advanced/setting-components'
-import { FormattedMessage, type IntlShape } from 'react-intl'
+import React from 'react'
+import type { IntlShape } from 'react-intl'
 import type { InitialViewType } from '../../config'
 import defaultMessages from '../translations/default'
 
@@ -18,7 +19,7 @@ export default function InitialViewState(props: InitialViewStateProps) {
       flow="wrap"
       label={
         <div className="d-flex flex-row gap-0.5 align-items-center">
-          <FormattedMessage id="defaultViewRowLabel" defaultMessage={defaultMessages.defaultViewRowLabel} />
+          {intl.formatMessage({ id: 'defaultViewRowLabel', defaultMessage: defaultMessages.defaultViewRowLabel })}
           <Tooltip
             enterDelay={100}
             enterNextDelay={0}
@@ -31,37 +32,36 @@ export default function InitialViewState(props: InitialViewStateProps) {
             role="tooltip"
             title={
               <div className="p-2 h-fit d-flex flex-column">
-                <FormattedMessage
-                  tagName="p"
-                  id="defaultViewRowTooltipLabel1"
-                  defaultMessage={defaultMessages.defaultViewRowTooltipLabel1}
-                />
+                {intl.formatMessage({
+                  id: 'defaultViewRowTooltipLabel1',
+                  defaultMessage: defaultMessages.defaultViewRowTooltipLabel1
+                })}
                 <div className="d-flex flex-column gap-0.5">
                   <p className="font-weight-bold mb-0">
-                    <FormattedMessage
-                      id="defaultViewRowTooltipLabel2"
-                      defaultMessage={defaultMessages.defaultViewRowTooltipLabel2}
-                    />
+                    {intl.formatMessage({
+                      id: 'defaultViewRowTooltipLabel2',
+                      defaultMessage: defaultMessages.defaultViewRowTooltipLabel2
+                    })}
                   </p>
                   <p>
-                    <FormattedMessage
-                      id="defaultViewRowTooltipLabel3"
-                      defaultMessage={defaultMessages.defaultViewRowTooltipLabel3}
-                    />
+                    {intl.formatMessage({
+                      id: 'defaultViewRowTooltipLabel3',
+                      defaultMessage: defaultMessages.defaultViewRowTooltipLabel3
+                    })}
                   </p>
                 </div>
                 <div className="d-flex flex-column gap-0.5">
                   <p className="font-weight-bold mb-0">
-                    <FormattedMessage
-                      id="defaultViewRowTooltipLabel4"
-                      defaultMessage={defaultMessages.defaultViewRowTooltipLabel4}
-                    />
+                    {intl.formatMessage({
+                      id: 'defaultViewRowTooltipLabel4',
+                      defaultMessage: defaultMessages.defaultViewRowTooltipLabel4
+                    })}
                   </p>
                   <p className="mb-0">
-                    <FormattedMessage
-                      id="defaultViewRowTooltipLabel5"
-                      defaultMessage={defaultMessages.defaultViewRowTooltipLabel5}
-                    />
+                    {intl.formatMessage({
+                      id: 'defaultViewRowTooltipLabel5',
+                      defaultMessage: defaultMessages.defaultViewRowTooltipLabel5
+                    })}
                   </p>
                 </div>
               </div>
@@ -88,10 +88,16 @@ export default function InitialViewState(props: InitialViewStateProps) {
         size="sm"
       >
         <option value="expanded">
-          <FormattedMessage id="defaultViewOptionExpanded" defaultMessage={defaultMessages.defaultViewOptionExpanded} />
+          {intl.formatMessage({
+            id: 'defaultViewOptionExpanded',
+            defaultMessage: defaultMessages.defaultViewOptionExpanded
+          })}
         </option>
         <option value="reduced">
-          <FormattedMessage id="defaultViewOptionReduced" defaultMessage={defaultMessages.defaultViewOptionReduced} />
+          {intl.formatMessage({
+            id: 'defaultViewOptionReduced',
+            defaultMessage: defaultMessages.defaultViewOptionReduced
+          })}
         </option>
       </Select>
     </SettingRow>

@@ -1,6 +1,7 @@
 import { Switch, Tooltip } from 'jimu-ui'
 import { SettingRow } from 'jimu-ui/advanced/setting-components'
-import { FormattedMessage, type IntlShape } from 'react-intl'
+import React from 'react'
+import type { IntlShape } from 'react-intl'
 import defaultMessages from '../translations/default'
 
 type IsControlPanelEnabledRowProps = {
@@ -25,10 +26,10 @@ export default function IsControlPanelEnabledRow(props: IsControlPanelEnabledRow
           })}
         >
           <span>
-            <FormattedMessage
-              id="enableControlPanelRowLabel"
-              defaultMessage={defaultMessages.enableControlPanelRowLabel}
-            />
+            {intl.formatMessage({
+              id: 'enableControlPanelRowLabel',
+              defaultMessage: defaultMessages.enableControlPanelRowLabel
+            })}
           </span>
         </Tooltip>
       }

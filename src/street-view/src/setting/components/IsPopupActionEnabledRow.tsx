@@ -1,6 +1,7 @@
 import { Switch, Tooltip } from 'jimu-ui'
 import { SettingRow } from 'jimu-ui/advanced/setting-components'
-import { FormattedMessage, type IntlShape } from 'react-intl'
+import React from 'react'
+import type { IntlShape } from 'react-intl'
 import defaultMessages from '../translations/default'
 
 type IsPopupActionEnabledRowProps = {
@@ -24,10 +25,10 @@ export default function IsPopupActionEnabledRow(props: IsPopupActionEnabledRowPr
           })}
         >
           <span>
-            <FormattedMessage
-              id="enablePopupActionRowLabel"
-              defaultMessage={defaultMessages.enablePopupActionRowLabel}
-            />
+            {intl.formatMessage({
+              id: 'enablePopupActionRowLabel',
+              defaultMessage: defaultMessages.enablePopupActionRowLabel
+            })}
           </span>
         </Tooltip>
       }

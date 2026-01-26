@@ -2,7 +2,8 @@ import { InfoOutlined } from 'jimu-icons/outlined/suggested/info'
 import { Button, Select, Tooltip } from 'jimu-ui'
 import { SettingRow } from 'jimu-ui/advanced/setting-components'
 import type { Dispatch, SetStateAction } from 'react'
-import { FormattedMessage } from 'react-intl'
+import React from 'react'
+import type { IntlShape } from 'react-intl'
 import type { ImmutableObject } from 'seamless-immutable'
 import type { StreetViewApiParams } from '../../config'
 import defaultMessages from '../translations/default'
@@ -10,15 +11,17 @@ import defaultMessages from '../translations/default'
 type StreetViewApiSourceRowProps = {
   streetViewApiParams: StreetViewApiParams
   setStreetViewApiParams: Dispatch<SetStateAction<StreetViewApiParams | ImmutableObject<StreetViewApiParams>>>
+  intl: IntlShape
 }
 
 export default function StreetViewApiSourceRow(props: StreetViewApiSourceRowProps) {
+  const { intl } = props
   return (
     <SettingRow
       flow="wrap"
       label={
         <div className="d-flex flex-row gap-0.5 align-items-center">
-          <FormattedMessage id="sourceRowLabel" defaultMessage={defaultMessages.sourceRowLabel} />
+          {intl.formatMessage({ id: 'sourceRowLabel', defaultMessage: defaultMessages.sourceRowLabel })}
           <Tooltip
             enterDelay={100}
             enterNextDelay={0}
@@ -32,28 +35,28 @@ export default function StreetViewApiSourceRow(props: StreetViewApiSourceRowProp
             title={
               <div className="p-2 d-flex flex-column" style={{ maxWidth: '300px' }}>
                 <p className="text-pretty">
-                  <FormattedMessage
-                    id="sourceRowTooltipLabel1"
-                    defaultMessage={defaultMessages.sourceRowTooltipLabel1}
-                  />
+                  {intl.formatMessage({
+                    id: 'sourceRowTooltipLabel1',
+                    defaultMessage: defaultMessages.sourceRowTooltipLabel1
+                  })}
                 </p>
                 <p>
-                  <FormattedMessage
-                    id="sourceRowTooltipLabel2"
-                    defaultMessage={defaultMessages.sourceRowTooltipLabel2}
-                  />
+                  {intl.formatMessage({
+                    id: 'sourceRowTooltipLabel2',
+                    defaultMessage: defaultMessages.sourceRowTooltipLabel2
+                  })}
                 </p>
                 <p>
-                  <FormattedMessage
-                    id="sourceRowTooltipLabel3"
-                    defaultMessage={defaultMessages.sourceRowTooltipLabel3}
-                  />
+                  {intl.formatMessage({
+                    id: 'sourceRowTooltipLabel3',
+                    defaultMessage: defaultMessages.sourceRowTooltipLabel3
+                  })}
                 </p>
                 <p className="font-semibold mb-0">
-                  <FormattedMessage
-                    id="sourceRowTooltipLabel4"
-                    defaultMessage={defaultMessages.sourceRowTooltipLabel4}
-                  />
+                  {intl.formatMessage({
+                    id: 'sourceRowTooltipLabel4',
+                    defaultMessage: defaultMessages.sourceRowTooltipLabel4
+                  })}
                 </p>
               </div>
             }
@@ -78,16 +81,16 @@ export default function StreetViewApiSourceRow(props: StreetViewApiSourceRowProp
         size="sm"
       >
         <option value="outdoor">
-          <FormattedMessage
-            id="sourceRowSelectOptionLabel1"
-            defaultMessage={defaultMessages.sourceRowSelectOptionLabel1}
-          />
+          {intl.formatMessage({
+            id: 'sourceRowSelectOptionLabel1',
+            defaultMessage: defaultMessages.sourceRowSelectOptionLabel1
+          })}
         </option>
         <option value="default">
-          <FormattedMessage
-            id="sourceRowSelectOptionLabel2"
-            defaultMessage={defaultMessages.sourceRowSelectOptionLabel2}
-          />
+          {intl.formatMessage({
+            id: 'sourceRowSelectOptionLabel2',
+            defaultMessage: defaultMessages.sourceRowSelectOptionLabel2
+          })}
         </option>
       </Select>
     </SettingRow>

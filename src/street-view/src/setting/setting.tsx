@@ -1,10 +1,8 @@
 import type { AllWidgetSettingProps } from 'jimu-for-builder'
-import { ResetOutlined } from 'jimu-icons/outlined/editor/reset'
 import { Button } from 'jimu-ui'
 import { SettingSection } from 'jimu-ui/advanced/setting-components'
 // NOTE: Import react for compatibility with older exb versions
 import React, { useEffect, useState } from 'react'
-import { FormattedMessage } from 'react-intl'
 import type { IConfig, InitialControlPanelStateType, InitialViewType, PresetType, WidgetConfig } from '../config'
 import '../runtime/css/utilities.css'
 import '../runtime/css/variables.css'
@@ -232,9 +230,9 @@ function Setting(props: AllWidgetSettingProps<WidgetConfig>) {
           defaultMessage: defaultMessages.sourceSectionTitle
         })}
         role="group"
-        title={<FormattedMessage id="sourceSectionTitle" defaultMessage={defaultMessages.sourceSectionTitle} />}
+        title={intl.formatMessage({ id: 'sourceSectionTitle', defaultMessage: defaultMessages.sourceSectionTitle })}
       >
-        <SelectMapRow onChange={onMapWidgetChange} useMapWidgetIds={props.useMapWidgetIds} />
+        <SelectMapRow onChange={onMapWidgetChange} useMapWidgetIds={props.useMapWidgetIds} intl={intl} />
 
         <GoogleApiKeyRow onChange={onGoogleApiKeyChange} value={googleApiKey} intl={intl} />
       </SettingSection>
@@ -251,7 +249,7 @@ function Setting(props: AllWidgetSettingProps<WidgetConfig>) {
           defaultMessage: defaultMessages.generalOptionsSectionTitle
         })}
       >
-        <PresetRow onChange={onPresetChange} value={preset} />
+        <PresetRow onChange={onPresetChange} value={preset} intl={intl} />
         <IsPopupActionEnabledRow onChange={onIsPopupActionEnabled} value={isPopupActionEnabled} intl={intl} />
         <IsClickEnabledRow onChange={onIsClickEnabled} value={isClickEnabled} intl={intl} />
         <IsPositionIconEnabledRow
@@ -284,10 +282,10 @@ function Setting(props: AllWidgetSettingProps<WidgetConfig>) {
         role="group"
         title={
           <div className="d-flex flex-row justify-content-between align-items-start">
-            <FormattedMessage
-              id="streetViewApiParamsSectionTitle"
-              defaultMessage={defaultMessages.streetViewApiParamsSectionTitle}
-            />
+            {intl.formatMessage({
+              id: 'streetViewApiParamsSectionTitle',
+              defaultMessage: defaultMessages.streetViewApiParamsSectionTitle
+            })}
             {/* Reset Button */}
             <Button
               className="size-fit"
@@ -302,13 +300,26 @@ function Setting(props: AllWidgetSettingProps<WidgetConfig>) {
           </div>
         }
       >
-        <HeadingRow streetViewApiParams={streetViewApiParams} setStreetViewApiParams={setStreetViewApiParams} />
-        <PitchRow streetViewApiParams={streetViewApiParams} setStreetViewApiParams={setStreetViewApiParams} />
-        <FovRow streetViewApiParams={streetViewApiParams} setStreetViewApiParams={setStreetViewApiParams} />
-        <RadiusRow streetViewApiParams={streetViewApiParams} setStreetViewApiParams={setStreetViewApiParams} />
+        <HeadingRow
+          streetViewApiParams={streetViewApiParams}
+          setStreetViewApiParams={setStreetViewApiParams}
+          intl={intl}
+        />
+        <PitchRow
+          streetViewApiParams={streetViewApiParams}
+          setStreetViewApiParams={setStreetViewApiParams}
+          intl={intl}
+        />
+        <FovRow streetViewApiParams={streetViewApiParams} setStreetViewApiParams={setStreetViewApiParams} intl={intl} />
+        <RadiusRow
+          streetViewApiParams={streetViewApiParams}
+          setStreetViewApiParams={setStreetViewApiParams}
+          intl={intl}
+        />
         <StreetViewApiSourceRow
           streetViewApiParams={streetViewApiParams}
           setStreetViewApiParams={setStreetViewApiParams}
+          intl={intl}
         />
       </SettingSection>
 

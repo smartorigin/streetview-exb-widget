@@ -1,6 +1,7 @@
 import { Switch, Tooltip } from 'jimu-ui'
 import { SettingRow } from 'jimu-ui/advanced/setting-components'
-import { FormattedMessage, type IntlShape } from 'react-intl'
+import React from 'react'
+import type { IntlShape } from 'react-intl'
 import defaultMessages from '../translations/default'
 
 type IsPositionIconEnabledRowProps = {
@@ -25,10 +26,10 @@ export default function IsPositionIconEnabledRow(props: IsPositionIconEnabledRow
           })}
         >
           <span>
-            <FormattedMessage
-              id="disablePositionIconRowLabel"
-              defaultMessage={defaultMessages.disablePositionIconRowLabel}
-            />
+            {intl.formatMessage({
+              id: 'disablePositionIconRowLabel',
+              defaultMessage: defaultMessages.disablePositionIconRowLabel
+            })}
           </span>
         </Tooltip>
       }

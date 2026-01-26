@@ -2,7 +2,7 @@ import { CalciteIcon } from 'calcite-components'
 import { Button, Loading, LoadingType } from 'jimu-ui'
 // NOTE: Import react for compatibility with older exb versions
 import React, { useEffect, useState } from 'react'
-import { FormattedMessage } from 'react-intl'
+import type { IntlShape } from 'react-intl'
 import defaultMessages from '../translations/default'
 import type { WidgetViewType } from '../types/general'
 import clsx from '../utils/clsx'
@@ -12,9 +12,12 @@ interface StreetViewProps {
   webUrl: string | null
   isAvailable: boolean
   setView: (view: WidgetViewType) => void
+  intl: IntlShape
 }
 
 function StreetView(props: StreetViewProps) {
+  const { intl } = props
+
   /**
    * True when the street view iframe is loading
    */
@@ -108,11 +111,12 @@ function StreetView(props: StreetViewProps) {
             // Not available view
             <div className="size-full d-flex flex-column gap-3 bg-default text-primary text-lg input-field justify-content-center align-items-center">
               <CalciteIcon icon="image" style={{ width: 50, height: 50 }} />
-              <FormattedMessage
-                tagName="p"
-                id="streetViewUnavailableErrorLabel"
-                defaultMessage={defaultMessages.streetViewUnavailableErrorLabel}
-              />
+              <p>
+                {intl.formatMessage({
+                  id: 'streetViewUnavailableErrorLabel',
+                  defaultMessage: defaultMessages.streetViewUnavailableErrorLabel
+                })}
+              </p>
             </div>
           )}
         </div>

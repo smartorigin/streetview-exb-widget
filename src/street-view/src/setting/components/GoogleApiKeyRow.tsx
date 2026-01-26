@@ -1,7 +1,8 @@
 import { InfoOutlined } from 'jimu-icons/outlined/suggested/info'
 import { Button, TextInput, Tooltip } from 'jimu-ui'
 import { SettingRow } from 'jimu-ui/advanced/setting-components'
-import { FormattedMessage, type IntlShape } from 'react-intl'
+import React from 'react'
+import type { IntlShape } from 'react-intl'
 import defaultMessages from '../translations/default'
 
 type GoogleApiKeyRowProps = {
@@ -18,7 +19,7 @@ export default function GoogleApiKeyRow(props: GoogleApiKeyRowProps) {
       className="settingsRowStyle"
       label={
         <div className="d-flex flex-row gap-0.5 align-items-center">
-          <FormattedMessage id="googleApiKeyRowTooltip" defaultMessage={defaultMessages.googleApiKeyRowLabel} />
+          {intl.formatMessage({ id: 'googleApiKeyRowTooltip', defaultMessage: defaultMessages.googleApiKeyRowLabel })}
           <Tooltip
             enterDelay={100}
             enterNextDelay={0}
@@ -31,20 +32,20 @@ export default function GoogleApiKeyRow(props: GoogleApiKeyRowProps) {
             role="tooltip"
             title={
               <div className="p-2">
-                <FormattedMessage
-                  id="googleApiKeyRowTooltipLabel1"
-                  defaultMessage={defaultMessages.googleApiKeyRowTooltipLabel1}
-                />
+                {intl.formatMessage({
+                  id: 'googleApiKeyRowTooltipLabel1',
+                  defaultMessage: defaultMessages.googleApiKeyRowTooltipLabel1
+                })}
                 <a href={defaultMessages.googleApiKeyRowTooltipLinkUrl}>
-                  <FormattedMessage
-                    id="googleApiKeyRowTooltipLinkLabel"
-                    defaultMessage={defaultMessages.googleApiKeyRowTooltipLinkLabel}
-                  />
+                  {intl.formatMessage({
+                    id: 'googleApiKeyRowTooltipLinkLabel',
+                    defaultMessage: defaultMessages.googleApiKeyRowTooltipLinkLabel
+                  })}
                 </a>
-                <FormattedMessage
-                  id="googleApiKeyRowTooltipLabel2"
-                  defaultMessage={defaultMessages.googleApiKeyRowTooltipLabel2}
-                />
+                {intl.formatMessage({
+                  id: 'googleApiKeyRowTooltipLabel2',
+                  defaultMessage: defaultMessages.googleApiKeyRowTooltipLabel2
+                })}
               </div>
             }
           >
