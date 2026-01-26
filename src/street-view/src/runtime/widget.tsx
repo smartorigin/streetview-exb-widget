@@ -1,6 +1,5 @@
 import * as centroidOperator from '@arcgis/core/geometry/operators/centroidOperator.js'
-import type Point from '@arcgis/core/geometry/Point'
-import type Polygon from '@arcgis/core/geometry/Polygon'
+import type { Point, Polygon } from 'esri/geometry'
 import { type JimuMapView, JimuMapViewComponent } from 'jimu-arcgis'
 import type { AllWidgetProps } from 'jimu-core'
 import { Alert, Message } from 'jimu-ui'

@@ -1,10 +1,10 @@
-import CIMSymbol from '@arcgis/core/symbols/CIMSymbol';
+import CIMSymbol from 'esri/symbols/CIMSymbol'
 
 /**
  * Store cim symbols to use in graphics
  */
 
-const primaryColorRGBA = [0, 84, 165, 255];
+const primaryColorRGBA = [0, 84, 165, 255]
 
 export const personViewSymbol = new CIMSymbol({
   data: {
@@ -204,4 +204,4 @@ export const personViewSymbol = new CIMSymbol({
       animations: []
     }
   }
-});
+})
