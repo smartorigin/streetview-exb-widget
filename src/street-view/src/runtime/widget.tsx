@@ -1,4 +1,3 @@
-import * as centroidOperator from '@arcgis/core/geometry/operators/centroidOperator.js'
 import type { Point, Polygon } from 'esri/geometry'
 import { type JimuMapView, JimuMapViewComponent } from 'jimu-arcgis'
 import type { AllWidgetProps } from 'jimu-core'
@@ -188,11 +187,10 @@ export default function Widget(props: AllWidgetProps<WidgetConfig>) {
         // On custom popup action
         popupActionHandler = mapService.onPopupAction((geometry) => {
           if (geometry.type === 'polygon') {
-            // When feature is a polygon get centroid coord
-            const { latitude, longitude } = centroidOperator.execute(geometry as Polygon)
+            // Use deprecated centroid proprety instead of new centroidOperator for compatibility with older exb versions
+            const { latitude, longitude } = (geometry as Polygon).centroid
             handleStreetViewRequest(latitude, longitude)
           } else if (geometry.type === 'point') {
-            // For point get point coord
             const { latitude, longitude } = geometry as Point
             handleStreetViewRequest(latitude, longitude)
           } else {
@@ -213,7 +211,6 @@ export default function Widget(props: AllWidgetProps<WidgetConfig>) {
     return () => {
       if (mapService) mapService.removeAllStreetViewGraphicPoints()
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mapService, mapViewReady, streetViewApiService, widgetViewState.isExpanded, isClickActive, props.config])
 
   /**
