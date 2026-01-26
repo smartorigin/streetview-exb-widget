@@ -12,6 +12,7 @@ text_skin: default
 highlight_theme: default
 
 # The base hostname & protocol of the github page
+# TODO: Updated to real github site url
 url: https://nino-mau.github.io
 
 # The base url of the site, should be the name of the repo
@@ -25,12 +26,19 @@ description: >
 # Language of the page, default as "en"
 lang:
 
-# Github repo of the page
-repository: nino-mau/jekyll-demo3
+# Github repo of the page (idk what it does)
+repository: smartorigin/streetview-exb-widget
 repository_tree: main
 
+# Author metadata
+author:
+  type: organization
+  name: Smart/Origin
+  url: https://smart-origin.com
+  github: https://github.com/smartorigin
+
 ##
-## BUILD (DEFAULT)
+## BUILD (DEFAULT SETTINGS)
 ##
 
 markdown: kramdown
@@ -70,7 +78,7 @@ defaults:
       pageview: true
 
 ##
-## PLUGINS (DEFAULT)
+## PLUGINS (DEFAULT SETTINGS)
 ##
 
 plugins:

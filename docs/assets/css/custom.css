@@ -4,3 +4,59 @@
 .main {
   margin-top: 20px;
 }
+
+/* Features Grid Layout */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.feature-item {
+  padding: 1.5rem;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.02);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: fit-content;
+}
+
+.feature-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.feature-item h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+.feature-item p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.feature-item img {
+  margin-top: 1rem;
+  border-radius: 6px;
+}
+
+/* Wide feature item spans 2 columns */
+.feature-item-wide {
+  grid-column: span 2;
+}
+
+/* Responsive: single column on mobile */
+@media (max-width: 768px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .feature-item-wide {
+    grid-column: span 1;
+  }
+}
+
+
