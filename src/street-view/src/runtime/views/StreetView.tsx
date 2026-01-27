@@ -40,6 +40,7 @@ function StreetView(props: StreetViewProps) {
           icon
           type="primary"
           aria-label="Close street view"
+          style={{ pointerEvents: 'auto' }}
           onClick={() => {
             props.setView('default')
           }}
@@ -52,6 +53,7 @@ function StreetView(props: StreetViewProps) {
           icon
           type="primary"
           aria-label="Open street view in fullscreen modal"
+          style={{ pointerEvents: 'auto' }}
           aria-haspopup="dialog"
           onClick={() => {
             props.setView('expanded')
@@ -66,6 +68,7 @@ function StreetView(props: StreetViewProps) {
           type="primary"
           className="ml-auto"
           aria-label="Open google map at this location"
+          style={{ pointerEvents: 'auto' }}
           onClick={() => {
             window.open(props.webUrl)
           }}

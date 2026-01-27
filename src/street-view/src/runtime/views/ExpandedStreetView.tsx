@@ -1,6 +1,6 @@
 import { CalciteIcon } from 'calcite-components'
 import { Button, Loading, LoadingType, MobilePanel } from 'jimu-ui'
-// NOTE: Import react for compatibility with older exb versions
+// Import react for compatibility with older exb versions
 import React, { type Dispatch, type SetStateAction, useEffect, useState } from 'react'
 import type { IntlShape } from 'react-intl'
 import defaultMessages from '../translations/default'
@@ -34,7 +34,7 @@ function ExpandedStreetView(props: ExpandedStreetViewProps) {
   }, [props.url])
 
   /**
-   * Mobile Panel styling
+   * Apply custom styling for mobile panel
    */
   useEffect(() => {
     const mobilePanel = document.querySelector('.street-view-mobile-panel')
@@ -84,7 +84,7 @@ function ExpandedStreetView(props: ExpandedStreetViewProps) {
           <Button
             icon
             type="primary"
-            style={{ zIndex: 10 }}
+            style={{ zIndex: 10, pointerEvents: 'auto' }}
             aria-label="Open google map at this location"
             onClick={() => {
               window.open(props.webUrl)
@@ -97,7 +97,7 @@ function ExpandedStreetView(props: ExpandedStreetViewProps) {
           <Button
             icon
             type="primary"
-            style={{ zIndex: 10 }}
+            style={{ zIndex: 10, pointerEvents: 'auto' }}
             aria-label="Reduce street view to floating window"
             onClick={() => {
               props.setWidgetViewState((prev) => ({
@@ -114,7 +114,7 @@ function ExpandedStreetView(props: ExpandedStreetViewProps) {
           <Button
             icon
             type="primary"
-            style={{ zIndex: 10 }}
+            style={{ zIndex: 10, pointerEvents: 'auto' }}
             aria-label="Close street view"
             onClick={() => {
               props.setView('default')
