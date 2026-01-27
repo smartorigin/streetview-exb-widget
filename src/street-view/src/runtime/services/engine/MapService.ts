@@ -1,6 +1,7 @@
-import * as reactiveUtils from 'esri/core/reactiveUtils'
+// @ts-nocheck on newer exb versions this import path trigger ts error
+import reactiveUtils from 'esri/core/reactiveUtils'
 import Graphic from 'esri/Graphic'
-import { Point } from 'esri/geometry'
+import Point from 'esri/geometry/Point'
 import type CIMSymbol from 'esri/symbols/CIMSymbol'
 import type { JimuMapView } from 'jimu-arcgis'
 
