@@ -1,24 +1,24 @@
-import { SVG, Switch } from 'jimu-ui';
-import { useState } from 'react';
-import clsx from '../utils/clsx';
-// NOTE: Import react for compatibility with older exb versions
-import React from 'react';
+import { SVG, Switch } from 'jimu-ui'
+// Import react for compatibility with older exb versions
+import React, { useState } from 'react'
+import clsx from '../utils/clsx'
 
 interface ControlPanelViewProps {
-  isClickActive: boolean;
-  isGoogleApiKeyValid: boolean;
-  setIsWidgetActive: (state: boolean) => void;
+  isClickActive: boolean
+  isGoogleApiKeyValid: boolean
+  setIsWidgetActive: (state: boolean) => void
 }
 
 export default function ControlPanelView(props: ControlPanelViewProps) {
   /**
    * True when view is hovered
    */
-  const [isHovered, setIsHovered] = useState<boolean>(false);
+  const [isHovered, setIsHovered] = useState<boolean>(false)
 
   return (
     <div className="d-flex align-items-end justify-content-end size-fit">
       <div
+        role="menu"
         className={clsx(
           'position-relative h-fit bg-default py-3 px-3 align-items-center d-flex flex-row justify-content-end pe-auto gap-2'
         )}
@@ -31,10 +31,10 @@ export default function ControlPanelView(props: ControlPanelViewProps) {
           transitionTimingFunction: 'ease-in'
         }}
         onMouseEnter={() => {
-          setIsHovered(true);
+          setIsHovered(true)
         }}
         onMouseLeave={() => {
-          setIsHovered(false);
+          setIsHovered(false)
         }}
       >
         <div
@@ -48,7 +48,7 @@ export default function ControlPanelView(props: ControlPanelViewProps) {
             checked={props.isClickActive}
             size="sm"
             onChange={(e) => {
-              props.setIsWidgetActive(e.target.checked);
+              props.setIsWidgetActive(e.target.checked)
             }}
           />
         </div>
@@ -62,5 +62,5 @@ export default function ControlPanelView(props: ControlPanelViewProps) {
         </div>
       </div>
     </div>
-  );
+  )
 }
