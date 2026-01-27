@@ -1,8 +1,8 @@
 .streetview-widget-root {
-  --color-primary: var(--sys-color-primary-main);
+  --color-primary: var(--sys-color-primary-main, var(--primary));
   --color-text-secondary: oklch(37.3% 0.034 259.733);
-  --color-inverse: #3a3a3a;
-  --color-background: var(--sys-color-surface-background);
+  --color-inverse: var(--sys-color-surface-background-hint, var(--dark-600), #3a3a3a);
+  --color-background: var(--sys-color-surface-background, var(--light));
 
   --color-success: #22c55e;
   --color-info: #0ea5e9;

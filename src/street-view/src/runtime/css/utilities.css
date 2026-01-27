@@ -238,6 +238,10 @@ overflow-y-auto {
   background-color: var(--color-primary) !important;
 }
 
+.bg-default {
+  background-color: var(--sys-color-surface-background, var(--light)) !important;
+}
+
 .bg-hover-primary {
   background-color: var(--color-hover-primary) !important;
 }
