@@ -16,17 +16,18 @@ export default function ControlPanelView(props: ControlPanelViewProps) {
   const [isHovered, setIsHovered] = useState<boolean>(false)
 
   return (
-    <div className="d-flex align-items-end justify-content-end size-fit">
+    <div className="d-flex align-items-end justify-content-end size-fit" style={{ marginBottom: 1, marginRight: 1 }}>
       <div
         role="menu"
         className={clsx(
-          'position-relative h-fit bg-default py-3 px-3 align-items-center d-flex flex-row justify-content-end pe-auto gap-2'
+          'position-relative h-fit bg-default align-items-center d-flex flex-row justify-content-end pe-auto gap-2'
         )}
         style={{
           pointerEvents: 'auto',
-          width: isHovered ? 85 : 49,
+          width: isHovered ? 105 : 57,
+          padding: 16,
           overflow: 'hidden',
-          boxShadow: 'rgba(0, 0, 0, 0.2) 0px 1px 2px 0px',
+          boxShadow: 'rgba(0, 0, 0, 0.3) 0px 1px 2px 0px',
           transition: 'width 150ms',
           transitionTimingFunction: 'ease-in'
         }}
@@ -40,13 +41,13 @@ export default function ControlPanelView(props: ControlPanelViewProps) {
         <div
           className="position-absolute"
           style={{
-            right: 49
+            marginTop: 2,
+            right: 57
           }}
         >
           <Switch
             disabled={!props.isGoogleApiKeyValid}
             checked={props.isClickActive}
-            size="sm"
             onChange={(e) => {
               props.setIsWidgetActive(e.target.checked)
             }}
