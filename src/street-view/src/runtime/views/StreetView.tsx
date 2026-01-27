@@ -1,4 +1,5 @@
 import { CalciteIcon } from 'calcite-components'
+import { LaunchOutlined } from 'jimu-icons/outlined/editor/launch'
 import { Button, Loading, LoadingType } from 'jimu-ui'
 // NOTE: Import react for compatibility with older exb versions
 import React, { useEffect, useState } from 'react'
@@ -73,7 +74,7 @@ function StreetView(props: StreetViewProps) {
             window.open(props.webUrl)
           }}
         >
-          <CalciteIcon icon="launch2" scale="m" />
+          <LaunchOutlined scale="m" />
         </Button>
       </div>
 

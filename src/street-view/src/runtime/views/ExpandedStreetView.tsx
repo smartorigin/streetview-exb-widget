@@ -1,4 +1,5 @@
 import { CalciteIcon } from 'calcite-components'
+import { LaunchOutlined } from 'jimu-icons/outlined/editor/launch'
 import { Button, Loading, LoadingType, MobilePanel } from 'jimu-ui'
 // Import react for compatibility with older exb versions
 import React, { type Dispatch, type SetStateAction, useEffect, useState } from 'react'
@@ -90,7 +91,7 @@ function ExpandedStreetView(props: ExpandedStreetViewProps) {
               window.open(props.webUrl)
             }}
           >
-            <CalciteIcon icon="launch2" scale="m" />
+            <LaunchOutlined scale="m" />
           </Button>
 
           {/* Reduce View Button */}
