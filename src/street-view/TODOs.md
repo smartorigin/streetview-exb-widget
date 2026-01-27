@@ -15,22 +15,24 @@
 - [ ] Add a loading spinner on map at clicked point, change it back to a position marker when loading has finished
 - [ ] Improve performance
 - [ ] Switch view when detecting mobile/desktop
+- [x] Make it compatible with exb versions >= 1.11
 
 ## Refactoring
 
-- [ ] Make settings.tsx more readable by creating components for each row
+- [x] Make settings.tsx more readable by creating components for each row
 
 ## Tests
 
 - [ ] Write some unit tests
 - [ ] Write some integrations tests
+- [ ] Test compatibility with v1.12,13,14,15
 
 ## Readme
 
 - [x] Add "pré requis" section to readme
 - [x] Add "feature request" section to readme
 - [x] Update readme gif to use latest ver of the widget
-- [ ] Add french version
+- [x] Add french version
 - [ ] Compress the gif files
 
 ## Bugs
