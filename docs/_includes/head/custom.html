@@ -3,3 +3,30 @@
 
 <!-- Custom Utility Classes (Bootstrap-like, won't interfere with theme) -->
 <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
+
+<!-- Language Detection & Automatic Redirection -->
+<script>
+(function() {
+  // Language detection and automatic redirection
+  const FRENCH_VARIANTS = ['fr', 'fr-BE', 'fr-CA', 'fr-CH', 'fr-FR', 'fr-LU'];
+  
+  // Detect browser language
+  const browserLang = navigator.language || navigator.userLanguage;
+  const isFrench = FRENCH_VARIANTS.some(variant => 
+    browserLang.toLowerCase().startsWith(variant.toLowerCase())
+  );
+  
+  // Get current page info
+  const currentPath = window.location.pathname;
+  const isOnFrenchPage = currentPath.includes('/fr') || document.documentElement.lang === 'fr';
+  const isOnEnglishPage = !isOnFrenchPage;
+  
+  // Redirect logic: if browser is French and we're on English page, go to French
+  if (isFrench && isOnEnglishPage) {
+    const basePath = currentPath.replace(/\/+$/, '');
+    const frenchPath = basePath + '/fr';
+    
+    window.location.href = frenchPath + window.location.search + window.location.hash;
+  }
+})();
+</script>
