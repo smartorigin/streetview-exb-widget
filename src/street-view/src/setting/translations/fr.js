@@ -116,7 +116,16 @@ System.register([], (_export) => {
           "Extérieur limite les recherches aux collections extérieures. Les collections intérieures ne sont pas incluses dans les résultats de recherche.",
         sourceRowTooltipLabel4: 'Par défaut : Extérieur',
         sourceRowSelectOptionLabel1: 'Extérieur',
-        sourceRowSelectOptionLabel2: 'Tout'
+        sourceRowSelectOptionLabel2: 'Tout',
+
+        /**
+        * Credit Section
+        */
+
+        creditLabel1: 'Fais avec ♥ par ',
+        creditLinkLabel1: 'Smart/Origin',
+        creditLabel2: 'Disponible sur ',
+        creditLinkLabel2: 'Github'
       })
     }
   }

@@ -326,11 +326,17 @@ function Setting(props: AllWidgetSettingProps<WidgetConfig>) {
       <SettingSection>
         <p className="d-flex flex-column align-items-center mb-0">
           <div>
-            Made with ❤️ by <a href="https://smart/origin.com">Smart/Origin</a>
+            {intl.formatMessage({ id: 'creditLabel1', defaultMessage: defaultMessages.creditLabel1 })}
+            <a href="https://smart/origin.com">
+              {intl.formatMessage({ id: 'creditLinkLabel1', defaultMessage: defaultMessages.creditLinkLabel1 })}
+            </a>
           </div>
           <span style={{ marginTop: 3 }}>•</span>
           <div>
-            Freely available on <a href="https://github.com/smartorigin/streetview-exb-widget">Github</a>
+            {intl.formatMessage({ id: 'creditLabel2', defaultMessage: defaultMessages.creditLabel2 })}
+            <a href="https://github.com/smartorigin/streetview-exb-widget">
+              {intl.formatMessage({ id: 'creditLinkLabel2', defaultMessage: defaultMessages.creditLinkLabel2 })}
+            </a>
           </div>
         </p>
       </SettingSection>

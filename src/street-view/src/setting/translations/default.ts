@@ -108,5 +108,14 @@ export default {
     'Outdoor limits searches to outdoor collections. Indoor collections are not included in search results.',
   sourceRowTooltipLabel4: 'Default: Outdoor',
   sourceRowSelectOptionLabel1: 'Outdoor',
-  sourceRowSelectOptionLabel2: 'All'
+  sourceRowSelectOptionLabel2: 'All',
+
+  /**
+   * Credit Section
+   */
+
+  creditLabel1: 'Made with ♥ by ',
+  creditLinkLabel1: 'Smart/Origin',
+  creditLabel2: 'Freely available on ',
+  creditLinkLabel2: 'Github'
 }
