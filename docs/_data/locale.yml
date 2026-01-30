@@ -20,6 +20,11 @@ en: &EN
   EMAIL_ME                : "Send me an Email."
   EMAIL_US                : "Send us an Email."
   COPYRIGHT_DATES         : "2021"
+  BUILT_FOR               : "Built for"
+  MADE_WITH               : "Made with ❤️ by"
+  GET_STARTED             : "Get Started"
+  POWERED_BY              : "Powered by"
+  BY                      : "by"
 
 en-GB:
   <<: *EN
@@ -133,6 +138,11 @@ fr: &FR
   EMAIL_US                : "Envoyez-nous un courriel"
   COPYRIGHT_DATES         : "2021"
   DONATE                  : "Faites un don de [NAME]."
+  BUILT_FOR               : "Conçu pour"
+  MADE_WITH               : "Fait avec ❤️ par"
+  GET_STARTED             : "Commencer"
+  POWERED_BY              : "Propulsé par"
+  BY                      : "par"
 
 fr-BE:
   <<: *FR
