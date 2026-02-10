@@ -195,8 +195,8 @@ if [[ -f "$WIDGETS_INFO_FILE" ]]; then
   node -e "
     const fs = require('fs');
     const widgetsInfo = JSON.parse(fs.readFileSync('$WIDGETS_INFO_FILE', 'utf8'));
-    const streetViewEntry = { 'street-view': widgetsInfo['street-view'] };
-    fs.writeFileSync('$TEMP_DIST/street-view/to-copy-in-widgets-info.json', JSON.stringify(streetViewEntry, null, 2));
+    const streetViewEntry = widgetsInfo.find(widget => widget.name === 'street-view' );
+    fs.writeFileSync('$TEMP_DIST/to-copy-in-widgets-info.json', JSON.stringify(streetViewEntry, null, 2));
   "
   print_success "Extracted street-view entry"
 else
@@ -206,7 +206,7 @@ fi
 
 # Create zip from temp directory
 cd "$TEMP_DIST"
-zip -r "$SCRIPT_DIR/street-view-$WIDGET_VERSION-exb_1.$EXB_VERSION.zip" "street-view"
+zip -r "$SCRIPT_DIR/street-view-$WIDGET_VERSION-exb_1.$EXB_VERSION.zip" "."
 cd "$SCRIPT_DIR"
 
 # Clean up temp directory
