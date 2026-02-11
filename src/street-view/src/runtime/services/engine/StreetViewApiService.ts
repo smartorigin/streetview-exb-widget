@@ -1,4 +1,4 @@
-import type { StreetViewApiParams } from 'widgets/street-view/src/config'
+import type { StreetViewApiParams } from '../../../config'
 
 class StreetViewApiService {
   private googleApiKey?: string
