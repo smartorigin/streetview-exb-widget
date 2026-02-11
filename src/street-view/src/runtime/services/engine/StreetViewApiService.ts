@@ -29,7 +29,6 @@ class StreetViewApiService {
       return
     }
 
-    console.log(this.params)
     return `${this.baseUrl}?key=${this.googleApiKey}&location=${String(latitude)},${String(longitude)}&heading=${this.params.heading}&pitch=${this.params.pitch}&fov=${this.params.fov}&radius=${this.params.radius}&source=${this.params.source}`
   }
 

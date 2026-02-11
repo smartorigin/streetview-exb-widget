@@ -110,22 +110,6 @@ class MapService {
         }
       }
     }
-
-    /**
-     * On the custom action being triggered
-     */
-    reactiveUtils.on(
-      () => this.jmv.view.popup,
-      'trigger-action',
-      (event) => {
-        console.log(this.jmv.view.popup.selectedFeature.geometry.toJSON())
-        if (event.action.id === this.POPUP_STREETVIEW_ACTION_ID) {
-          console.log(this.jmv.view.popup)
-
-          console.log(event)
-        }
-      }
-    )
   }
 }
 
