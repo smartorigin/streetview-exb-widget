@@ -16,10 +16,6 @@ print_success() {
   echo -e "${GREEN}$1${NC}"
 }
 
-print_warning() {
-  echo -e "${YELLOW}Warning: $1${NC}"
-}
-
 print_info() {
   echo "$1"
 }
@@ -32,11 +28,11 @@ usage() {
   echo "Usage: $0 <EXB_PATH> <EXB_VERSION>"
   echo ""
   echo "Arguments:"
-  echo "  EXB_PATH      Path to Experience Builder installation"
-  echo "  EXB_VERSION   Experience Builder version (e.g., 11, 12)"
+  echo "  EXB_PATH      Path to EXB root directory"
+  echo "  EXB_VERSION   targeted EXB version, from 19 to 11 (ex: 11, 18, 17)"
   echo ""
   echo "Example:"
-  echo "  $0 /path/to/exb 12"
+  echo "  $0 /Documents/dev/exb12 12"
   exit 1
 }
 
@@ -70,19 +66,19 @@ esac
 
 # Validate EXB path is provided
 if [[ -z "$EXB_PATH" ]]; then
-  print_error "Experience Builder path is required"
+  print_error "EXB path is required"
   usage
 fi
 
 # Validate EXB version is provided
 if [[ -z "$EXB_VERSION" ]]; then
-  print_error "Experience Builder version is required"
+  print_error "EXB version is required"
   usage
 fi
 
 # Validate EXB path exists
 if [[ ! -d "$EXB_PATH" ]]; then
-  print_error "Experience Builder path does not exist: $EXB_PATH"
+  print_error "EXB path does not exist: $EXB_PATH"
   exit 1
 fi
 
@@ -92,8 +88,8 @@ EXB_YOUR_EXTENSIONS="$EXB_CLIENT/your-extensions/widgets"
 EXB_DIST_WIDGETS="$EXB_CLIENT/dist/widgets"
 
 if [[ ! -d "$EXB_CLIENT" ]]; then
-  print_error "Invalid Experience Builder path. Could not find: $EXB_CLIENT"
-  print_info "Make sure you point to the root of your Experience Builder installation."
+  print_error "Invalid EXB path. Could not find: $EXB_CLIENT"
+  print_info "Make sure you point to the root of your EXB installation."
   exit 1
 fi
 
@@ -132,7 +128,7 @@ YOUR_EXTENSIONS_DEST="$EXB_YOUR_EXTENSIONS/$WIDGET_NAME"
 
 # Check if widget already exists in your-extensions
 if [[ -d "$YOUR_EXTENSIONS_DEST" ]]; then
-  print_warning "Widget already exists in your-extensions"
+  print_info "Widget already exists in your-extensions"
   print_info "Removing old version..."
   rm -rf "$YOUR_EXTENSIONS_DEST"
 fi
@@ -167,13 +163,12 @@ fi
 # Check if node_modules exists
 if [[ ! -d "node_modules" ]]; then
   print_error "node_modules not found in $EXB_CLIENT"
-  print_info "Please run 'npm install' in your Experience Builder client directory first."
+  print_info "Please run 'npm install' in your EXB client directory first."
   exit 1
 fi
 
 # Build the widget (this builds all widgets in your-extensions)
 print_info "Running: npm run build:dev"
-print_warning "This will build all widgets in your-extensions (EXB doesn't support building individual widgets)"
 npm run build:dev
 
 cd "$SCRIPT_DIR"
