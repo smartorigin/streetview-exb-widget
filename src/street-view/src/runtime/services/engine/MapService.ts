@@ -92,8 +92,15 @@ class MapService {
    * Setup custom popup actions on feature layers
    */
   public async setPopupActions() {
-    // Wait for layers to be loaded
-    await this.jmv.whenAllJimuLayerViewLoaded()
+    /**
+     * Wait for all layers to be laoded
+     * In 1.11 creating JimuMapView will already wait until all layer views are loaded
+     * @see https://developers.arcgis.com/experience-builder/guide/1.12/whats-new/#jimumapview-and-jimulayerview
+     */
+    if (window.jimuConfig.exbVersion !== '1.11.0') {
+      // Wait for layers to be loaded
+      await this.jmv.whenAllJimuLayerViewLoaded()
+    }
 
     for (const layerViewId in this.jmv.jimuLayerViews) {
       const layerView = this.jmv.jimuLayerViews[layerViewId]
@@ -102,6 +109,8 @@ class MapService {
         if (layerView.layer.popupTemplate.actions.find((f) => f.id === this.POPUP_STREETVIEW_ACTION_ID) === undefined) {
           layerView.layer.popupTemplate.actions.push({
             id: this.POPUP_STREETVIEW_ACTION_ID,
+            // Fallback icon for 1.11
+            className: window.jimuConfig.exbVersion === '1.11.0' ? 'esri-icon-media' : '',
             icon: '360-view',
             title: 'Open in Street View',
             //not standard
