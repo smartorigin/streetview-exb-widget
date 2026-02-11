@@ -1,27 +1,19 @@
 <div align="center">
   <img src="./docs/assets/icon.svg" alt="logo" width="150" height="auto" />
-  <h1>Google Street View Widget</h1>
-  
-  <p>
-    Built for ArcGIS Experience Builder  —  Made with ❤️ by <a href="https://smart-origin.com/">Smart/Origin</a>
-  </p>
-  <p>
-    <a href="https://github.com/smartorigin/streetview-exb-widget/graphs/contributors">
-      <img src="https://img.shields.io/github/contributors/smartorigin/streetview-exb-widget" alt="contributors" />
-    </a>
-    <a href="https://github.com/smartorigin/streetview-exb-widget/blob/main/LICENSE">
-      <img src="https://img.shields.io/github/license/smartorigin/streetview-exb-widget" alt="license" />
-    </a>
-  </p>
-  
-  <p>
-    <a href="README.md">English</a> • <a href="README.fr.md">Français</a>
-  </p>
+
+# Google Street View Widget
+
+Built for ArcGIS Experience Builder — Made with ❤️ by [Smart/Origin](https://smart-origin.com/)
+
+![GitHub package.json version](https://img.shields.io/github/package-json/v/smartorigin/streetview-exb-widget?style=flat-square)
+![GitHub License](https://img.shields.io/github/license/smartorigin/streetview-exb-widget?style=flat-square)
+![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/smartorigin/streetview-exb-widget/total?style=flat-square)
+
+English • [French](/README.fr.md)
+
 </div>
 
-<br>
-
-## About
+---
 
 ![DemoGif1](./docs/assets/Demo1.gif)
 
