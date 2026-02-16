@@ -5,7 +5,7 @@
 
 Conçu pour ArcGIS Experience Builder — Développé avec ❤️ par [Smart/Origin](https://smart-origin.com/)
 
-![GitHub package.json version](https://img.shields.io/github/package-json/v/smartorigin/streetview-exb-widget)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/smartorigin/streetview-exb-widget?style=flat-square)
 ![GitHub License](https://img.shields.io/github/license/smartorigin/streetview-exb-widget?style=flat-square)
 ![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/smartorigin/streetview-exb-widget/total?style=flat-square)
 
@@ -21,12 +21,12 @@ Ce widget intègre Google Street View dans vos applications ArcGIS Experience Bu
 
 ## Fonctionnalités
 
-- **📍 Intégration carte** : Ouvre StreetView à l'emplacement cliqué.
+- **📍 Intégration carte** : Ouvre Street View à l'emplacement cliqué.
 - **🖱️ Actions popup** : S'intègre aux popups ArcGIS, ajoutant une action « Ouvrir dans Street View » à vos entités.
 - **📱 Design responsive** : Propose deux modes d'affichage :
   - **Réduit** : Un panneau flottant, pour une utilisation sur ordinateur.
-  - **Étendu** : Un panneau glissant pleine largeur, pour les appareils mobiles.
-- **⚙️ Configuration** : Propose deux préréglages « Click to View » et « Action popup » pour configurer rapidement le widget selon votre cas d'utilisation.
+  - **Étendu** : Un panneau latéral pleine hauteur, optimisé pour les appareils mobiles.
+- **⚙️ Configuration** : Propose deux préréglages « Click to View » et « Popup Action » pour configurer rapidement le widget selon votre cas d'utilisation.
 - **🔗 Liens externes** : Permet d'ouvrir la vue actuelle directement dans Google Maps.
 - **🌍 Internationalisation** : Le widget est traduit en anglais et en français.
 - **🎛️ Panneau de contrôle flottant** : Panneau de contrôle pour activer/désactiver le widget depuis l'application.
@@ -56,7 +56,7 @@ Le widget utilise l'[API Maps Embed](https://developers.google.com/maps/document
 
 ## Utilisation
 
-Le widget propose deux préréglages qui correspondent à deux modes d'utilisation, il est cependant possible de configurer le widget différemment via l'onglet des paramètres du widget dans Experience Builder.
+Le widget propose deux préréglages correspondant à deux modes d'utilisation, mais il est possible de configurer le widget différemment via l'onglet des paramètres du widget dans Experience Builder.
 
 ### 👆 Click to View (par défaut)
 
@@ -67,7 +67,7 @@ Lorsque la carte est cliquée, affiche l'imagerie Street View à cet emplacement
 >
 > ![DemoGifUsage1](./docs/assets/DemoGifUsage1.gif)
 
-### ▶️ Action popup
+### ▶️ Popup Action
 
 Street View s'ouvre uniquement via l'action « Ouvrir dans Street View » dans une popup d'entité. Permet d'accéder facilement à l'imagerie Street View d'une entité.
 
@@ -85,7 +85,7 @@ Street View s'ouvre uniquement via l'action « Ouvrir dans Street View » dans u
 Ce widget est compatible avec Experience Builder v1.16+. Suivez le [guide d'installation](https://developers.arcgis.com/experience-builder/guide/install-guide/) pour installer Experience Builder.
 
 > [!NOTE]
-> Vous aurez besoin de Node.js >= 22 et npm pour installer Experience Builder
+> Vous aurez besoin de Node.js >=22 et npm pour installer Experience Builder
 
 #### Méthode Dist
 
@@ -138,21 +138,21 @@ Glissez-déposez le widget dans votre application.
 
 ### Options générales
 
-| Paramètre                                   | Défaut           | Description                                                                                                                                                                                      |
-| ------------------------------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Préréglage**                              | `Clic pour voir` | Choisissez entre deux modes d'utilisations : <br>• **Click To View** : Ouvre Street View sur tout clic sur la carte. <br>• **Action popup** : Ouvre Street View uniquement via une action popup. |
+| Paramètre                                   | Défaut          | Description                                                                                                                                                                                         |
+| ------------------------------------------- | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Préréglage**                              | `Click To View` | Choisissez rapidement entre deux comportements principaux : <br>• **Click To View** : Ouvre Street View sur tout clic sur la carte. <br>• **Popup Action** : Ouvre Street View uniquement via une action popup. |
 | **Activer l'action popup**                  | `true`           | Active l'ajout d'une action « Ouvrir dans Street View » aux popups d'entités.                                                                                                                    |
 | **Activer le clic sur la carte**            | `true`           | Active l'ouverture de Street View par un clic sur la carte.                                                                                                                                      |
 | **Activer l'icône de position**             | `true`           | Affiche un marqueur sur la carte indiquant l'emplacement initial de Street View.                                                                                                                 |
 | **Activer le panneau de contrôle flottant** | `true`           | Affiche un panneau de contrôle flottant pour activer/désactiver le widget.                                                                                                                       |
 | **État par défaut du panneau de contrôle**  | `off`            | Définit si le panneau de contrôle démarre actif (`on`) ou inactif (`off`).                                                                                                                       |
-| **Vue par défaut**                          | `Réduit`         | Choisissez le mode d'affichage initial : <br>• **Réduit** : Panneau flottant. <br>• **Étendu** : Panneau coulissant pleine largeur.                                                              |
+| **Vue par défaut**                          | `Réduit`        | Choisissez le mode d'affichage initial : <br>• **Réduit** : Panneau flottant (idéal pour desktop). <br>• **Étendu** : Panneau coulissant pleine hauteur (idéal pour mobile).                     |
 
 ### Options de l'API Street View
 
 | Paramètre   | Défaut    | Description                                                                                                                                                                                                                                                                                               |
 | ----------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Heading** | `210°`    | Indique la direction prise par la boussole dans la vue de l'appareil photo. Les valeurs peuvent varier de `0` à `360`. Si vous ne spécifiez pas de direction, une valeur est calculée de façon à diriger l'appareil photo vers le location spécifié, selon l'angle de vue de la photo prise au plus près. |
+| **Heading** | `210°`    | Indique la direction prise par la boussole dans la vue de l'appareil photo. Les valeurs peuvent varier de `0` à `360`. Si vous ne spécifiez pas de direction, une valeur est calculée de façon à diriger l'appareil photo vers l'emplacement spécifié, selon l'angle de vue de la photo prise au plus près. |
 | **Pitch**   | `0°`      | Spécifie l'angle vers le haut ou le bas de la caméra par rapport au véhicule Street View.                                                                                                                                                                                                                 |
 | **FOV**     | `90°`     | Détermine le champ de vision horizontal de l'image exprimé en degrés, avec une valeur maximale autorisée de `120`.                                                                                                                                                                                        |
 | **Radius**  | `50m`     | Définit un rayon, spécifié en mètres, dans lequel rechercher de l'imagerie, centré sur la latitude et la longitude données. Les valeurs valides sont des entiers non négatifs. (Un grand rayon pousse l'API à sélectionner des images statiques plutôt que non statiques).                                |
