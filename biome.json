@@ -42,6 +42,6 @@
     }
   },
   "files": {
-    "includes": ["src/**/*.ts", "src/**/*.tsx"]
+    "includes": ["src/street-view/src/**/*.ts", "src/street-view/src/**/*.tsx"]
   }
 }
