@@ -1,6 +1,6 @@
 import { SVG, Switch } from 'jimu-ui'
 // Import react for compatibility with older exb versions
-import React, { useState } from 'react'
+import React from 'react'
 import clsx from '../utils/clsx'
 
 interface ControlPanelViewProps {

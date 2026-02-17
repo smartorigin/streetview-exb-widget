@@ -1,5 +1,5 @@
-import { useState, useCallback } from 'react';
-import type { WidgetViewStateType, WidgetViewType } from '../types/general';
+import React from 'react'
+import type { WidgetViewStateType, WidgetViewType } from '../types/general'
 
 /**
  * Custom hook to manage the widget's view state.
@@ -16,43 +16,43 @@ import type { WidgetViewStateType, WidgetViewType } from '../types/general';
  *
  */
 export default function useWidgetViewState(initialExpanded: boolean) {
-  const [state, setState] = useState<WidgetViewStateType>({
+  const [state, setState] = React.useState<WidgetViewStateType>({
     streetViewUrl: null,
     streetViewWebUrl: null,
     view: 'default' as WidgetViewType,
     isVisible: true,
     isAvalaible: true,
     isExpanded: initialExpanded
-  });
+  })
 
-  const setIsAvalaible = useCallback((isAvalaible: boolean) => {
+  const setIsAvalaible = React.useCallback((isAvalaible: boolean) => {
     setState((prev) => ({
       ...prev,
       isAvalaible
-    }));
-  }, []);
+    }))
+  }, [])
 
-  const setView = useCallback((view: WidgetViewType) => {
+  const setView = React.useCallback((view: WidgetViewType) => {
     setState((prev) => ({
       ...prev,
       isExpanded: view === 'expanded' ? true : prev.isExpanded,
       view
-    }));
-  }, []);
+    }))
+  }, [])
 
-  const setStreetViewUrl = useCallback((streetViewUrl: string) => {
+  const setStreetViewUrl = React.useCallback((streetViewUrl: string) => {
     setState((prev) => ({
       ...prev,
       streetViewUrl
-    }));
-  }, []);
+    }))
+  }, [])
 
-  const setStreetViewWebUrl = useCallback((streetViewWebUrl: string) => {
+  const setStreetViewWebUrl = React.useCallback((streetViewWebUrl: string) => {
     setState((prev) => ({
       ...prev,
       streetViewWebUrl
-    }));
-  }, []);
+    }))
+  }, [])
 
   return {
     ...state,
@@ -61,5 +61,5 @@ export default function useWidgetViewState(initialExpanded: boolean) {
     setStreetViewUrl,
     setStreetViewWebUrl,
     setState
-  };
+  }
 }

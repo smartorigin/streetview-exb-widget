@@ -2,7 +2,7 @@ import { CalciteIcon } from 'calcite-components'
 import { LaunchOutlined } from 'jimu-icons/outlined/editor/launch'
 import { Button, Loading, LoadingType, MobilePanel } from 'jimu-ui'
 // Import react for compatibility with older exb versions
-import React, { type Dispatch, type SetStateAction, useEffect, useState } from 'react'
+import React, { type Dispatch, type SetStateAction } from 'react'
 import type { IntlShape } from 'react-intl'
 import defaultMessages from '../translations/default'
 import type { WidgetViewStateType, WidgetViewType } from '../types/general'
@@ -23,12 +23,12 @@ function ExpandedStreetView(props: ExpandedStreetViewProps) {
   /**
    * True when the street view iframe is loading
    */
-  const [isStreetViewLoading, setIsStreetViewLoading] = useState<boolean>(false)
+  const [isStreetViewLoading, setIsStreetViewLoading] = React.useState<boolean>(false)
 
   /**
    * Handle loading state
    */
-  useEffect(() => {
+  React.useEffect(() => {
     if (props.url) {
       setIsStreetViewLoading(true)
     }
@@ -37,7 +37,7 @@ function ExpandedStreetView(props: ExpandedStreetViewProps) {
   /**
    * Apply custom styling for mobile panel
    */
-  useEffect(() => {
+  React.useEffect(() => {
     const mobilePanel = document.querySelector('.street-view-mobile-panel')
 
     const header = mobilePanel.querySelector('.mobile-panel-content-header')

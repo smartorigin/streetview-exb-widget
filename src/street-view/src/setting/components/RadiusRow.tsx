@@ -1,8 +1,7 @@
 import { InfoOutlined } from 'jimu-icons/outlined/suggested/info'
 import { Button, NumericInput, Tooltip } from 'jimu-ui'
 import { SettingRow } from 'jimu-ui/advanced/setting-components'
-import type { Dispatch, SetStateAction } from 'react'
-import React from 'react'
+import type React from 'react'
 import type { IntlShape } from 'react-intl'
 import type { ImmutableObject } from 'seamless-immutable'
 import type { StreetViewApiParams } from '../../config'
@@ -10,7 +9,9 @@ import defaultMessages from '../translations/default'
 
 type RadiusRowProps = {
   streetViewApiParams: StreetViewApiParams
-  setStreetViewApiParams: Dispatch<SetStateAction<StreetViewApiParams | ImmutableObject<StreetViewApiParams>>>
+  setStreetViewApiParams: React.Dispatch<
+    React.SetStateAction<StreetViewApiParams | ImmutableObject<StreetViewApiParams>>
+  >
   intl: IntlShape
 }
 
@@ -22,7 +23,10 @@ export default function RadiusRow(props: RadiusRowProps) {
       className="settingsRowStyle"
       label={
         <div className="d-flex flex-row gap-0.5 align-items-center">
-          {intl.formatMessage({ id: 'radiusRowLabel', defaultMessage: defaultMessages.radiusRowLabel })}
+          {intl.formatMessage({
+            id: 'radiusRowLabel',
+            defaultMessage: defaultMessages.radiusRowLabel
+          })}
           <Tooltip
             enterDelay={100}
             enterNextDelay={0}

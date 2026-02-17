@@ -2,7 +2,7 @@ import { CalciteIcon } from 'calcite-components'
 import { LaunchOutlined } from 'jimu-icons/outlined/editor/launch'
 import { Button, Loading, LoadingType } from 'jimu-ui'
 // NOTE: Import react for compatibility with older exb versions
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import type { IntlShape } from 'react-intl'
 import defaultMessages from '../translations/default'
 import type { WidgetViewType } from '../types/general'
@@ -22,12 +22,12 @@ function StreetView(props: StreetViewProps) {
   /**
    * True when the street view iframe is loading
    */
-  const [isStreetViewLoading, setIsStreetViewLoading] = useState<boolean>(false)
+  const [isStreetViewLoading, setIsStreetViewLoading] = React.useState<boolean>(false)
 
   /**
    * Handle loading state and unavailable state
    */
-  useEffect(() => {
+  React.useEffect(() => {
     if (props.url) {
       setIsStreetViewLoading(true)
     }

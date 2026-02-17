@@ -1,8 +1,8 @@
 import type { AllWidgetSettingProps } from 'jimu-for-builder'
 import { Button } from 'jimu-ui'
 import { SettingSection } from 'jimu-ui/advanced/setting-components'
-// NOTE: Import react for compatibility with older exb versions
-import React, { useEffect, useState } from 'react'
+// Import react for compatibility with older exb versions
+import React from 'react'
 import type { IConfig, InitialControlPanelStateType, InitialViewType, PresetType, WidgetConfig } from '../config'
 import '../runtime/css/utilities.css'
 import '../runtime/css/variables.css'
@@ -47,37 +47,39 @@ function Setting(props: AllWidgetSettingProps<WidgetConfig>) {
     }
   }
 
-  const [preset, setPreset] = useState<PresetType>(props.config.preset || defaultSettings.preset)
+  const [preset, setPreset] = React.useState<PresetType>(props.config.preset || defaultSettings.preset)
 
-  const [initialViewState, setInitialViewState] = useState<InitialViewType>(
+  const [initialViewState, setInitialViewState] = React.useState<InitialViewType>(
     props.config.initialViewState || defaultSettings.initialViewState
   )
 
-  const [isPositionIconEnabled, setIsPositionIconEnabled] = useState<boolean>(
+  const [isPositionIconEnabled, setIsPositionIconEnabled] = React.useState<boolean>(
     props.config.isPositionIconEnabled || defaultSettings.isPositionIconEnabled
   )
 
-  const [isClickEnabled, setIsClickEnabled] = useState<boolean>(
+  const [isClickEnabled, setIsClickEnabled] = React.useState<boolean>(
     props.config.isClickEnabled || defaultSettings.isClickEnabled
   )
 
-  const [isPopupActionEnabled, setIsPopupActionEnabled] = useState<boolean>(
+  const [isPopupActionEnabled, setIsPopupActionEnabled] = React.useState<boolean>(
     props.config.isPopupActionEnabled || defaultSettings.isPopupActionEnabled
   )
 
-  const [isControlPanelEnabled, setIsControlPanelEnabled] = useState<boolean>(
+  const [isControlPanelEnabled, setIsControlPanelEnabled] = React.useState<boolean>(
     props.config.isControlPanelEnabled || defaultSettings.isControlPanelEnabled
   )
 
-  const [initialControlPanelState, setInitialControlPanelState] = useState(
+  const [initialControlPanelState, setInitialControlPanelState] = React.useState(
     props.config.initialControlPanelState || defaultSettings.initialControlPanelState
   )
 
-  const [streetViewApiParams, setStreetViewApiParams] = useState(
+  const [streetViewApiParams, setStreetViewApiParams] = React.useState(
     props.config.streetViewApiParams || defaultSettings.streetViewApiParams
   )
 
-  const [googleApiKey, setGoogleApiKey] = useState<string>(props.config.googleApiKey || defaultSettings.googleApiKey)
+  const [googleApiKey, setGoogleApiKey] = React.useState<string>(
+    props.config.googleApiKey || defaultSettings.googleApiKey
+  )
 
   /**
    * Used to reset the streetViewApiParams
@@ -201,7 +203,7 @@ function Setting(props: AllWidgetSettingProps<WidgetConfig>) {
   /**
    * Handle updating Street View API settings
    */
-  useEffect(() => {
+  React.useEffect(() => {
     props.onSettingChange({
       id: props.id,
       config: props.config.set('streetViewApiParams', streetViewApiParams)
@@ -211,7 +213,7 @@ function Setting(props: AllWidgetSettingProps<WidgetConfig>) {
   /**
    * Initialize config if empty
    */
-  useEffect(() => {
+  React.useEffect(() => {
     // config is empty -> set a new one
     if (Object.keys(props.config).length === 0) {
       props.onSettingChange({
@@ -230,7 +232,10 @@ function Setting(props: AllWidgetSettingProps<WidgetConfig>) {
           defaultMessage: defaultMessages.sourceSectionTitle
         })}
         role="group"
-        title={intl.formatMessage({ id: 'sourceSectionTitle', defaultMessage: defaultMessages.sourceSectionTitle })}
+        title={intl.formatMessage({
+          id: 'sourceSectionTitle',
+          defaultMessage: defaultMessages.sourceSectionTitle
+        })}
       >
         <SelectMapRow onChange={onMapWidgetChange} useMapWidgetIds={props.useMapWidgetIds} intl={intl} />
 
@@ -326,16 +331,28 @@ function Setting(props: AllWidgetSettingProps<WidgetConfig>) {
       <SettingSection>
         <p className="d-flex flex-column align-items-center mb-0">
           <div>
-            {intl.formatMessage({ id: 'creditLabel1', defaultMessage: defaultMessages.creditLabel1 })}
+            {intl.formatMessage({
+              id: 'creditLabel1',
+              defaultMessage: defaultMessages.creditLabel1
+            })}
             <a href="https://smart/origin.com">
-              {intl.formatMessage({ id: 'creditLinkLabel1', defaultMessage: defaultMessages.creditLinkLabel1 })}
+              {intl.formatMessage({
+                id: 'creditLinkLabel1',
+                defaultMessage: defaultMessages.creditLinkLabel1
+              })}
             </a>
           </div>
           <span style={{ marginTop: 3 }}>•</span>
           <div>
-            {intl.formatMessage({ id: 'creditLabel2', defaultMessage: defaultMessages.creditLabel2 })}
+            {intl.formatMessage({
+              id: 'creditLabel2',
+              defaultMessage: defaultMessages.creditLabel2
+            })}
             <a href="https://github.com/smartorigin/streetview-exb-widget">
-              {intl.formatMessage({ id: 'creditLinkLabel2', defaultMessage: defaultMessages.creditLinkLabel2 })}
+              {intl.formatMessage({
+                id: 'creditLinkLabel2',
+                defaultMessage: defaultMessages.creditLinkLabel2
+              })}
             </a>
           </div>
         </p>
