@@ -20,6 +20,16 @@ This widget brings [Google Street View]() into your [ArcGIS Experience Builder](
 
 ![Image](/assets/demo-1.gif){:.shadow.rounded.mt-3-5.w-100}
 
+<h2 class="my-5 text-center">Live Demo</h2>
+
+<iframe class="w-100" style="height: 500px" src="https://gis.smart-origin.com/portal/apps/experiencebuilder/experience/?id=52a8cbfc012c429389b34b3c28577e48"></iframe>
+
+<p class="text-center">
+  <small>
+  Open-source data obtained on Grenoble's <a href="https://data.metropolegrenoble.fr/portail">data portal</a>.
+  </small>
+</p>
+
 <h2 class="my-5 text-center">Features</h2>
 
 <div class="features-grid">

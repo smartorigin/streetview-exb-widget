@@ -20,6 +20,16 @@ Ce widget intègre [Google Street View]() dans vos applications [ArcGIS Experien
 
 ![Image](/assets/demo-1.gif){:.shadow.rounded.mt-3-5.w-100}
 
+<h2 class="my-5 text-center">Démo Interactive</h2>
+
+<iframe class="w-100" style="height: 500px" src="https://gis.smart-origin.com/portal/apps/experiencebuilder/experience/?id=52a8cbfc012c429389b34b3c28577e48"></iframe>
+
+<p class="text-center">
+  <small>
+  Données open-source récupéré sur le <a href="https://data.metropolegrenoble.fr/portail">portail data</a> de la métropole de grenbole.
+  </small>
+</p>
+
 <h2 class="my-5 text-center">Fonctionnalités</h2>
 
 <div class="features-grid">
