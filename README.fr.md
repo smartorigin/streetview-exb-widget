@@ -15,7 +15,7 @@ Conçu pour ArcGIS Experience Builder — Développé avec ❤️ par [Smart/Ori
 
 ---
 
-![DemoGif1](./docs/assets/Demo1.gif)
+![IllustrationGif](./docs/assets/illustration.gif)
 
 Ce widget intègre Google Street View dans vos applications ArcGIS Experience Builder. Cliquez sur la carte pour ouvrir Street View à cet emplacement, ou directement depuis l'action « Ouvrir dans Street View » d'une entité sélectionnée.
 
