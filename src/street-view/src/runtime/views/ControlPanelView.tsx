@@ -6,6 +6,7 @@ import clsx from '../utils/clsx'
 interface ControlPanelViewProps {
   isClickActive: boolean
   isGoogleApiKeyValid: boolean
+  isMapSelected: boolean
   setIsWidgetActive: (state: boolean) => void
 }
 
@@ -13,7 +14,7 @@ export default function ControlPanelView(props: ControlPanelViewProps) {
   /**
    * True when view is hovered
    */
-  const [isHovered, setIsHovered] = useState<boolean>(false)
+  const [isHovered, setIsHovered] = React.useState<boolean>(false)
 
   return (
     <div className="d-flex align-items-end justify-content-end size-fit" style={{ marginBottom: 1, marginRight: 1 }}>
@@ -46,7 +47,7 @@ export default function ControlPanelView(props: ControlPanelViewProps) {
           }}
         >
           <Switch
-            disabled={!props.isGoogleApiKeyValid}
+            disabled={!props.isGoogleApiKeyValid || !props.isMapSelected}
             checked={props.isClickActive}
             onChange={(e) => {
               props.setIsWidgetActive(e.target.checked)

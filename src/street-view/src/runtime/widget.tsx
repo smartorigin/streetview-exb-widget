@@ -1,13 +1,12 @@
 import type { Point, Polygon } from 'esri/geometry'
 import { type JimuMapView, JimuMapViewComponent } from 'jimu-arcgis'
 import type { AllWidgetProps } from 'jimu-core'
-import { Alert } from 'jimu-ui'
-import { useEffect, useState } from 'react'
 import type { WidgetConfig } from '../config'
 import ExpandedStreetView from '././views/ExpandedStreetView'
 import './css/main.css'
 // Import React for compatibility with older exb versions
 import React from 'react'
+import FloatingAlerts from './components/FloatingAlerts'
 import useWidgetViewState from './hooks/useWidgetViewState'
 import MapService from './services/engine/MapService'
 import StreetViewApiService from './services/engine/StreetViewApiService'
@@ -27,29 +26,26 @@ export default function Widget(props: AllWidgetProps<WidgetConfig>) {
   /**
    * Controls whether or not the widget click on map function is active, tied to control panel state
    */
-  const [isClickActive, setIsWidgetActive] = useState<boolean>(
+  const [isClickActive, setIsWidgetActive] = React.useState<boolean>(
     props.config && props.config.initialControlPanelState === 'on'
   )
 
-  /**
-   * Wether or not the google api key is set/found
-   */
-  const [isGoogleApiKeyValid, setIsGoogleApiKeyValid] = useState<boolean>(false)
+  const [isGoogleApiKeyValid, setIsGoogleApiKeyValid] = React.useState<boolean>(false)
+
+  const [isMapSelected, setIsMapSelected] = React.useState<boolean>(false)
 
   /**
-   * State of the widget's alert component
+   * Controls displayed widget floating alerts
    */
-  const [alert, setAlert] = useState<AlertType>({
-    open: false,
-    text: '',
-    banner: true
-  })
+  const [alerts, setAlerts] = React.useState<AlertType[]>([])
 
-  const [mapViewReady, setMapViewReady] = useState<boolean>(false)
+  const [mapViewReady, setMapViewReady] = React.useState<boolean>(false)
 
-  const [mapService, setMapService] = useState<MapService | null>(null)
+  const [mapService, setMapService] = React.useState<MapService | null>(null)
 
-  const [streetViewApiService] = useState(() => new StreetViewApiService(undefined, props.config.streetViewApiParams))
+  const [streetViewApiService] = React.useState(
+    () => new StreetViewApiService(undefined, props.config.streetViewApiParams)
+  )
 
   const activeViewChangeHandler = (jmv: JimuMapView) => {
     if (jmv) {
@@ -99,38 +95,62 @@ export default function Widget(props: AllWidgetProps<WidgetConfig>) {
   /**
    * Set Google API Key
    */
-  useEffect(() => {
+  React.useEffect(() => {
     if (!props.config || !props.config.googleApiKey?.trim()) {
       /**
        * API Key not found
        */
       setIsGoogleApiKeyValid(false)
-      setAlert((prev) => ({
-        ...prev,
-        text: props.intl.formatMessage({
-          id: 'googleApiKeyNotFoundErrorLabel',
-          defaultMessage: defaultMessages.googleApiKeyNotFoundErrorLabel
-        }),
-        type: 'error',
-        open: true
-      }))
+      setAlerts([
+        ...alerts,
+        {
+          id: 'googleApiKeyNotFound',
+          text: props.intl.formatMessage({
+            id: 'googleApiKeyNotFoundErrorLabel',
+            defaultMessage: defaultMessages.googleApiKeyNotFoundErrorLabel
+          }),
+          type: 'error',
+          open: true
+        }
+      ])
     } else {
       /**
        * API Key found
        */
       setIsGoogleApiKeyValid(true)
+      setAlerts(alerts.filter((a) => a.id !== 'googleApiKeyNotFound'))
       streetViewApiService.setApiKey(props.config.googleApiKey?.trim() || undefined)
-      setAlert((prev) => ({
-        ...prev,
-        open: false
-      }))
     }
   }, [props.config])
 
   /**
+   * Check if map is selected
+   */
+  React.useEffect(() => {
+    if (!props.useMapWidgetIds.length) {
+      setIsMapSelected(false)
+      setAlerts([
+        ...alerts,
+        {
+          id: 'mapNotSelected',
+          text: props.intl.formatMessage({
+            id: 'mapNotSelectedErrorLabel',
+            defaultMessage: defaultMessages.mapNotSelectedErrorLabel
+          }),
+          type: 'error',
+          open: true
+        }
+      ])
+    } else {
+      setIsMapSelected(true)
+      setAlerts(alerts.filter((a) => a.id !== 'mapNotSelected'))
+    }
+  }, [props.useMapWidgetIds])
+
+  /**
    * Handle updating API params
    */
-  useEffect(() => {
+  React.useEffect(() => {
     if (props.config.streetViewApiParams) {
       streetViewApiService.setApiParams(props.config.streetViewApiParams)
     }
@@ -139,7 +159,7 @@ export default function Widget(props: AllWidgetProps<WidgetConfig>) {
   /**
    * Set custom popup actions
    */
-  useEffect(() => {
+  React.useEffect(() => {
     if (mapViewReady && mapService?.jmv) {
       if (props.config.isPopupActionEnabled) mapService.setPopupActions()
     }
@@ -148,7 +168,7 @@ export default function Widget(props: AllWidgetProps<WidgetConfig>) {
   /**
    * Handle map interactions
    */
-  useEffect(() => {
+  React.useEffect(() => {
     if (mapViewReady && mapService?.jmv) {
       let clickHandler: IHandle
       let popupActionHandler: IHandle
@@ -198,7 +218,7 @@ export default function Widget(props: AllWidgetProps<WidgetConfig>) {
   /**
    * Clean up graphic point on certain view state changes
    */
-  useEffect(() => {
+  React.useEffect(() => {
     if (mapService && (widgetViewState.view === 'default' || !widgetViewState.isVisible)) {
       mapService.removeAllStreetViewGraphicPoints()
     }
@@ -207,7 +227,7 @@ export default function Widget(props: AllWidgetProps<WidgetConfig>) {
   /**
    * Apply global styling
    */
-  useEffect(() => {
+  React.useEffect(() => {
     /**
      * Set hidden widget root element pointer event to none
      */
@@ -250,6 +270,7 @@ export default function Widget(props: AllWidgetProps<WidgetConfig>) {
             <ControlPanelView
               isClickActive={isClickActive}
               isGoogleApiKeyValid={isGoogleApiKeyValid}
+              isMapSelected={isMapSelected}
               setIsWidgetActive={setIsWidgetActive}
             />
           )}
@@ -260,12 +281,11 @@ export default function Widget(props: AllWidgetProps<WidgetConfig>) {
 
   return (
     <>
-      {/* To get selected map view */}
       {props.useMapWidgetIds?.[0] && (
         <JimuMapViewComponent useMapWidgetId={props.useMapWidgetIds[0]} onActiveViewChange={activeViewChangeHandler} />
       )}
 
-      {/* View Container */}
+      {/* Widget Container */}
       <div
         id="streetview-widget-root"
         className={clsx('streetview-widget-root  jimu-widget', widgetViewState.isVisible ? '' : 'd-none')}
@@ -274,30 +294,7 @@ export default function Widget(props: AllWidgetProps<WidgetConfig>) {
           key={widgetViewState.view}
           className="size-full d-flex flex-column align-items-end justify-content-end gap-4 widget-content-animated"
         >
-          {/* Floating Error */}
-          <Alert
-            className="widget-content-animated h-fit"
-            style={{
-              whiteSpace: 'nowrap'
-            }}
-            open={alert.open}
-            shape="none"
-            size="small"
-            type={alert.type}
-            text={alert.text}
-            title={alert.title}
-            variant="text"
-            withIcon
-            aria-live="polite"
-            closable
-            form="basic"
-            onClose={() => {
-              setAlert((prev) => ({
-                ...prev,
-                open: false
-              }))
-            }}
-          />
+          <FloatingAlerts alerts={alerts} setAlerts={setAlerts} />
           {renderer(widgetViewState.view)}
         </div>
       </div>
