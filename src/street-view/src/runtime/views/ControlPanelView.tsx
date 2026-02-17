@@ -5,7 +5,7 @@ import clsx from '../utils/clsx'
 
 interface ControlPanelViewProps {
   isClickActive: boolean
-  isGoogleApiKeyValid: boolean
+  isGoogleApiKeyFound: boolean
   isMapSelected: boolean
   setIsWidgetActive: (state: boolean) => void
 }
@@ -47,7 +47,7 @@ export default function ControlPanelView(props: ControlPanelViewProps) {
           }}
         >
           <Switch
-            disabled={!props.isGoogleApiKeyValid || !props.isMapSelected}
+            disabled={!props.isGoogleApiKeyFound || !props.isMapSelected}
             checked={props.isClickActive}
             onChange={(e) => {
               props.setIsWidgetActive(e.target.checked)

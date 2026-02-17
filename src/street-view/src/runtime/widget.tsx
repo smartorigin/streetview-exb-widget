@@ -30,7 +30,7 @@ export default function Widget(props: AllWidgetProps<WidgetConfig>) {
     props.config && props.config.initialControlPanelState === 'on'
   )
 
-  const [isGoogleApiKeyValid, setIsGoogleApiKeyValid] = React.useState<boolean>(false)
+  const [isGoogleApiKeyFound, setIsGoogleApiKeyFound] = React.useState<boolean>(false)
 
   const [isMapSelected, setIsMapSelected] = React.useState<boolean>(false)
 
@@ -93,38 +93,7 @@ export default function Widget(props: AllWidgetProps<WidgetConfig>) {
   }
 
   /**
-   * Set Google API Key
-   */
-  React.useEffect(() => {
-    if (!props.config || !props.config.googleApiKey?.trim()) {
-      /**
-       * API Key not found
-       */
-      setIsGoogleApiKeyValid(false)
-      setAlerts([
-        ...alerts,
-        {
-          id: 'googleApiKeyNotFound',
-          text: props.intl.formatMessage({
-            id: 'googleApiKeyNotFoundErrorLabel',
-            defaultMessage: defaultMessages.googleApiKeyNotFoundErrorLabel
-          }),
-          type: 'error',
-          open: true
-        }
-      ])
-    } else {
-      /**
-       * API Key found
-       */
-      setIsGoogleApiKeyValid(true)
-      setAlerts(alerts.filter((a) => a.id !== 'googleApiKeyNotFound'))
-      streetViewApiService.setApiKey(props.config.googleApiKey?.trim() || undefined)
-    }
-  }, [props.config])
-
-  /**
-   * Check if map is selected
+   * Verify map is selected
    */
   React.useEffect(() => {
     if (!props.useMapWidgetIds.length) {
@@ -146,6 +115,37 @@ export default function Widget(props: AllWidgetProps<WidgetConfig>) {
       setAlerts(alerts.filter((a) => a.id !== 'mapNotSelected'))
     }
   }, [props.useMapWidgetIds])
+
+  /**
+   * Set Google API Key
+   */
+  React.useEffect(() => {
+    if (!props.config || !props.config.googleApiKey?.trim()) {
+      /**
+       * API Key not found
+       */
+      setIsGoogleApiKeyFound(false)
+      setAlerts([
+        ...alerts,
+        {
+          id: 'googleApiKeyNotFound',
+          text: props.intl.formatMessage({
+            id: 'googleApiKeyNotFoundErrorLabel',
+            defaultMessage: defaultMessages.googleApiKeyNotFoundErrorLabel
+          }),
+          type: 'error',
+          open: true
+        }
+      ])
+    } else {
+      /**
+       * API Key found
+       */
+      setIsGoogleApiKeyFound(true)
+      setAlerts(alerts.filter((a) => a.id !== 'googleApiKeyNotFound'))
+      streetViewApiService.setApiKey(props.config.googleApiKey?.trim() || undefined)
+    }
+  }, [props.config])
 
   /**
    * Handle updating API params
@@ -269,7 +269,7 @@ export default function Widget(props: AllWidgetProps<WidgetConfig>) {
           ) : (
             <ControlPanelView
               isClickActive={isClickActive}
-              isGoogleApiKeyValid={isGoogleApiKeyValid}
+              isGoogleApiKeyFound={isGoogleApiKeyFound}
               isMapSelected={isMapSelected}
               setIsWidgetActive={setIsWidgetActive}
             />
