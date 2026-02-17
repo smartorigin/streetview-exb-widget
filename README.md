@@ -65,7 +65,7 @@ When the map is clicked, display Street View imagery at that location, this is t
 > [!NOTE]
 > You can disable opening Street View on click via the floating control panel at the bottom right of the screen.
 >
-> ![DemoGifUsage1](./docs/assets/DemoGifUsage1.gif)
+> ![DemoGifControlPanel](./docs/assets/demo-control-panel-small.gif)
 
 ### ▶️ Popup Action
 
@@ -73,7 +73,7 @@ Street View opens only via the "Open in Street View" action in a feature popup. 
 
 > [!NOTE]
 >
-> ![DemoGifPopupAction](./docs/assets/DemoGifPopupAction.gif)
+> ![DemoGifPopupAction](./docs/assets/demo-popup-action.gif)
 
 > [!TIP]
 > The "Open in Street View" action will also be present in "Click to View" mode, this mode exists specifically for users who do not wish to use the Click to View feature.

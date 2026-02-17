@@ -18,7 +18,7 @@ article_header:
 Ce widget intègre [Google Street View]() dans vos applications [ArcGIS Experience Builder](). Cliquez sur la carte pour ouvrir Street View à cet emplacement, ou directement depuis l'action « Ouvrir dans Street View » d'une entité sélectionnée.
 {:.text-center}
 
-![Image](/assets/demo-1.gif){:.shadow.rounded.mt-3-5.w-100}
+![DemoGif](/assets/demo-general.gif){:.shadow.rounded.mt-3-5.w-100}
 
 <h2 class="my-5 text-center">Démo Interactive</h2>
 
