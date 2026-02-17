@@ -4,8 +4,8 @@ import type { AllWidgetProps } from 'jimu-core'
 import type { WidgetConfig } from '../config'
 import ExpandedStreetView from '././views/ExpandedStreetView'
 import './css/main.css'
-// Import React for compatibility with older exb versions
 import React from 'react'
+// Import React for compatibility with older exb versions
 import FloatingAlerts from './components/FloatingAlerts'
 import useWidgetViewState from './hooks/useWidgetViewState'
 import MapService from './services/engine/MapService'
@@ -19,7 +19,7 @@ import StreetView from './views/StreetView'
 
 export default function Widget(props: AllWidgetProps<WidgetConfig>) {
   /**
-   * Initialize widget view state
+   * Initialize view state
    */
   const widgetViewState = useWidgetViewState(props.config && props.config.initialViewState === 'expanded')
 
@@ -92,6 +92,13 @@ export default function Widget(props: AllWidgetProps<WidgetConfig>) {
     return
   }
 
+  React.useEffect(() => {
+    // TODO: replace this with css if possible
+    const widgetRoot = document.querySelector('.streetview-widget-root')
+    const widgetHiddenRoot: HTMLElement = widgetRoot.closest('.is-widget')
+    widgetHiddenRoot.style.cssText = 'pointer-events: none !important'
+  }, [])
+
   /**
    * Verify map is selected
    */
@@ -117,13 +124,20 @@ export default function Widget(props: AllWidgetProps<WidgetConfig>) {
   }, [props.useMapWidgetIds])
 
   /**
-   * Set Google API Key
+   * Setup custom popup actions
    */
   React.useEffect(() => {
-    if (!props.config || !props.config.googleApiKey?.trim()) {
-      /**
-       * API Key not found
-       */
+    if (mapViewReady && mapService?.jmv) {
+      if (props.config.isPopupActionEnabled) mapService.setPopupActions()
+    }
+  }, [mapService, mapViewReady, props.config.isPopupActionEnabled])
+
+  /**
+   * Setup Google API Key
+   */
+  React.useEffect(() => {
+    if (!props.config.googleApiKey?.trim()) {
+      // Key found
       setIsGoogleApiKeyFound(false)
       setAlerts([
         ...alerts,
@@ -138,17 +152,15 @@ export default function Widget(props: AllWidgetProps<WidgetConfig>) {
         }
       ])
     } else {
-      /**
-       * API Key found
-       */
+      // Key not found
       setIsGoogleApiKeyFound(true)
       setAlerts(alerts.filter((a) => a.id !== 'googleApiKeyNotFound'))
       streetViewApiService.setApiKey(props.config.googleApiKey?.trim() || undefined)
     }
-  }, [props.config])
+  }, [props.config.googleApiKey])
 
   /**
-   * Handle updating API params
+   * Watch & update streetview api params
    */
   React.useEffect(() => {
     if (props.config.streetViewApiParams) {
@@ -157,16 +169,7 @@ export default function Widget(props: AllWidgetProps<WidgetConfig>) {
   }, [props.config.streetViewApiParams])
 
   /**
-   * Set custom popup actions
-   */
-  React.useEffect(() => {
-    if (mapViewReady && mapService?.jmv) {
-      if (props.config.isPopupActionEnabled) mapService.setPopupActions()
-    }
-  }, [mapService, mapViewReady])
-
-  /**
-   * Handle map interactions
+   * Handle actions
    */
   React.useEffect(() => {
     if (mapViewReady && mapService?.jmv) {
@@ -223,18 +226,6 @@ export default function Widget(props: AllWidgetProps<WidgetConfig>) {
       mapService.removeAllStreetViewGraphicPoints()
     }
   }, [widgetViewState.view, widgetViewState.isVisible, widgetViewState.isExpanded, mapService])
-
-  /**
-   * Apply global styling
-   */
-  React.useEffect(() => {
-    /**
-     * Set hidden widget root element pointer event to none
-     */
-    const widgetRoot = document.querySelector('.streetview-widget-root')
-    const widgetHiddenRoot: HTMLElement = widgetRoot.closest('.is-widget')
-    widgetHiddenRoot.style.cssText = 'pointer-events: none !important'
-  }, [widgetViewState, props.id])
 
   /**
    * Render the view
