@@ -14,6 +14,7 @@
 - [x] Add a reset button to Street View API section of settings
 - [ ] Add a loading spinner on map at clicked point, change it back to a position marker when loading has finished
 - [ ] Improve performance
+- [ ] Add floating error/warning state when map isnt selected
 - [ ] Switch view when detecting mobile/desktop
 - [x] Make it compatible with exb versions >= 1.11
 
