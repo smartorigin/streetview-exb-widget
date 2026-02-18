@@ -93,7 +93,7 @@ if [[ ! -d $WIDGET_SOURCE ]]; then
 fi
 
 SRC=$WIDGET_SOURCE
-DST="$EXB_WIDGETS/$WIDGET_NAME"
+DST="$EXB_WIDGETS"
 
 echo ""
 print_step "Sync $SRC -> $DST"
