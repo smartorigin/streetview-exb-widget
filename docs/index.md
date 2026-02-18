@@ -18,7 +18,7 @@ article_header:
 This widget brings [Google Street View]() into your [ArcGIS Experience Builder]() applications. Click anywhere on the map to see street-level imagery, or open Street View directly from feature actions in popups.
 {:.text-center}
 
-![DemoGif](/assets/demo-general.gif){:.shadow.rounded.mt-3-5.w-100}
+![IllustrationGif](/assets/illustration.gif){:.shadow.rounded.mt-3-5.w-100}
 
 <h2 class="my-5 text-center">Live Demo</h2>
 
@@ -42,7 +42,7 @@ This widget brings [Google Street View]() into your [ArcGIS Experience Builder](
   </div>
 
   <div class="feature-item">
-    <h3>
+  <h3>
       <i class="fas fa-arrow-up-right-from-square fa-lg mr-1" style="color: #076fe5 !important"></i>
       External Links
     </h3>
@@ -105,9 +105,9 @@ Best for developers who want to modify the source code.
 git clone git@github.com:smartorigin/streetview-exb-widget.git
 ```
 
-2. Copy the `street-view` folder to `<your-exb>/client/your-extensions/widgets`
-3. Restart the Experience Builder client (`npm start`)
-4. The widget appears in your widget panel after page reload
+1. Copy the `street-view` folder to `<your-exb>/client/your-extensions/widgets`
+2. Restart the Experience Builder client (`npm start`)
+3. The widget appears in your widget panel after page reload
 
 ### In Portal for ArcGIS
 
