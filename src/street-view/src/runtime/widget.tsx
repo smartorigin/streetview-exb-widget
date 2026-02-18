@@ -103,7 +103,7 @@ export default function Widget(props: AllWidgetProps<WidgetConfig>) {
    * Verify map is selected
    */
   React.useEffect(() => {
-    if (!props.useMapWidgetIds.length) {
+    if (!props.useMapWidgetIds || !props.useMapWidgetIds.length) {
       setIsMapSelected(false)
       setAlerts([
         ...alerts,
