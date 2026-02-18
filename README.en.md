@@ -9,7 +9,7 @@ Built for ArcGIS Experience Builder — Made with ❤️ by [Smart/Origin](https
 ![GitHub License](https://img.shields.io/github/license/smartorigin/streetview-exb-widget?style=flat-square)
 ![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/smartorigin/streetview-exb-widget/total?style=flat-square)
 
-English • [French](/README.fr.md)
+English • [Français](/README.md)
 
 </div>
 
