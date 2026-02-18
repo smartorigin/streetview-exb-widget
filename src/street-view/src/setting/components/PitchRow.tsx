@@ -1,7 +1,8 @@
 import { InfoOutlined } from 'jimu-icons/outlined/suggested/info'
 import { Button, NumericInput, Tooltip } from 'jimu-ui'
 import { SettingRow } from 'jimu-ui/advanced/setting-components'
-import type React from 'react'
+// biome-ignore lint/style/useImportType: needed for exb11 compat
+import React from 'react'
 import type { IntlShape } from 'react-intl'
 import type { ImmutableObject } from 'seamless-immutable'
 import type { StreetViewApiParams } from '../../config'

@@ -1,5 +1,6 @@
 import { Alert } from 'jimu-ui'
-import type React from 'react'
+// biome-ignore lint/style/useImportType: needed for exb11 compat
+import React from 'react'
 import type { AlertType } from '../types/general'
 
 type FloatingAlertsProps = {
