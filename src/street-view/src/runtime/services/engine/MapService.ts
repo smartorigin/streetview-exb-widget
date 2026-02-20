@@ -4,6 +4,7 @@ import Graphic from 'esri/Graphic'
 import Point from 'esri/geometry/Point'
 import type CIMSymbol from 'esri/symbols/CIMSymbol'
 import type { JimuMapView } from 'jimu-arcgis'
+import { isExbVersionUnder } from '../../utils/exb-version'
 
 class MapService {
   POPUP_STREETVIEW_ACTION_ID: string = 'open-in-streetview-action'
@@ -97,7 +98,7 @@ class MapService {
      * In 1.11 creating JimuMapView will already wait until all layer views are loaded
      * @see https://developers.arcgis.com/experience-builder/guide/1.12/whats-new/#jimumapview-and-jimulayerview
      */
-    if (window.jimuConfig.exbVersion !== '1.11.0') {
+    if (!isExbVersionUnder(window.jimuConfig.exbVersion, 1, 12)) {
       // Wait for layers to be loaded
       await this.jmv.whenAllJimuLayerViewLoaded()
     }
@@ -110,7 +111,7 @@ class MapService {
           layerView.layer.popupTemplate.actions.push({
             id: this.POPUP_STREETVIEW_ACTION_ID,
             // Fallback icon for 1.11
-            className: window.jimuConfig.exbVersion === '1.11.0' ? 'esri-icon-media' : '',
+            className: isExbVersionUnder(window.jimuConfig.exbVersion, 1, 12) ? 'esri-icon-media' : '',
             icon: '360-view',
             title: 'Open in Street View',
             //not standard
