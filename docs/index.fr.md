@@ -26,7 +26,7 @@ Ce widget intègre [Google Street View]() dans vos applications [ArcGIS Experien
 
 <p class="text-center">
   <small>
-  Données open-source récupéré sur le <a href="https://data.metropolegrenoble.fr/portail">portail data</a> de la métropole de grenbole.
+  Données open source récupérées sur le <a href="https://data.metropolegrenoble.fr/portail">portail data</a> de la métropole de Grenoble.
   </small>
 </p>
 
@@ -38,7 +38,7 @@ Ce widget intègre [Google Street View]() dans vos applications [ArcGIS Experien
       <i class="fas fa-map-marker-alt fa-lg mr-1" style="color: #076fe5 !important"></i>
       Intégration carte
     </h3>
-    <p>Cliquez n'importe où sur une carte lié au widget pour ouvrir Street View à cet emplacement.</p>
+    <p>Cliquez n'importe où sur une carte liée au widget pour ouvrir Street View à cet emplacement.</p>
   </div>
 
   <div class="feature-item">
@@ -84,13 +84,13 @@ Ce widget intègre [Google Street View]() dans vos applications [ArcGIS Experien
 
 <div class="use-case-tabs" role="tablist" aria-label="Cas d'usage">
   <button class="use-case-tab is-active" type="button" role="tab" aria-selected="true" data-use-case-tab="1">
-    Reseaux urbains, services
+    Réseaux urbains, services
   </button>
   <button class="use-case-tab" type="button" role="tab" aria-selected="false" data-use-case-tab="2">
     Voirie, mobilier, commerces
   </button>
   <button class="use-case-tab" type="button" role="tab" aria-selected="false" data-use-case-tab="3">
-    Mobilite douce, espaces verts
+    Mobilité douce, espaces verts
   </button>
 </div>
 
