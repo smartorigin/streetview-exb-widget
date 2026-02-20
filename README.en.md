@@ -5,7 +5,7 @@
 
 Built for ArcGIS Experience Builder — Made with ❤️ by [Smart/Origin](https://smart-origin.com/)
 
-![GitHub package.json version](https://img.shields.io/github/package-json/v/smartorigin/streetview-exb-widget?style=flat-square)
+![Widget version](https://img.shields.io/github/manifest-json/v/smartorigin/streetview-exb-widget/main?filename=.%2Fsrc%2Fstreet-view%2Fmanifest.json&style=flat-square&label=version)
 ![GitHub License](https://img.shields.io/github/license/smartorigin/streetview-exb-widget?style=flat-square)
 ![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/smartorigin/streetview-exb-widget/total?style=flat-square)
 
