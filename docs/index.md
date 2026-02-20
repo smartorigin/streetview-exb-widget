@@ -159,7 +159,7 @@ Best for quick use without code modifications.
 
 1. Download the latest [release](https://github.com/smartorigin/streetview-exb-widget/releases)
 
-   <a class="button button--primary button--rounded" href="https://github.com/smartorigin/streetview-exb-widget/releases/download/v1.0.0-beta/street-view-1_0_0.zip"><i class="fas fa-download"></i> Download Release</a>
+   <a class="button button--primary button--rounded" href="https://github.com/smartorigin/streetview-exb-widget/releases/latest"><i class="fas fa-download"></i> Download Release</a>
 
 2. Extract and copy the `street-view` folder to `<your-exb>/client/dist/widgets`
 3. Add the JSON object from `to-copy-in-widgets-info.json` to `<your-exb>/client/dist/widgets/widgets-info.json` (first install only)
@@ -235,7 +235,7 @@ See the [Prerequisites](#prerequisites) section above for step-by-step instructi
 <h2 class="my-5 text-center">Learn More</h2>
 
 <div class="d-flex justify-content-center gap-4" >
-  <a href="https://github.com/smartorigin/streetview-exb-widget/blob/nma/dev/README.md">
+  <a href="https://github.com/smartorigin/streetview-exb-widget/blob/main/README.md">
     <div class="card card--clickable" style="max-width: 500px;">
       <div class="card__content">
         <div class="card__header" style="display: flex; align-items: center; gap: 0.75rem;">

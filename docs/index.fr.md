@@ -159,7 +159,7 @@ Idéale pour une utilisation rapide sans modification du code source.
 
 1. Téléchargez la dernière [version](https://github.com/smartorigin/streetview-exb-widget/releases)
 
-   <a class="button button--primary button--rounded" href="https://github.com/smartorigin/streetview-exb-widget/releases/download/v1.0.0-beta/street-view-1_0_0.zip"><i class="fas fa-download"></i> Télécharger la version</a>
+   <a class="button button--primary button--rounded" href="https://github.com/smartorigin/streetview-exb-widget/releases/latest"><i class="fas fa-download"></i> Télécharger la version</a>
 
 2. Extrayez et copiez le dossier `street-view` dans `<votre-exb>/client/dist/widgets`
 3. Ajoutez l'objet JSON de `to-copy-in-widgets-info.json` dans `<votre-exb>/client/dist/widgets/widgets-info.json` (première installation uniquement)
@@ -174,9 +174,9 @@ Idéale pour les développeurs qui souhaitent modifier le code source.
 git clone git@github.com:smartorigin/streetview-exb-widget.git
 ```
 
-2. Copiez le dossier `street-view` dans `<votre-exb>/client/your-extensions/widgets`
-3. Redémarrez le client Experience Builder (`npm start`)
-4. Le widget apparaît dans votre Jekyll TeXt de widgets après rechargement de la page
+1. Copiez le dossier `street-view` dans `<votre-exb>/client/your-extensions/widgets`
+2. Redémarrez le client Experience Builder (`npm start`)
+3. Le widget apparaît dans votre Jekyll TeXt de widgets après rechargement de la page
 
 ### Dans votre propre instance de Portal for ArcGIS
 
@@ -239,7 +239,7 @@ Le widget s'adapte à votre thème Experience Builder. Vous pouvez contrôler la
 <h2 class="my-5 text-center">En savoir plus</h2>
 
 <div class="d-flex justify-content-center gap-4" >
-  <a href="https://github.com/smartorigin/streetview-exb-widget/blob/nma/dev/README.fr.md">
+  <a href="https://github.com/smartorigin/streetview-exb-widget/blob/main/README.fr.md">
     <div class="card card--clickable" style="max-width: 500px;">
       <div class="card__content">
         <div class="card__header" style="display: flex; align-items: center; gap: 0.75rem;">
