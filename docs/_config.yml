@@ -16,7 +16,7 @@ highlight_theme: default
 url: https://nino-mau.github.io
 
 # The base url of the site, should be the name of the repo
-baseurl: /jekyll-demo3
+baseurl: /streetview-exb-widget
 
 # Title and description of the page
 title: Google Street View Widget
