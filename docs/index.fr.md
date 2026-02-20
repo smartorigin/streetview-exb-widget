@@ -159,7 +159,7 @@ Idéale pour une utilisation rapide sans modification du code source.
 
 1. Téléchargez la dernière [version](https://github.com/smartorigin/streetview-exb-widget/releases)
 
-   <a class="button button--primary button--rounded" href="https://github.com/smartorigin/streetview-exb-widget/releases/latest"><i class="fas fa-download"></i> Télécharger la version</a>
+   <a class="button button--primary button--rounded" href="https://github.com/smartorigin/streetview-exb-widget/releases/latest/download/street-view-1.0.0-exb_1.19.zip"><i class="fas fa-download"></i> Télécharger la version</a>
 
 2. Extrayez et copiez le dossier `street-view` dans `<votre-exb>/client/dist/widgets`
 3. Ajoutez l'objet JSON de `to-copy-in-widgets-info.json` dans `<votre-exb>/client/dist/widgets/widgets-info.json` (première installation uniquement)
@@ -199,7 +199,7 @@ Utilisez l'url de la version du widget hebergee par Smart/Origin:
 
 #### 2. Avec hébergement
 
-1. Téléchargez la dernière [version](https://github.com/smartorigin/streetview-exb-widget/releases) du widget
+1. Téléchargez la dernière [version](https://github.com/smartorigin/streetview-exb-widget/releases/latest) du widget
 2. Extrayez le zip téléchargé et déployez le dossier `street-view` sur un serveur web.
 3. Assurez-vous d'avoir une URL publique vers le fichier `manifest.json` (exemple : `https://<serveur>/<mon-widget>/manifest.json`).
 4. Dans Portal, allez dans `Mon contenu` puis cliquez sur `Ajouter un élément` > `Une application`.

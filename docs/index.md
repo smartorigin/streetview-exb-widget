@@ -157,9 +157,9 @@ We are convinced many more use cases remain to be imagined, especially as GIS to
 
 Best for quick use without code modifications.
 
-1. Download the latest [release](https://github.com/smartorigin/streetview-exb-widget/releases)
+1. Download the latest [release](https://github.com/smartorigin/streetview-exb-widget/releases/latest)
 
-   <a class="button button--primary button--rounded" href="https://github.com/smartorigin/streetview-exb-widget/releases/latest"><i class="fas fa-download"></i> Download Release</a>
+   <a class="button button--primary button--rounded" href="https://github.com/smartorigin/streetview-exb-widget/releases/latest/download/street-view-1.0.0-exb_1.19.zip"><i class="fas fa-download"></i> Download Release</a>
 
 2. Extract and copy the `street-view` folder to `<your-exb>/client/dist/widgets`
 3. Add the JSON object from `to-copy-in-widgets-info.json` to `<your-exb>/client/dist/widgets/widgets-info.json` (first install only)
@@ -199,7 +199,7 @@ Use the widget release URL hosted by Smart/Origin:
 
 #### 2. With hosting
 
-1. Download the latest [release](https://github.com/smartorigin/streetview-exb-widget/releases)
+1. Download the latest [release](https://github.com/smartorigin/streetview-exb-widget/releases/latest)
 2. Extract and deploy the `street-view` folder to a web server.
 3. Make sure you have a public URL to the `manifest.json` file (example: `https://<server>/<my-widget>/manifest.json`).
 4. In Portal, go to `My Content` and click `Add Item` > `An application`.
