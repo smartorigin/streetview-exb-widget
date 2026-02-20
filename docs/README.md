@@ -14,6 +14,16 @@ Edit `index.md` to change the content of the page. See the [documentation](https
 
 Edit `_includes/article-header.html` to change the header of the page. The template language used is [Liquid](https://shopify.github.io/liquid/).
 
+#### Language-based automatic redirection
+
+The docs include a custom JavaScript redirect in `_includes/head/custom.html`.
+
+- It checks the browser language via `navigator.language`.
+- If the language is French (`fr`, `fr-FR`, `fr-CA`, etc.) and the user is on the English page, it redirects to `/fr`.
+- Query string and hash are preserved during redirection.
+
+If you need to change this behavior, edit the `FRENCH_VARIANTS` list and redirect logic in `_includes/head/custom.html`.
+
 #### Make changes to the TeXt theme
 
 You can change TeXt theme defaults by overriding templates or styles in `\_includes` and `\_sass`. See the theme defaults at [TeXt's theme repo](https://github.com/kitian616/jekyll-TeXt-theme)
