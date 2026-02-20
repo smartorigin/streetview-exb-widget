@@ -190,10 +190,11 @@ Since ArcGIS Enterprise 11, you can reference custom widgets in your Portal for 
 
 ---
 
-<h2 class="my-5 text-center">Issues and requests</h2>
+<h2 class="my-5 text-center">Found something? Tell us</h2>
 
-To report a bug or request a feature, please use
-[GitHub Issues](https://github.com/smartorigin/streetview-exb-widget/issues).
+Found a bug, unexpected behavior, or have an idea for improvement?
+
+Please use [GitHub Issues](https://github.com/smartorigin/streetview-exb-widget/issues) to send us your report.
 
 ---
 

@@ -190,10 +190,11 @@ Depuis ArcGIS Enterprise 11, vous pouvez référencer des widgets personnalisés
 
 ---
 
-<h2 class="my-5 text-center">Issues et demandes</h2>
+<h2 class="my-5 text-center">Un bug ? Une idee ? Parlons-en</h2>
 
-Pour signaler un bug ou proposer une fonctionnalite, utilisez les
-[GitHub Issues](https://github.com/smartorigin/streetview-exb-widget/issues).
+Vous avez trouvé un bug, une erreur, ou vous avez une idée d'amélioration ?
+
+Utilisez la page [GitHub Issues](https://github.com/smartorigin/streetview-exb-widget/issues) pour nous envoyer votre demande.
 
 ---
 
