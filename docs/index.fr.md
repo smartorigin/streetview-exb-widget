@@ -18,7 +18,7 @@ article_header:
 Ce widget intègre [Google Street View]() dans vos applications [ArcGIS Experience Builder](). Cliquez sur la carte pour ouvrir Street View à cet emplacement, ou directement depuis l'action « Ouvrir dans Street View » d'une entité sélectionnée.
 {:.text-center}
 
-![IllustrationGif](/assets/illustration.gif){:.shadow.rounded.mt-3-5.w-100}
+![IllustrationGif]({{ '/assets/illustration.gif' | relative_url }}){:.shadow.rounded.mt-3-5.w-100}
 
 <h2 class="my-5 text-center">Démo Interactive</h2>
 
@@ -80,6 +80,75 @@ Ce widget intègre [Google Street View]() dans vos applications [ArcGIS Experien
 
 ---
 
+<h2 class="my-5 text-center">Cas d'usage</h2>
+
+<div class="use-case-tabs" role="tablist" aria-label="Cas d'usage">
+  <button class="use-case-tab is-active" type="button" role="tab" aria-selected="true" data-use-case-tab="1">
+    Reseaux urbains, services
+  </button>
+  <button class="use-case-tab" type="button" role="tab" aria-selected="false" data-use-case-tab="2">
+    Voirie, mobilier, commerces
+  </button>
+  <button class="use-case-tab" type="button" role="tab" aria-selected="false" data-use-case-tab="3">
+    Mobilite douce, espaces verts
+  </button>
+</div>
+
+<div class="use-case-panel is-active" role="tabpanel" data-use-case-panel="1">
+  <img src="{{ '/assets/use-cage-1.png' | relative_url }}" alt="Cas d'usage 1" loading="lazy" />
+</div>
+
+<div class="use-case-panel" role="tabpanel" data-use-case-panel="2">
+  <img src="{{ '/assets/use-case-2.png' | relative_url }}" alt="Cas d'usage 2" loading="lazy" />
+</div>
+
+<div class="use-case-panel" role="tabpanel" data-use-case-panel="3">
+  <img src="{{ '/assets/use-case-3.png' | relative_url }}" alt="Cas d'usage 3" loading="lazy" />
+</div>
+
+<script defer>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabs = Array.from(document.querySelectorAll('[data-use-case-tab]'));
+    const panels = Array.from(document.querySelectorAll('[data-use-case-panel]'));
+
+    if (!tabs.length || !panels.length) {
+      return;
+    }
+
+    const activate = (id) => {
+      tabs.forEach((tab) => {
+        const isActive = tab.dataset.useCaseTab === id;
+        tab.classList.toggle('is-active', isActive);
+        tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+
+      panels.forEach((panel) => {
+        const isActive = panel.dataset.useCasePanel === id;
+        panel.classList.toggle('is-active', isActive);
+      });
+    };
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        activate(tab.dataset.useCaseTab);
+      });
+    });
+  });
+</script>
+
+Disposer de vues immersives directement accessibles depuis son application SIG permet aux géomaticiens et aux agents des collectivités de :
+
+- Contribuer au recensement, à l’inventaire des éléments constitutifs d’un référentiel SIG patrimoniaux : voirie, signalisation, patrimoine arboré, mobiliers urbains, réseaux, infrastructures de transport, voies et adresses, etc.
+- Contrôler, corriger et améliorer la qualité des données transmises par des prestataires, et/ou issues de relevés terrains antérieurs
+- Replacer une donnée, dans son environnement, sa situation, son contexte géographique
+- Pouvoir établir des diagnostics / analyser une situation à distance et ainsi limiter les déplacements des agents sur le terrain
+- Comparer entre deux dates, deux prises de vues, l’évolution de l’environnement urbain
+- Illustrer divers dossiers d’aménagement du territoire, accompagner l’instruction des demandes d’urbanisme
+
+Et nous sommes convaincus que bien d’autres usages restent à imaginer… notamment grâce à l’appropriation des outils SIG au sein des services métiers, ou encore par l’apport de la détection automatique d’éléments patrimoniaux.
+
+---
+
 <h2 id="installation" class="my-5 text-center">Installation</h2>
 
 ### Dans ArcGIS Experience Builder Developer Edition
@@ -118,6 +187,13 @@ Depuis ArcGIS Enterprise 11, vous pouvez référencer des widgets personnalisés
 3. Obtenez l'URL pointant vers le fichier `manifest.json` dans le dossier `street-view`
 4. Dans Portal, allez dans **Contenu** > **Ajouter un élément** > **Ajouter une URL de widget Experience Builder**
 5. Spécifiez l'URL de l'étape 3
+
+---
+
+<h2 class="my-5 text-center">Issues et demandes</h2>
+
+Pour signaler un bug ou proposer une fonctionnalite, utilisez les
+[GitHub Issues](https://github.com/smartorigin/streetview-exb-widget/issues).
 
 ---
 

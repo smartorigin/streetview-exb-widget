@@ -80,6 +80,75 @@ This widget brings [Google Street View]() into your [ArcGIS Experience Builder](
 
 ---
 
+<h2 class="my-5 text-center">Use Cases</h2>
+
+<div class="use-case-tabs" role="tablist" aria-label="Use cases">
+  <button class="use-case-tab is-active" type="button" role="tab" aria-selected="true" data-use-case-tab="1">
+    Urban networks and services
+  </button>
+  <button class="use-case-tab" type="button" role="tab" aria-selected="false" data-use-case-tab="2">
+    Roads, street furniture, and storefronts
+  </button>
+  <button class="use-case-tab" type="button" role="tab" aria-selected="false" data-use-case-tab="3">
+    Soft mobility and green corridors
+  </button>
+</div>
+
+<div class="use-case-panel is-active" role="tabpanel" data-use-case-panel="1">
+  <img src="{{ '/assets/use-cage-1.png' | relative_url }}" alt="Use case 1" loading="lazy" />
+</div>
+
+<div class="use-case-panel" role="tabpanel" data-use-case-panel="2">
+  <img src="{{ '/assets/use-case-2.png' | relative_url }}" alt="Use case 2" loading="lazy" />
+</div>
+
+<div class="use-case-panel" role="tabpanel" data-use-case-panel="3">
+  <img src="{{ '/assets/use-case-3.png' | relative_url }}" alt="Use case 3" loading="lazy" />
+</div>
+
+<script defer>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabs = Array.from(document.querySelectorAll('[data-use-case-tab]'));
+    const panels = Array.from(document.querySelectorAll('[data-use-case-panel]'));
+
+    if (!tabs.length || !panels.length) {
+      return;
+    }
+
+    const activate = (id) => {
+      tabs.forEach((tab) => {
+        const isActive = tab.dataset.useCaseTab === id;
+        tab.classList.toggle('is-active', isActive);
+        tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+
+      panels.forEach((panel) => {
+        const isActive = panel.dataset.useCasePanel === id;
+        panel.classList.toggle('is-active', isActive);
+      });
+    };
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        activate(tab.dataset.useCaseTab);
+      });
+    });
+  });
+</script>
+
+Having immersive views directly available in your GIS application enables geomatics teams and local authorities to:
+
+- Contribute to the inventory of GIS reference assets: roads, signage, tree assets, street furniture, networks, transport infrastructure, streets, and addresses.
+- Review, correct, and improve data quality from providers or previous field surveys.
+- Reposition a record within its environment and geographic context.
+- Diagnose situations remotely to reduce field travel.
+- Compare two dates or captures to track urban evolution.
+- Illustrate planning files and support urban planning reviews.
+
+We are convinced many more use cases remain to be imagined, especially as GIS tools are adopted across departments and with automated detection of heritage assets.
+
+---
+
 <h2 id="installation" class="my-5 text-center">Installation</h2>
 
 ### In ArcGIS Experience Builder Developer Edition
@@ -118,6 +187,13 @@ Since ArcGIS Enterprise 11, you can reference custom widgets in your Portal for 
 3. Get the URL pointing to the `manifest.json` file inside the `street-view` folder
 4. In Portal, go to **Contents** > **Add item** > **Add an Experience Builder Widget URL**
 5. Specify the URL from step 3
+
+---
+
+<h2 class="my-5 text-center">Issues and requests</h2>
+
+To report a bug or request a feature, please use
+[GitHub Issues](https://github.com/smartorigin/streetview-exb-widget/issues).
 
 ---
 
