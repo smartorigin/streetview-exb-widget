@@ -105,21 +105,24 @@ export default function Widget(props: AllWidgetProps<WidgetConfig>) {
   React.useEffect(() => {
     if (!props.useMapWidgetIds || !props.useMapWidgetIds.length) {
       setIsMapSelected(false)
-      setAlerts([
-        ...alerts,
-        {
-          id: 'mapNotSelected',
-          text: props.intl.formatMessage({
-            id: 'mapNotSelectedErrorLabel',
-            defaultMessage: defaultMessages.mapNotSelectedErrorLabel
-          }),
-          type: 'error',
-          open: true
-        }
-      ])
+      setAlerts((prevAlerts) => {
+        if (prevAlerts.some((alert) => alert.id === 'mapNotSelected')) return prevAlerts
+        return [
+          ...prevAlerts,
+          {
+            id: 'mapNotSelected',
+            text: props.intl.formatMessage({
+              id: 'mapNotSelectedErrorLabel',
+              defaultMessage: defaultMessages.mapNotSelectedErrorLabel
+            }),
+            type: 'error',
+            open: true
+          }
+        ]
+      })
     } else {
       setIsMapSelected(true)
-      setAlerts(alerts.filter((a) => a.id !== 'mapNotSelected'))
+      setAlerts((prevAlerts) => prevAlerts.filter((a) => a.id !== 'mapNotSelected'))
     }
   }, [props.useMapWidgetIds])
 
@@ -139,22 +142,25 @@ export default function Widget(props: AllWidgetProps<WidgetConfig>) {
     if (!props.config.googleApiKey?.trim()) {
       // Key found
       setIsGoogleApiKeyFound(false)
-      setAlerts([
-        ...alerts,
-        {
-          id: 'googleApiKeyNotFound',
-          text: props.intl.formatMessage({
-            id: 'googleApiKeyNotFoundErrorLabel',
-            defaultMessage: defaultMessages.googleApiKeyNotFoundErrorLabel
-          }),
-          type: 'error',
-          open: true
-        }
-      ])
+      setAlerts((prevAlerts) => {
+        if (prevAlerts.some((alert) => alert.id === 'googleApiKeyNotFound')) return prevAlerts
+        return [
+          ...prevAlerts,
+          {
+            id: 'googleApiKeyNotFound',
+            text: props.intl.formatMessage({
+              id: 'googleApiKeyNotFoundErrorLabel',
+              defaultMessage: defaultMessages.googleApiKeyNotFoundErrorLabel
+            }),
+            type: 'error',
+            open: true
+          }
+        ]
+      })
     } else {
       // Key not found
       setIsGoogleApiKeyFound(true)
-      setAlerts(alerts.filter((a) => a.id !== 'googleApiKeyNotFound'))
+      setAlerts((prevAlerts) => prevAlerts.filter((a) => a.id !== 'googleApiKeyNotFound'))
       streetViewApiService.setApiKey(props.config.googleApiKey?.trim() || undefined)
     }
   }, [props.config.googleApiKey])
