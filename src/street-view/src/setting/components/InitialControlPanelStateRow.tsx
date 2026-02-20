@@ -28,7 +28,10 @@ export default function InitialControlPanelStateRow(props: InitialControlPanelSt
           })}
         >
           <span>
-            {intl.formatMessage({ id: 'span', defaultMessage: defaultMessages.initialControlPanelStateRowLabel })}
+            {intl.formatMessage({
+              id: 'span',
+              defaultMessage: defaultMessages.initialControlPanelStateRowLabel
+            })}
           </span>
         </Tooltip>
       }
@@ -36,10 +39,17 @@ export default function InitialControlPanelStateRow(props: InitialControlPanelSt
       <Select
         appendToBody
         disabled={!props.isClickEnabled}
-        value={props.value}
-        defaultValue={props.value}
-        onChange={(_evt, value: InitialControlPanelStateType) => {
-          props.onChange(value)
+        value={props.value || 'off'}
+        defaultValue={props.value || 'off'}
+        onChange={(evt, value: InitialControlPanelStateType) => {
+          const nextValue =
+            ((value as any)?.props?.value ??
+              (typeof value === 'string' ? value : (value as any)?.value) ??
+              evt?.target?.value ??
+              evt?.currentTarget?.value ??
+              evt?.value) as InitialControlPanelStateType
+          if (!nextValue) return
+          props.onChange(nextValue)
         }}
         size="sm"
       >

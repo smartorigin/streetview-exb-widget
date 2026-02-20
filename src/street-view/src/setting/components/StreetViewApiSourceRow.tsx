@@ -75,12 +75,19 @@ export default function StreetViewApiSourceRow(props: StreetViewApiSourceRowProp
     >
       <Select
         appendToBody
-        defaultValue={props.streetViewApiParams.source}
-        value={props.streetViewApiParams.source}
-        onChange={(_evt, value: 'default' | 'outdoor') => {
+        defaultValue={props.streetViewApiParams.source || 'outdoor'}
+        value={props.streetViewApiParams.source || 'outdoor'}
+        onChange={(evt, value: 'default' | 'outdoor') => {
+          const nextValue =
+            ((value as any)?.props?.value ??
+              (typeof value === 'string' ? value : (value as any)?.value) ??
+              evt?.target?.value ??
+              evt?.currentTarget?.value ??
+              evt?.value) as 'default' | 'outdoor'
+          if (!nextValue) return
           props.setStreetViewApiParams({
             ...props.streetViewApiParams,
-            source: value
+            source: nextValue
           })
         }}
         size="sm"

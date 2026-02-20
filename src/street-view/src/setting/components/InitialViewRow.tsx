@@ -76,10 +76,17 @@ export default function InitialViewState(props: InitialViewStateProps) {
     >
       <Select
         appendToBody
-        defaultValue={props.value}
-        value={props.value}
-        onChange={(_evt, value: 'expanded' | 'reduced') => {
-          props.onChange(value)
+        defaultValue={props.value || 'reduced'}
+        value={props.value || 'reduced'}
+        onChange={(evt, value: 'expanded' | 'reduced') => {
+          const nextValue =
+            ((value as any)?.props?.value ??
+              (typeof value === 'string' ? value : (value as any)?.value) ??
+              evt?.target?.value ??
+              evt?.currentTarget?.value ??
+              evt?.value) as InitialViewType
+          if (!nextValue) return
+          props.onChange(nextValue)
         }}
         placeholder={intl.formatMessage({
           id: 'defaultViewRowPlaceholder',

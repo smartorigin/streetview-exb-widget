@@ -86,10 +86,17 @@ export default function PresetRow(props: PresetRowProps) {
     >
       <Select
         appendToBody
-        value={props.value}
-        defaultValue={props.value}
-        onChange={(_evt, value: PresetType) => {
-          props.onChange(value)
+        value={props.value || 'click-to-view'}
+        defaultValue={props.value || 'click-to-view'}
+        onChange={(evt, value: PresetType) => {
+          const nextValue =
+            ((value as any)?.props?.value ??
+              (typeof value === 'string' ? value : (value as any)?.value) ??
+              evt?.target?.value ??
+              evt?.currentTarget?.value ??
+              evt?.value) as PresetType
+          if (!nextValue) return
+          props.onChange(nextValue)
         }}
         size="sm"
       >
