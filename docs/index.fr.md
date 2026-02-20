@@ -174,19 +174,41 @@ Idéale pour les développeurs qui souhaitent modifier le code source.
 git clone git@github.com:smartorigin/streetview-exb-widget.git
 ```
 
-1. Copiez le dossier `street-view` dans `<votre-exb>/client/your-extensions/widgets`
-2. Redémarrez le client Experience Builder (`npm start`)
-3. Le widget apparaît dans votre panneau de widgets après rechargement de la page
+2. Copiez le dossier `street-view` dans `<votre-exb>/client/your-extensions/widgets`
+3. Redémarrez le client Experience Builder (`npm start`)
+4. Le widget apparaît dans votre Jekyll TeXt de widgets après rechargement de la page
 
-### Dans Portal for ArcGIS
+### Dans votre propre instance de Portal for ArcGIS
 
-Depuis ArcGIS Enterprise 11, vous pouvez référencer des widgets personnalisés dans votre Portal for ArcGIS.
+Depuis ArcGIS Enterprise 11, vous pouvez référencer vos propres widgets ArcGIS Experience Builder dans votre Portal for ArcGIS.
 
-1. Téléchargez la dernière [version](https://github.com/smartorigin/streetview-exb-widget/releases)
-2. Extrayez et déployez le dossier `street-view` sur un serveur web
-3. Obtenez l'URL pointant vers le fichier `manifest.json` dans le dossier `street-view`
-4. Dans Portal, allez dans **Contenu** > **Ajouter un élément** > **Ajouter une URL de widget Experience Builder**
-5. Spécifiez l'URL de l'étape 3
+#### 1. Sans hébergement
+
+<div class="alert alert-warning">
+  <p>Attention</p>
+  <p>Cette méthode n'a pas encore été implémenté.</p>
+</div>
+
+Utilisez l'url de la version du widget hebergee par Smart/Origin:
+
+`https://<smart-origin-host>/street-view/manifest.json`
+
+1. Dans Portal, allez dans `Mon contenu` puis cliquez sur `Ajouter un élément` > `Une application`.
+2. Choisissez `Widget Experience Builder`.
+3. Collez l'URL du manifest Smart/Origin, ajoutez des tags, puis cliquez sur `Ajouter un élément`.
+
+#### 2. Avec hébergement
+
+1. Téléchargez la dernière [version](https://github.com/smartorigin/streetview-exb-widget/releases) du widget
+2. Extrayez le zip téléchargé et déployez le dossier `street-view` sur un serveur web.
+3. Assurez-vous d'avoir une URL publique vers le fichier `manifest.json` (exemple : `https://<serveur>/<mon-widget>/manifest.json`).
+4. Dans Portal, allez dans `Mon contenu` puis cliquez sur `Ajouter un élément` > `Une application`.
+5. Choisissez `Widget Experience Builder`, collez l'URL du manifest, ajoutez des tags, puis cliquez sur `Ajouter un élément`.
+
+<div class="alert alert-tip">
+  <p>Astuce</p>
+  <p>Pour plus de détails voir le guide officiel <a href="https://doc.arcgis.com/en/experience-builder/12.0/configure-widgets/add-custom-widgets.htm">Ajouter des widgets personnalisés</a></p>
+</div>
 
 ---
 

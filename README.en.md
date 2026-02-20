@@ -111,14 +111,31 @@ git clone git@github.com:smartorigin/streetview-exb-widget.git
 
 ### In your own instance of Portal for ArcGIS
 
-Since ArcGIS Enterprise 11 you can reference your own ArcGIS Experience Builder widgets in your Portal for ArcGIS.
+Since ArcGIS Enterprise 11, you can reference your own ArcGIS Experience Builder widgets in your Portal for ArcGIS.
+
+#### Without hosting
+
+> [!WARNING]
+> This method has not been implemented yet.
+
+Use the widget release URL hosted by Smart/Origin:
+
+`https://<smart-origin-host>/street-view/manifest.json`
+
+1. In Portal, go to `My Content` and click `Add Item` > `An application`.
+2. Choose `Experience Builder widget`.
+3. Paste the Smart/Origin manifest URL, add tags, and click `Add Item`.
+
+#### With hosting
 
 1. Download latest [release](https://github.com/smartorigin/streetview-exb-widget/releases)
-2. Extract the downloaded zip and deploy the `street-view` folder to a webserver.
-3. You should now have a URL that points to the `manifest.json` file inside `street-view` folder.
-4. Go to the `Contents` menu of your Portal for ArcGIS.
-5. Click `Add item`, then select `Add an Experience Builder Widget URL`.
-6. Specify the URL got at step 3.
+2. Extract the downloaded zip and deploy the `street-view` folder to a web server.
+3. Make sure you have a public URL to the `manifest.json` file (example: `https://<server>/<my-widget>/manifest.json`).
+4. In Portal, go to `My Content` and click `Add Item` > `An application`.
+5. Choose `Experience Builder widget`, paste the manifest URL, add tags, and click `Add Item`.
+
+> [!TIP]
+> For more details, see the official guide: [Add custom widgets](https://doc.arcgis.com/en/experience-builder/12.0/configure-widgets/add-custom-widgets.htm)
 
 ## Configuration
 
@@ -162,7 +179,7 @@ Drag and drop the widget inside your app.
 
 - [x] ~~French version~~
 
-## Feature Requests
+## Issues
 
 Have an idea or suggestion? Open an issue with the `feature request` label.
 
