@@ -84,13 +84,13 @@ Ce widget intègre [Google Street View]() dans vos applications [ArcGIS Experien
 
 <div class="use-case-tabs" role="tablist" aria-label="Cas d'usage">
   <button class="use-case-tab is-active" type="button" role="tab" aria-selected="true" data-use-case-tab="1">
-    Réseaux urbains, services
+    Réseaux et transports
   </button>
   <button class="use-case-tab" type="button" role="tab" aria-selected="false" data-use-case-tab="2">
-    Voirie, mobilier, commerces
+    Accès et trames vertes
   </button>
   <button class="use-case-tab" type="button" role="tab" aria-selected="false" data-use-case-tab="3">
-    Mobilité douce, espaces verts
+    Patrimoine de rue
   </button>
 </div>
 
@@ -99,11 +99,11 @@ Ce widget intègre [Google Street View]() dans vos applications [ArcGIS Experien
 </div>
 
 <div class="use-case-panel" role="tabpanel" data-use-case-panel="2">
-  <img src="{{ '/assets/use-case-2.png' | relative_url }}" alt="Cas d'usage 2" loading="lazy" />
+  <img src="{{ '/assets/use-case-3.png' | relative_url }}" alt="Cas d'usage 2" loading="lazy" />
 </div>
 
 <div class="use-case-panel" role="tabpanel" data-use-case-panel="3">
-  <img src="{{ '/assets/use-case-3.png' | relative_url }}" alt="Cas d'usage 3" loading="lazy" />
+  <img src="{{ '/assets/use-case-2.png' | relative_url }}" alt="Cas d'usage 3" loading="lazy" />
 </div>
 
 <script defer>

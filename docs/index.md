@@ -84,13 +84,13 @@ This widget brings [Google Street View]() into your [ArcGIS Experience Builder](
 
 <div class="use-case-tabs" role="tablist" aria-label="Use cases">
   <button class="use-case-tab is-active" type="button" role="tab" aria-selected="true" data-use-case-tab="1">
-    Urban networks and services
+    Networks and transit
   </button>
   <button class="use-case-tab" type="button" role="tab" aria-selected="false" data-use-case-tab="2">
-    Roads, street furniture, and storefronts
+    Green access
   </button>
   <button class="use-case-tab" type="button" role="tab" aria-selected="false" data-use-case-tab="3">
-    Soft mobility and green corridors
+    Street assets
   </button>
 </div>
 
@@ -99,11 +99,11 @@ This widget brings [Google Street View]() into your [ArcGIS Experience Builder](
 </div>
 
 <div class="use-case-panel" role="tabpanel" data-use-case-panel="2">
-  <img src="{{ '/assets/use-case-2.png' | relative_url }}" alt="Use case 2" loading="lazy" />
+  <img src="{{ '/assets/use-case-3.png' | relative_url }}" alt="Use case 2" loading="lazy" />
 </div>
 
 <div class="use-case-panel" role="tabpanel" data-use-case-panel="3">
-  <img src="{{ '/assets/use-case-3.png' | relative_url }}" alt="Use case 3" loading="lazy" />
+  <img src="{{ '/assets/use-case-2.png' | relative_url }}" alt="Use case 3" loading="lazy" />
 </div>
 
 <script defer>
