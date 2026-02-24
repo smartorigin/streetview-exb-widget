@@ -1,32 +1,38 @@
 <!-- Font Awesome Icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<!-- Splide (library for carousel) -->
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
 
 <!-- Custom Utility Classes (Bootstrap-like, won't interfere with theme) -->
 <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
 
 <!-- Default to French, redirect English browsers to English page -->
 <script>
-(function() {
-  const ENGLISH_VARIANTS = ['en', 'en-US', 'en-GB', 'en-CA', 'en-AU'];
-  const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
-  const isEnglishBrowser = ENGLISH_VARIANTS.some(function(variant) {
-    return browserLang.startsWith(variant.toLowerCase());
-  });
+  (function () {
+    const ENGLISH_VARIANTS = ['en', 'en-US', 'en-GB', 'en-CA', 'en-AU'];
+    const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+    const isEnglishBrowser = ENGLISH_VARIANTS.some(function (variant) {
+      return browserLang.startsWith(variant.toLowerCase());
+    });
 
-  const normalizePath = function(path) {
-    return (path || '/')
-      .replace(/\/index\.html$/, '/')
-      .replace(/\/+$/, '/') || '/';
-  };
+    const normalizePath = function (path) {
+      return (path || '/')
+        .replace(/\/index\.html$/, '/')
+        .replace(/\/+$/, '/') || '/';
+    };
 
-  const frenchHomePath = normalizePath("{{ '/' | relative_url }}");
-  const englishHomePath = normalizePath("{{ '/en' | relative_url }}");
-  const currentPath = normalizePath(window.location.pathname);
+    const frenchHomePath = normalizePath("{{ '/' | relative_url }}");
+    const englishHomePath = normalizePath("{{ '/en' | relative_url }}");
+    const currentPath = normalizePath(window.location.pathname);
 
-  if (isEnglishBrowser && currentPath === frenchHomePath) {
-    window.location.replace("{{ '/en' | relative_url }}" + window.location.search + window.location.hash);
-  } else if (!isEnglishBrowser && currentPath === englishHomePath) {
-    window.location.replace("{{ '/' | relative_url }}" + window.location.search + window.location.hash);
-  }
-})();
+    if (isEnglishBrowser && currentPath === frenchHomePath) {
+      window.location.replace("{{ '/en' | relative_url }}" + window.location.search + window.location.hash);
+    } else if (!isEnglishBrowser && currentPath === englishHomePath) {
+      window.location.replace("{{ '/' | relative_url }}" + window.location.search + window.location.hash);
+    }
+  })();
 </script>

@@ -82,58 +82,26 @@ Ce widget intègre [Google Street View]() dans vos applications [ArcGIS Experien
 
 <h2 class="my-5 text-center">Cas d'usage</h2>
 
-<div class="use-case-tabs" role="tablist" aria-label="Cas d'usage">
-  <button class="use-case-tab is-active" type="button" role="tab" aria-selected="true" data-use-case-tab="1">
-    Réseaux et transports
-  </button>
-  <button class="use-case-tab" type="button" role="tab" aria-selected="false" data-use-case-tab="2">
-    Accès et trames vertes
-  </button>
-  <button class="use-case-tab" type="button" role="tab" aria-selected="false" data-use-case-tab="3">
-    Patrimoine de rue
-  </button>
-</div>
-
-<div class="use-case-panel is-active" role="tabpanel" data-use-case-panel="1">
-  <img src="{{ '/assets/use-cage-1.png' | relative_url }}" alt="Cas d'usage 1" loading="lazy" />
-</div>
-
-<div class="use-case-panel" role="tabpanel" data-use-case-panel="2">
-  <img src="{{ '/assets/use-case-3.png' | relative_url }}" alt="Cas d'usage 2" loading="lazy" />
-</div>
-
-<div class="use-case-panel" role="tabpanel" data-use-case-panel="3">
-  <img src="{{ '/assets/use-case-2.png' | relative_url }}" alt="Cas d'usage 3" loading="lazy" />
-</div>
+<section id="image-carousel" class="splide" aria-label="Beautiful Images">
+  <div class="splide__track">
+		<ul class="splide__list">
+			<li class="splide__slide">
+				<img src="{{ '/assets/use-case-1.png' | relative_url }}" alt="">
+			</li>
+			<li class="splide__slide">
+				<img src="{{ '/assets/use-case-2.png' | relative_url }}" alt="">
+			</li>
+			<li class="splide__slide">
+				<img src="{{ '/assets/use-case-3.png' | relative_url }}" alt="">
+			</li>
+		</ul>
+  </div>
+</section>
 
 <script defer>
-  document.addEventListener('DOMContentLoaded', () => {
-    const tabs = Array.from(document.querySelectorAll('[data-use-case-tab]'));
-    const panels = Array.from(document.querySelectorAll('[data-use-case-panel]'));
-
-    if (!tabs.length || !panels.length) {
-      return;
-    }
-
-    const activate = (id) => {
-      tabs.forEach((tab) => {
-        const isActive = tab.dataset.useCaseTab === id;
-        tab.classList.toggle('is-active', isActive);
-        tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
-      });
-
-      panels.forEach((panel) => {
-        const isActive = panel.dataset.useCasePanel === id;
-        panel.classList.toggle('is-active', isActive);
-      });
-    };
-
-    tabs.forEach((tab) => {
-      tab.addEventListener('click', () => {
-        activate(tab.dataset.useCaseTab);
-      });
-    });
-  });
+  document.addEventListener( 'DOMContentLoaded', function () {
+    new Splide( '#image-carousel' ).mount();
+  } );
 </script>
 
 Disposer de vues immersives directement accessibles depuis son application SIG permet aux géomaticiens et aux agents des collectivités de :
