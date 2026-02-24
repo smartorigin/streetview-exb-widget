@@ -239,7 +239,7 @@ Le widget s'adapte à votre thème Experience Builder. Vous pouvez contrôler la
 <h2 class="my-5 text-center">En savoir plus</h2>
 
 <div class="d-flex justify-content-center gap-4" >
-  <a href="https://github.com/smartorigin/streetview-exb-widget/blob/main/README.fr.md">
+  <a href="https://github.com/smartorigin/streetview-exb-widget/blob/main/README.md">
     <div class="card card--clickable" style="max-width: 500px;">
       <div class="card__content">
         <div class="card__header" style="display: flex; align-items: center; gap: 0.75rem;">
