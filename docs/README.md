@@ -8,21 +8,22 @@ The page is built using [Jekyll](https://jekyllrb.com/) SSG with [TeXt](https://
 
 #### Edit page's content
 
-Edit `index.md` to change the content of the page. See the [documentation](https://kitian616.github.io/jekyll-TeXt-theme/docs/en/additional-styles) of the theme for special markdown syntax you can use.
+Edit `index.md` (French home page) or `index.en.md` (English page) to change the content. See the [documentation](https://kitian616.github.io/jekyll-TeXt-theme/docs/en/additional-styles) of the theme for special markdown syntax you can use.
 
 #### Edit page's header
 
 Edit `_includes/article-header.html` to change the header of the page. The template language used is [Liquid](https://shopify.github.io/liquid/).
 
-#### Language-based automatic redirection
+#### Automatic language redirection
 
 The docs include a custom JavaScript redirect in `_includes/head/custom.html`.
 
-- It checks the browser language via `navigator.language`.
-- If the language is French (`fr`, `fr-FR`, `fr-CA`, etc.) and the user is on the English page, it redirects to `/fr`.
+- French is the default page at `/`.
+- If the browser language is English (`en`, `en-US`, `en-GB`, etc.) and the user is on `/`, it redirects to `/en`.
+- If the browser language is not English and the user is on `/en`, it redirects back to `/`.
 - Query string and hash are preserved during redirection.
 
-If you need to change this behavior, edit the `FRENCH_VARIANTS` list and redirect logic in `_includes/head/custom.html`.
+If you need to change this behavior, edit the redirect logic in `_includes/head/custom.html`.
 
 #### Make changes to the TeXt theme
 
@@ -30,7 +31,9 @@ You can change TeXt theme defaults by overriding templates or styles in `\_inclu
 
 ## Structure
 
-- `ìndex.md` - Content of the homepage in markdown.
+- `index.md` - Content of the French homepage in markdown.
+
+- `index.en.md` - Content of the English page in markdown.
 
 - `_config.yml` - Jekyll configuration.
 
