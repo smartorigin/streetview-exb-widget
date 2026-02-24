@@ -14,6 +14,10 @@ Edit `index.md` (French home page) or `index.en.md` (English page) to change the
 
 Edit `_includes/article-header.html` to change the header of the page. The template language used is [Liquid](https://shopify.github.io/liquid/).
 
+#### Make changes to the TeXt theme
+
+You can change TeXt theme defaults by overriding templates or styles in `\_includes` and `\_sass`. See the theme defaults at [TeXt's theme repo](https://github.com/kitian616/jekyll-TeXt-theme)
+
 #### Automatic language redirection
 
 The docs include a custom JavaScript redirect in `_includes/head/custom.html`.
@@ -25,9 +29,9 @@ The docs include a custom JavaScript redirect in `_includes/head/custom.html`.
 
 If you need to change this behavior, edit the redirect logic in `_includes/head/custom.html`.
 
-#### Make changes to the TeXt theme
+#### Carousel
 
-You can change TeXt theme defaults by overriding templates or styles in `\_includes` and `\_sass`. See the theme defaults at [TeXt's theme repo](https://github.com/kitian616/jekyll-TeXt-theme)
+Uses the [Splide.js](https://splidejs.com/) javascript library hosted locally at `./assets/js/splide.min.js` and `./assets/css/splide.min.css`. 
 
 ## Structure
 
@@ -47,7 +51,7 @@ You can change TeXt theme defaults by overriding templates or styles in `\_inclu
 
 - `_site/` - This is where the generated site will be placed.
 
-- `assets/` - Assets (images, svg, gif...) used by the page.
+- `assets/` - Assets (images, svg, gif, js...) used by the page.
 
 - `assets/css/custom.css` - Custom css rules.
 
@@ -59,7 +63,7 @@ You can configure the page through the `_config.yml`
 
 Some important options:
 
-```yml
+```yaml
 # The name of the Jekyll theme
 remote_theme: kitian616/jekyll-TeXt-theme
 
@@ -76,25 +80,25 @@ To preview the page locally:
 
 1. Install ruby@3.1 on your machine
 
-```
+```bash
 brew install ruby@3.1
 ```
 
 2. Install Jekyll and Bundler using Ruby's package manager `gem` (installed with ruby by default)
 
-```
+```bash
 gem install jekyll bundler
 ```
 
 3. In the `docs/` folder, install the necessary dependencies with bundler
 
-```
+```bash
 bundler config set path vendor/config
 bundler install
 ```
 
 4. Start the development server, visit [http://localhost:4000/](http://localhost:4000/) to preview the site.
 
-```
+```bash
 bundle exec jekyll serve
 ```
