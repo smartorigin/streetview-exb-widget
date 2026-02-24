@@ -7,7 +7,7 @@
   --page-surface: #ffffff;
   --page-ink: #1a1f2b;
   --page-muted: #5f6b7a;
-  --page-accent: #0f6fe3;
+  --page-accent: #306FE5;
   --page-accent-2: #f59d3d;
   --page-border: rgba(15, 19, 26, 0.1);
   --page-shadow: 0 14px 40px rgba(15, 19, 26, 0.12);
@@ -57,7 +57,7 @@ code {
   font-size: 1.05rem;
 }
 
-.article__content > h2 {
+.article__content>h2 {
   margin-top: 3rem;
   margin-bottom: 1.25rem;
 }

@@ -35,7 +35,7 @@ Ce widget intègre [Google Street View]() dans vos applications [ArcGIS Experien
 <div class="features-grid">
   <div class="feature-item">
     <h3>
-      <i class="fas fa-map-marker-alt fa-lg mr-1" style="color: #076fe5 !important"></i>
+      <i class="fas fa-map-marker-alt fa-lg mr-1" style="color: #306FE5 !important"></i>
       Intégration carte
     </h3>
     <p>Cliquez n'importe où sur une carte liée au widget pour ouvrir Street View à cet emplacement.</p>
@@ -43,7 +43,7 @@ Ce widget intègre [Google Street View]() dans vos applications [ArcGIS Experien
 
   <div class="feature-item">
     <h3>
-      <i class="fas fa-arrow-up-right-from-square fa-lg mr-1" style="color: #076fe5 !important"></i>
+      <i class="fas fa-arrow-up-right-from-square fa-lg mr-1" style="color: #306FE5 !important"></i>
       Liens externes
     </h3>
     <p>Ouvrez la vue actuelle directement dans Google Maps pour une exploration plus approfondie.</p>
@@ -52,7 +52,7 @@ Ce widget intègre [Google Street View]() dans vos applications [ArcGIS Experien
 
   <div class="feature-item">
     <h3>
-      <i class="fas fa-map-location fa-lg mr-1" style="color: #076fe5 !important"></i>
+      <i class="fas fa-map-location fa-lg mr-1" style="color: #306FE5 !important"></i>
       Actions popup
     </h3>
     <p>S'intègre aux popups ArcGIS et à vos couches de données, ajoutant une action <code>Ouvrir dans Street View</code> à vos entités.</p>
@@ -61,7 +61,7 @@ Ce widget intègre [Google Street View]() dans vos applications [ArcGIS Experien
 
   <div class="feature-item">
     <h3>
-      <i class="fas fa-mobile-screen fa-lg mr-1" style="color: #076fe5 !important"></i>
+      <i class="fas fa-mobile-screen fa-lg mr-1" style="color: #306FE5 !important"></i>
       Design responsive
     </h3>
     <p>Deux modes d'affichage : <strong>Réduit</strong> (panneau flottant pour ordinateur) et <strong>Étendu</strong> (panneau pleine hauteur pour mobile).</p>
@@ -70,7 +70,7 @@ Ce widget intègre [Google Street View]() dans vos applications [ArcGIS Experien
 
   <div class="feature-item feature-item-wide">
     <h3>
-      <i class="fas fa-gear fa-lg mr-1" style="color: #076fe5 !important"></i>
+      <i class="fas fa-gear fa-lg mr-1" style="color: #306FE5 !important"></i>
       Configurable
     </h3>
     <p>Deux préréglages (<code>Click to View</code> et <code>Action popup</code>) pour configurer rapidement le widget selon votre cas d'utilisation. Contrôle complet sur la position de la caméra, les éléments d'interface et le comportement.</p>
@@ -86,13 +86,13 @@ Ce widget intègre [Google Street View]() dans vos applications [ArcGIS Experien
   <div class="splide__track">
 		<ul class="splide__list">
 			<li class="splide__slide">
-				<img src="{{ '/assets/use-case-1.png' | relative_url }}" alt="">
+				<img src="{{ '/assets/use-case1.png' | relative_url }}" alt="">
 			</li>
 			<li class="splide__slide">
-				<img src="{{ '/assets/use-case-2.png' | relative_url }}" alt="">
+				<img src="{{ '/assets/use-case2.png' | relative_url }}" alt="">
 			</li>
 			<li class="splide__slide">
-				<img src="{{ '/assets/use-case-3.png' | relative_url }}" alt="">
+				<img src="{{ '/assets/use-case3.png' | relative_url }}" alt="">
 			</li>
 		</ul>
   </div>
@@ -211,7 +211,7 @@ Le widget s'adapte à votre thème Experience Builder. Vous pouvez contrôler la
     <div class="card card--clickable" style="max-width: 500px;">
       <div class="card__content">
         <div class="card__header" style="display: flex; align-items: center; gap: 0.75rem;">
-          <i class="fas fa-book fa-lg" style="color: #076fe5 !important"></i>
+          <i class="fas fa-book fa-lg" style="color: #306FE5 !important"></i>
           <h5 style="margin: 0;">Documentation</h5>
         </div>
       </div>
@@ -221,7 +221,7 @@ Le widget s'adapte à votre thème Experience Builder. Vous pouvez contrôler la
     <div class="card card--clickable" style="max-width: 500px;">
       <div class="card__content">
         <div class="card__header" style="display: flex; align-items: center; gap: 0.75rem;">
-          <i class="fab fa-google fa-lg" style="color: #076fe5 !important"></i>
+          <i class="fab fa-google fa-lg" style="color: #306FE5 !important"></i>
           <h5 style="margin: 0;">API Google Documentation</h5>
         </div>
       </div>
