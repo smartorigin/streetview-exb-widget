@@ -35,7 +35,7 @@ This widget brings [Google Street View]() into your [ArcGIS Experience Builder](
 <div class="features-grid">
   <div class="feature-item">
     <h3>
-      <i class="fas fa-map-marker-alt fa-lg mr-1" style="color: #076fe5 !important"></i>
+      <i class="fas fa-map-marker-alt fa-lg mr-1" style="color: #306FE5 !important"></i>
       Map Integration
     </h3>
     <p>Click anywhere on the map to instantly open Google Street View at that location.</p>
@@ -43,7 +43,7 @@ This widget brings [Google Street View]() into your [ArcGIS Experience Builder](
 
   <div class="feature-item">
   <h3>
-      <i class="fas fa-arrow-up-right-from-square fa-lg mr-1" style="color: #076fe5 !important"></i>
+      <i class="fas fa-arrow-up-right-from-square fa-lg mr-1" style="color: #306FE5 !important"></i>
       External Links
     </h3>
     <p>Open the current view directly in Google Maps for further exploration.</p>
@@ -52,7 +52,7 @@ This widget brings [Google Street View]() into your [ArcGIS Experience Builder](
 
   <div class="feature-item">
     <h3>
-      <i class="fas fa-map-location fa-lg mr-1" style="color: #076fe5 !important"></i>
+      <i class="fas fa-map-location fa-lg mr-1" style="color: #306FE5 !important"></i>
       Popup Actions
     </h3>
     <p>Integrates with ArcGIS popups and your data layers, adding an <code>Open in Street View</code> action to your features.</p>
@@ -61,7 +61,7 @@ This widget brings [Google Street View]() into your [ArcGIS Experience Builder](
 
   <div class="feature-item">
     <h3>
-      <i class="fas fa-mobile-screen fa-lg mr-1" style="color: #076fe5 !important"></i>
+      <i class="fas fa-mobile-screen fa-lg mr-1" style="color: #306FE5 !important"></i>
       Responsive Design
     </h3>
     <p>Two viewing modes: <strong>Reduced</strong> (floating panel for desktop) and <strong>Expanded</strong> (full-height panel for mobile).</p>
@@ -70,7 +70,7 @@ This widget brings [Google Street View]() into your [ArcGIS Experience Builder](
 
   <div class="feature-item feature-item-wide">
     <h3>
-      <i class="fas fa-gear fa-lg mr-1" style="color: #076fe5 !important"></i>
+      <i class="fas fa-gear fa-lg mr-1" style="color: #306FE5 !important"></i>
       Configurable
     </h3>
     <p>Two presets (<code>Click to View</code> and <code>Popup Action</code>) to quickly configure the widget based on your use case. Full control over camera position, UI elements, and behavior.</p>
@@ -82,58 +82,26 @@ This widget brings [Google Street View]() into your [ArcGIS Experience Builder](
 
 <h2 class="my-5 text-center">Use Cases</h2>
 
-<div class="use-case-tabs" role="tablist" aria-label="Use cases">
-  <button class="use-case-tab is-active" type="button" role="tab" aria-selected="true" data-use-case-tab="1">
-    Networks and transit
-  </button>
-  <button class="use-case-tab" type="button" role="tab" aria-selected="false" data-use-case-tab="2">
-    Green access
-  </button>
-  <button class="use-case-tab" type="button" role="tab" aria-selected="false" data-use-case-tab="3">
-    Street assets
-  </button>
-</div>
-
-<div class="use-case-panel is-active" role="tabpanel" data-use-case-panel="1">
-  <img src="{{ '/assets/use-cage-1.png' | relative_url }}" alt="Use case 1" loading="lazy" />
-</div>
-
-<div class="use-case-panel" role="tabpanel" data-use-case-panel="2">
-  <img src="{{ '/assets/use-case-3.png' | relative_url }}" alt="Use case 2" loading="lazy" />
-</div>
-
-<div class="use-case-panel" role="tabpanel" data-use-case-panel="3">
-  <img src="{{ '/assets/use-case-2.png' | relative_url }}" alt="Use case 3" loading="lazy" />
-</div>
+<section id="image-carousel" class="splide" aria-label="Beautiful Images">
+  <div class="splide__track">
+		<ul class="splide__list">
+			<li class="splide__slide">
+				<img src="{{ '/assets/use-case1.png' | relative_url }}" alt="">
+			</li>
+			<li class="splide__slide">
+				<img src="{{ '/assets/use-case2.png' | relative_url }}" alt="">
+			</li>
+			<li class="splide__slide">
+				<img src="{{ '/assets/use-case3.png' | relative_url }}" alt="">
+			</li>
+		</ul>
+  </div>
+</section>
 
 <script defer>
-  document.addEventListener('DOMContentLoaded', () => {
-    const tabs = Array.from(document.querySelectorAll('[data-use-case-tab]'));
-    const panels = Array.from(document.querySelectorAll('[data-use-case-panel]'));
-
-    if (!tabs.length || !panels.length) {
-      return;
-    }
-
-    const activate = (id) => {
-      tabs.forEach((tab) => {
-        const isActive = tab.dataset.useCaseTab === id;
-        tab.classList.toggle('is-active', isActive);
-        tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
-      });
-
-      panels.forEach((panel) => {
-        const isActive = panel.dataset.useCasePanel === id;
-        panel.classList.toggle('is-active', isActive);
-      });
-    };
-
-    tabs.forEach((tab) => {
-      tab.addEventListener('click', () => {
-        activate(tab.dataset.useCaseTab);
-      });
-    });
-  });
+  document.addEventListener( 'DOMContentLoaded', function () {
+    new Splide( '#image-carousel' ).mount();
+  } );
 </script>
 
 Having immersive views directly available in your GIS application enables geomatics teams and local authorities to:
@@ -235,11 +203,11 @@ See the [Prerequisites](#prerequisites) section above for step-by-step instructi
 <h2 class="my-5 text-center">Learn More</h2>
 
 <div class="d-flex justify-content-center gap-4" >
-  <a href="https://github.com/smartorigin/streetview-exb-widget/blob/main/README.md">
+  <a href="https://github.com/smartorigin/streetview-exb-widget/blob/main/README.en.md">
     <div class="card card--clickable" style="max-width: 500px;">
       <div class="card__content">
         <div class="card__header" style="display: flex; align-items: center; gap: 0.75rem;">
-          <i class="fas fa-book fa-lg" style="color: #076fe5 !important"></i>
+          <i class="fas fa-book fa-lg" style="color: #306FE5 !important"></i>
           <h5 style="margin: 0;">Documentation</h5>
         </div>
       </div>
@@ -249,7 +217,7 @@ See the [Prerequisites](#prerequisites) section above for step-by-step instructi
     <div class="card card--clickable" style="max-width: 500px;">
       <div class="card__content">
         <div class="card__header" style="display: flex; align-items: center; gap: 0.75rem;">
-          <i class="fab fa-google fa-lg" style="color: #076fe5 !important"></i>
+          <i class="fab fa-google fa-lg" style="color: #306FE5 !important"></i>
           <h5 style="margin: 0;">Google's API Documentation</h5>
         </div>
       </div>
