@@ -38,7 +38,9 @@ function ExpandedStreetView(props: ExpandedStreetViewProps) {
    * Apply custom styling for mobile panel
    */
   React.useEffect(() => {
-    const mobilePanel = document.querySelector('.street-view-mobile-panel')
+    const mobilePanel = document.querySelector('.street-view-mobile-panel') as HTMLElement | null
+
+    if (!mobilePanel) return
 
     const header = mobilePanel.querySelector('.mobile-panel-content-header')
     const contentWrapper = mobilePanel.querySelector('.expand-mobile-panel-transition')
@@ -63,12 +65,22 @@ function ExpandedStreetView(props: ExpandedStreetViewProps) {
       ;(slideButton as HTMLElement).style.cssText = 'background-color: var(--color-primary) !important'
     }
 
-    // Set default panel height to half that of the screen height
-    setTimeout(() => {
-      if (contentWrapper) {
-        ;(contentWrapper as HTMLElement).style.height = `${window.screen.height / 2}px`
-      }
-    }, 1)
+    const setPanelHeight = () => {
+      if (!contentWrapper) return
+
+      const parentHeight = mobilePanel.parentElement?.getBoundingClientRect().height
+      const viewportHeight = window.visualViewport?.height || window.innerHeight
+      const availableHeight = parentHeight && parentHeight > 0 ? parentHeight : viewportHeight
+
+      ;(contentWrapper as HTMLElement).style.height = `${availableHeight / 2}px`
+    }
+
+    requestAnimationFrame(setPanelHeight)
+    window.addEventListener('resize', setPanelHeight)
+
+    return () => {
+      window.removeEventListener('resize', setPanelHeight)
+    }
   }, [])
 
   return (
