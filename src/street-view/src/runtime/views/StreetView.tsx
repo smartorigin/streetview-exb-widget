@@ -106,9 +106,7 @@ function StreetView(props: StreetViewProps) {
               loading="lazy"
               src={props.url || undefined}
               onLoad={() => {
-                setTimeout(() => {
-                  setIsStreetViewLoading(false)
-                }, 1000) //
+                setIsStreetViewLoading(false)
               }}
             />
           ) : (

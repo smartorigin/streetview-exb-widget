@@ -145,9 +145,7 @@ function ExpandedStreetView(props: ExpandedStreetViewProps) {
             loading="lazy"
             src={props.url || undefined}
             onLoad={() => {
-              setTimeout(() => {
-                setIsStreetViewLoading(false)
-              }, 100)
+              setIsStreetViewLoading(false)
             }}
           />
         ) : (
